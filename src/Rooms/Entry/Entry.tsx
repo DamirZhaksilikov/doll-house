@@ -37,7 +37,7 @@ export class Entry extends Room {
 
   private getDialogue() {
     return <div className="dialogue">
-      <div id="row-one">     
+      <div id="column-one">     
         <div className="dialogue-container" id="icons-container">
           <div id="icons">
             <img src={RoomData.MapIconSource} className="icon" id="map-icon"/>
@@ -45,12 +45,12 @@ export class Entry extends Room {
           </div>
         </div>
 
-        <div id="room-title">
+        <div className="room-title" id="entry-room-title">
           {EntryData.EntryRoomTitle}   
         </div>
       </div>
 
-      <div id="row-two">
+      <div id="column-two">
         <div className="dialogue-container" id="room-info-container">
           <div id="room-info">
             {EntryData.EntryRoomInfo}
@@ -58,7 +58,7 @@ export class Entry extends Room {
         </div>
       </div>
 
-      <div id="row-three">
+      <div id="column-three">
         <div className="dialogue-container" id="links-container">
           <div id="link-read-note-container">
             <div id="link-read-note">

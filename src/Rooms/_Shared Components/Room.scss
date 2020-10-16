@@ -19,7 +19,23 @@ body {
         border: 2px solid black;
       }
 
-      #row-one {
+      .room-title {
+        margin-top: 15px;
+        text-transform: uppercase;
+        text-align: justify; /* For Edge */
+        text-align-last: justify;
+        width: 100%;
+        font-size: calc(min(1.95vw, 25px));
+        letter-spacing: 0.035em;
+    
+        transform: scale(1, 1.15);
+        -webkit-transform: scale(1, 1.15); /* Safari and Chrome */
+        -moz-transform: scale(1, 1.15); /* Firefox */
+        -ms-transform: scale(1, 1.15); /* IE 9+ */
+        -o-transform: scale(1, 1.15); /* Opera */
+      }
+
+      #column-one {
         width: 18%;
         padding-right: 10px;
 
@@ -40,8 +56,8 @@ body {
           }
         }
       }
-  
-      #row-two {
+
+      #column-two {
         width: 26%;
         padding-right: 10px;
 
@@ -68,7 +84,7 @@ body {
         } 
       }
 
-      #row-three {
+      #column-three {
         width: 56%;
 
         #links-container {
@@ -76,7 +92,78 @@ body {
           justify-content: center;
           align-items: center;
           display: flex;
+        }
       }
-    }
+
+      #dialog-right-with-button {
+        width: 83%;
+
+        #row-one-with-button {
+          width: 100%;
+          margin-bottom: 10px;
+
+          #behind-door-container {
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+
+            #behind-door-text {
+                display: contents;
+                font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+                text-transform: uppercase;
+                transform: scale(1.1, 1);
+                -webkit-transform: scale(1.1, 1); /* Safari and Chrome */
+                -moz-transform: scale(1.1, 1); /* Firefox */
+                -ms-transform: scale(1.1, 1); /* IE 9+ */
+                -o-transform: scale(1.1, 1); /* Opera */
+              }
+            }
+          }
+
+
+        #dialog-bottom-with-button {
+          display: flex;
+          height: 100%;
+  
+          #column-two-with-button {
+            width: 31.7%;
+            padding-right: 10px;
+            height: 65.5%;
+    
+            #room-info-container-with-button {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 100%;
+    
+              #room-info{
+                margin: auto;
+                text-align: justify;  /* For Edge */
+                text-align-last: right;
+                width: 85%;
+                letter-spacing: 0.035em;
+                font-size: calc(min(.8vw, 10px));
+        
+                transform: scale(0.95, 1);
+                -webkit-transform: scale(0.95, 1); /* Safari and Chrome */
+                -moz-transform: scale(0.95, 1); /* Firefox */
+                -ms-transform: scale(0.95, 1); /* IE 9+ */
+                -o-transform: scale(0.95, 1); /* Opera */
+              }
+            } 
+          }
+          
+          #column-three-with-button {
+            width: 68.3%;
+    
+            #links-container-with-button {
+              height: 65.5%;
+              justify-content: center;
+              align-items: center;
+              display: flex;
+            }
+          }
+        }
+      }
   }
 }

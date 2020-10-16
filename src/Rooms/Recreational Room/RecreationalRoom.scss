@@ -1,0 +1,81 @@
+#rec-room-title {
+    letter-spacing: 0.075em;
+}
+
+#rec-room-link-column{
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    width: 31%;
+    height: 85%;
+
+    #rec-room-link-group-container {
+        border: 1px solid black;
+        width: 100%;
+        text-align: center;
+        height: 80%;
+        letter-spacing: 0.035em;
+        font-size: calc(min(.8vw, 10px));
+        display: flex;
+        flex-wrap: wrap;
+
+
+        #rec-room-link-row1 {
+            padding: 3px 3px 1.5px;
+            flex: 0 0 100%;
+
+
+            #rec-room-link-container {
+                height: 90%;
+                width: 95%;
+                border: 1px solid black;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                text-align: center;
+            }
+        }
+
+        #rec-room-link-row2 {
+            padding: 1.5px 3px 3px;
+            flex: 0 0 100%;
+
+
+            #rec-room-link-container {
+                height: 90%;
+                width: 95%;
+                border: 1px solid black;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                text-align: center;
+            }
+        }
+    }
+
+    #rec-room-link-group-title-row {
+        width: 100%;
+        margin-top: 2.5px;
+
+        #rec-room-link-group-title-text {
+            text-transform: uppercase;
+            letter-spacing: 0.035em;
+            font-size: calc(min(.9vw, 11px));
+
+            transform: scale(1, 1.1);
+            -webkit-transform: scale(1, 1.1); /* Safari and Chrome */
+            -moz-transform: scale(1, 1.1); /* Firefox */
+            -ms-transform: scale(1, 1.1); /* IE 9+ */
+            -o-transform: scale(1, 1.1); /* Opera */
+        }
+
+    }
+
+    #link-read-note {
+      transform: scale(0.95, 1);
+      -webkit-transform: scale(0.95, 1); /* Safari and Chrome */
+      -moz-transform: scale(0.95, 1); /* Firefox */
+      -ms-transform: scale(0.95, 1); /* IE 9+ */
+      -o-transform: scale(0.95, 1); /* Opera */
+    }
+}

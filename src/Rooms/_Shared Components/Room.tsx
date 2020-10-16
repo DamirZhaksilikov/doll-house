@@ -21,7 +21,7 @@ export class Room extends React.Component<RoomProps, RoomState> {
     }
     
     public getRoomIllustration() {
-      return <div className="roomIllustration">
+      return <div id="room-illustration">
       {this.state.imageMap}
     </div>
     }

@@ -1,5 +1,12 @@
 export class RecreationalRoomData {
-    public static IllustrationSource = "/designs/Room Illustrations/Recreational Room/Room Illustrations_Rec Room.png";
+  public static RecreationalRoomTitle = "Rec Room";
+  public static RecreationalRoomInfo="This room is a collection of things that move me. Curated by me and my community. Select an object to get started.";
+
+  public static RecreationalRoomLinks = {
+    ReadNote: "Read Note"
+  };  
+  
+  public static IllustrationSource = "/designs/Room Illustrations/Recreational Room/Room Illustrations_Rec Room.png";
     public static MapCoordinates = { 
       name: "recreationalRoomMap",
       areas: [
