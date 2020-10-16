@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Room.scss"
+import "./Room.scss";
 import ImageMapper from 'react-image-mapper';
 import { History } from 'history';
 

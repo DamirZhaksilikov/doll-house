@@ -1,0 +1,39 @@
+#room-title {
+    margin-top: 15px;
+    text-transform: uppercase;
+    text-align: justify; /* For Edge */
+    text-align-last: justify;
+    width: 100%;
+    font-size: calc(min(1.7vw, 24px));
+    letter-spacing: 0.035em;
+
+    transform: scale(1, 1.1);
+    -webkit-transform: scale(1, 1.1); /* Safari and Chrome */
+    -moz-transform: scale(1, 1.1); /* Firefox */
+    -ms-transform: scale(1, 1.1); /* IE 9+ */
+    -o-transform: scale(1, 1.1); /* Opera */
+  }
+
+  #link-read-note-container{
+    border: 1px solid black;
+    margin: 5px 5px;
+
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+    text-align: center;
+    width: 100%;
+    height: 90%;
+
+    letter-spacing: 0.035em;
+    font-size: calc(min(.8vw, 10px));
+
+    #link-read-note {
+      transform: scale(0.95, 1);
+      -webkit-transform: scale(0.95, 1); /* Safari and Chrome */
+      -moz-transform: scale(0.95, 1); /* Firefox */
+      -ms-transform: scale(0.95, 1); /* IE 9+ */
+      -o-transform: scale(0.95, 1); /* Opera */
+    }
+}

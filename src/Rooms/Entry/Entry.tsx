@@ -1,3 +1,4 @@
+import "./Entry.scss";
 import { Room } from '../_Shared Components/Room';
 import ImageMapper from 'react-image-mapper';
 import React from 'react';
@@ -35,30 +36,33 @@ export class Entry extends Room {
 
   private getDialogue() {
     return <div className="dialogue">
-      <div className="row-one">     
-        <div className="help-box">
-          <div className="icons">
-            <img src="/designs/Icons/Map.png" className="map-icon"/>
-            <img src="/designs/Icons/Site Info.png" className="site-info-icon"/>
+      <div id="row-one">     
+        <div className="dialogue-container" id="icons-container">
+          <div id="icons">
+            <img src="/designs/Icons/Map.png" className="icon" id="map-icon"/>
+            <img src="/designs/Icons/Site Info.png" className="icon" id="site-info-icon"/>
           </div>
         </div>
-        <div className="room-title">
+
+        <div id="room-title">
           Entry Room    
         </div>
       </div>
 
-      <div className="row-two">
-        <div className="room-info-container">
-          <div className="room-info">
+      <div id="row-two">
+        <div className="dialogue-container" id="room-info-container">
+          <div id="room-info">
             This room is a collection of things that move me. Curated by me and my community. Select an object to get started.
           </div>
         </div>
       </div>
 
-      <div className="row-three">
-        <div className="links-container">
-          <div className="links">
-            This room is a collection of things that move me. Curated by me and my community. Select an object to get started.
+      <div id="row-three">
+        <div className="dialogue-container" id="links-container">
+          <div id="link-read-note-container">
+            <div id="link-read-note">
+              Read Note
+            </div>
           </div>
         </div>
       </div>
