@@ -5,7 +5,6 @@ import React from 'react';
 import { RecreationalRoomData } from './RecreationalRoomData';
 import { ModalRoute } from 'react-router-modal';
 import { ObjectModal } from '../_Shared Components/ObjectModal';
-import { RoomData } from '../_Shared Components/RoomData';
 
 export class RecreationalRoom extends Room {
   constructor(props: any) {
@@ -46,18 +45,11 @@ export class RecreationalRoom extends Room {
         {this.getBehindDoorButton()}
 
         <div id="dialog-bottom-with-button">
-          {this.getRoomInfo()}
+          <div id="column-two-with-button">
+            {this.getRoomInfo(RecreationalRoomData.RecreationalRoomInfo, true)}
+          </div>
           {this.getRoomLinks()}
         </div>
-      </div>
-    </div>
-  }
-
-  private getHelpIcons() {
-    return <div className="dialogue-container" id="icons-container">
-      <div id="icons">
-        <img src={RoomData.MapIconSource} className="icon" id="map-icon" />
-        <img src={RoomData.SiteInfoIconSource} className="icon" id="site-info-icon" />
       </div>
     </div>
   }
@@ -65,26 +57,6 @@ export class RecreationalRoom extends Room {
   private getRoomTitle() {
     return <div className="room-title" id="rec-room-title">
       {RecreationalRoomData.RecreationalRoomTitle}
-    </div>
-  }
-
-  private getBehindDoorButton() {
-    return <div id="row-one-with-button">
-      <div className="dialogue-container" id="behind-door-container">
-        <div id="behind-door-text">
-          {RoomData.UseBackDoorButtonText}
-        </div>
-      </div>
-    </div>
-  }
-
-  private getRoomInfo() {
-    return <div id="column-two-with-button">
-      <div className="dialogue-container" id="room-info-container-with-button">
-        <div id="room-info">
-          {RecreationalRoomData.RecreationalRoomInfo}
-        </div>
-      </div>
     </div>
   }
 

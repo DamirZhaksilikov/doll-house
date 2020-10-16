@@ -2,6 +2,7 @@ import React from 'react';
 import "./Room.scss";
 import ImageMapper from 'react-image-mapper';
 import { History } from 'history';
+import { RoomData } from './RoomData';
 
 interface RoomState {
   imageMap: ImageMapper;
@@ -24,6 +25,36 @@ export class Room extends React.Component<RoomProps, RoomState> {
       return <div id="room-illustration">
       {this.state.imageMap}
     </div>
+    }
+
+    public getHelpIcons() {
+      return <div className="dialogue-container" id="icons-container">
+        <div id="icons">
+          <img src={RoomData.MapIconSource} className="icon" id="map-icon" />
+          <img src={RoomData.SiteInfoIconSource} className="icon" id="site-info-icon" />
+        </div>
+      </div>
+    }
+  
+    public getBehindDoorButton() {
+      return <div id="row-one-with-button">
+        <div className="dialogue-container" id="behind-door-container">
+          <div id="behind-door-text">
+            {RoomData.UseBackDoorButtonText}
+          </div>
+        </div>
+      </div>
+    }
+
+    public getRoomInfo(roomInfo: string, dialogueHasButton: boolean) {
+      const infoClassName = "dialogue-container";
+      const infoId = dialogueHasButton ? "room-info-container-with-button" : "room-info-container";
+
+      return  <div className={infoClassName} id={infoId}>
+          <div id="room-info">
+            {roomInfo}
+          </div>
+      </div>
     }
   
     public closeModal() {

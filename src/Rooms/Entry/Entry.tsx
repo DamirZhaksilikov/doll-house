@@ -6,6 +6,7 @@ import { EntryData } from './EntryData';
 import { ModalRoute } from 'react-router-modal';
 import { ObjectModal } from '../_Shared Components/ObjectModal';
 import { RoomData } from "../_Shared Components/RoomData";
+import { RecreationalRoomData } from "../Recreational Room/RecreationalRoomData";
 
 export class Entry extends Room {
   constructor(props: any) {
@@ -38,33 +39,31 @@ export class Entry extends Room {
   private getDialogue() {
     return <div className="dialogue">
       <div id="column-one">     
-        <div className="dialogue-container" id="icons-container">
-          <div id="icons">
-            <img src={RoomData.MapIconSource} className="icon" id="map-icon"/>
-            <img src={RoomData.SiteInfoIconSource} className="icon" id="site-info-icon"/>
-          </div>
-        </div>
-
-        <div className="room-title" id="entry-room-title">
-          {EntryData.EntryRoomTitle}   
-        </div>
+        {this.getHelpIcons()}
+        {this.getRoomTitle()}
       </div>
 
       <div id="column-two">
-        <div className="dialogue-container" id="room-info-container">
-          <div id="room-info">
-            {EntryData.EntryRoomInfo}
-          </div>
-        </div>
+        {this.getRoomInfo(EntryData.EntryRoomInfo, false)}
       </div>
 
       <div id="column-three">
-        <div className="dialogue-container" id="links-container">
-          <div id="link-read-note-container">
-            <div id="link-read-note">
-              {EntryData.EntryRoomLinks.ReadNote}
-            </div>
-          </div>
+        {this.getRoomLinks()}
+      </div>
+    </div>
+  }
+  
+  private getRoomTitle() {
+    return <div className="room-title" id="entry-room-title">
+      {EntryData.EntryRoomTitle}   
+    </div>
+  }
+
+  private getRoomLinks() {
+    return <div className="dialogue-container" id="links-container">
+      <div id="link-read-note-container">
+        <div id="link-read-note">
+          {EntryData.EntryRoomLinks.ReadNote}
         </div>
       </div>
     </div>
