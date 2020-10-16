@@ -46,11 +46,8 @@ export class Room extends React.Component<RoomProps, RoomState> {
       </div>
     }
 
-    public getRoomInfo(roomInfo: string, dialogueHasButton: boolean) {
-      const infoClassName = "dialogue-container";
-      const infoId = dialogueHasButton ? "room-info-container-with-button" : "room-info-container";
-
-      return  <div className={infoClassName} id={infoId}>
+    public getRoomInfo(roomInfo: string) {
+      return  <div className="dialogue-container" id="room-info-container">
           <div id="room-info">
             {roomInfo}
           </div>

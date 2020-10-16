@@ -5,8 +5,6 @@ import React from 'react';
 import { EntryData } from './EntryData';
 import { ModalRoute } from 'react-router-modal';
 import { ObjectModal } from '../_Shared Components/ObjectModal';
-import { RoomData } from "../_Shared Components/RoomData";
-import { RecreationalRoomData } from "../Recreational Room/RecreationalRoomData";
 
 export class Entry extends Room {
   constructor(props: any) {
@@ -38,21 +36,21 @@ export class Entry extends Room {
 
   private getDialogue() {
     return <div className="dialogue">
-      <div id="column-one">     
+      <div className="column-one">     
         {this.getHelpIcons()}
         {this.getRoomTitle()}
       </div>
 
-      <div id="column-two">
-        {this.getRoomInfo(EntryData.EntryRoomInfo, false)}
+      <div id="column-two-no-button" className="column-two">
+        {this.getRoomInfo(EntryData.EntryRoomInfo)}
       </div>
 
-      <div id="column-three">
+      <div id="column-three-no-button">
         {this.getRoomLinks()}
       </div>
     </div>
   }
-  
+
   private getRoomTitle() {
     return <div className="room-title" id="entry-room-title">
       {EntryData.EntryRoomTitle}   
@@ -60,7 +58,7 @@ export class Entry extends Room {
   }
 
   private getRoomLinks() {
-    return <div className="dialogue-container" id="links-container">
+    return <div className="dialogue-container links-container" id="links-container-no-button">
       <div id="link-read-note-container">
         <div id="link-read-note">
           {EntryData.EntryRoomLinks.ReadNote}

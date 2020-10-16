@@ -36,7 +36,7 @@ export class RecreationalRoom extends Room {
 
   private getDialogue() {
     return <div className="dialogue">
-      <div id="column-one">
+      <div className="column-one">
         {this.getHelpIcons()}
         {this.getRoomTitle()}
       </div>
@@ -45,8 +45,8 @@ export class RecreationalRoom extends Room {
         {this.getBehindDoorButton()}
 
         <div id="dialog-bottom-with-button">
-          <div id="column-two-with-button">
-            {this.getRoomInfo(RecreationalRoomData.RecreationalRoomInfo, true)}
+          <div className="column-two" id="column-two-with-button">
+            {this.getRoomInfo(RecreationalRoomData.RecreationalRoomInfo)}
           </div>
           {this.getRoomLinks()}
         </div>
@@ -62,7 +62,7 @@ export class RecreationalRoom extends Room {
 
   private getRoomLinks() {
     return <div id="column-three-with-button">
-      <div className="dialogue-container" id="links-container-with-button">
+      <div className="dialogue-container links-container" id="links-container-with-button">
         {this.getRecRoomLinkColumn("Text", "Editorials", "Books")}
         {this.getRecRoomLinkColumn("Music", "Playlists", "Albums")}
         {this.getRecRoomLinkColumn("Photomedia", "Images", "Film")}

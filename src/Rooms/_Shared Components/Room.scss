@@ -35,7 +35,36 @@ body {
         -o-transform: scale(1, 1.15); /* Opera */
       }
 
-      #column-one {
+      #room-info {
+        margin: auto;
+        text-align: justify;  /* For Edge */
+        text-align-last: right;
+        width: 85%;
+        letter-spacing: 0.035em;
+        font-size: calc(min(.8vw, 10px));
+
+        transform: scale(0.95, 1);
+        -webkit-transform: scale(0.95, 1); /* Safari and Chrome */
+        -moz-transform: scale(0.95, 1); /* Firefox */
+        -ms-transform: scale(0.95, 1); /* IE 9+ */
+        -o-transform: scale(0.95, 1); /* Opera */
+      }
+
+      #room-info-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      } 
+
+      .links-container {
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+      }
+
+      .column-one {
         width: 18%;
         padding-right: 10px;
 
@@ -56,42 +85,20 @@ body {
           }
         }
       }
-
-      #column-two {
-        width: 26%;
+      
+      .column-two {
         padding-right: 10px;
-
-        #room-info-container {
-          height: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-
-          #room-info{
-            margin: auto;
-            text-align: justify;  /* For Edge */
-            text-align-last: right;
-            width: 85%;
-            letter-spacing: 0.035em;
-            font-size: calc(min(.8vw, 10px));
-    
-            transform: scale(0.95, 1);
-            -webkit-transform: scale(0.95, 1); /* Safari and Chrome */
-            -moz-transform: scale(0.95, 1); /* Firefox */
-            -ms-transform: scale(0.95, 1); /* IE 9+ */
-            -o-transform: scale(0.95, 1); /* Opera */
-          }
-        } 
       }
 
-      #column-three {
+      #column-two-no-button {
+        width: 26%;
+      }
+
+      #column-three-no-button {
         width: 56%;
 
-        #links-container {
+        #links-container-no-button {
           height: 100%;
-          justify-content: center;
-          align-items: center;
-          display: flex;
         }
       }
 
@@ -118,8 +125,7 @@ body {
                 -o-transform: scale(1.1, 1); /* Opera */
               }
             }
-          }
-
+        }
 
         #dialog-bottom-with-button {
           display: flex;
@@ -127,30 +133,7 @@ body {
   
           #column-two-with-button {
             width: 31.7%;
-            padding-right: 10px;
             height: 65.5%;
-    
-            #room-info-container-with-button {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              height: 100%;
-    
-              #room-info{
-                margin: auto;
-                text-align: justify;  /* For Edge */
-                text-align-last: right;
-                width: 85%;
-                letter-spacing: 0.035em;
-                font-size: calc(min(.8vw, 10px));
-        
-                transform: scale(0.95, 1);
-                -webkit-transform: scale(0.95, 1); /* Safari and Chrome */
-                -moz-transform: scale(0.95, 1); /* Firefox */
-                -ms-transform: scale(0.95, 1); /* IE 9+ */
-                -o-transform: scale(0.95, 1); /* Opera */
-              }
-            } 
           }
           
           #column-three-with-button {
@@ -158,9 +141,6 @@ body {
     
             #links-container-with-button {
               height: 65.5%;
-              justify-content: center;
-              align-items: center;
-              display: flex;
             }
           }
         }
