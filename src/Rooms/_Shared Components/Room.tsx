@@ -21,7 +21,7 @@ export type RoomProps = {
 
 export class Room extends React.Component<RoomProps, RoomState> {
     readonly ORIGINAL_IMAGE_WIDTH = 3000; 
-    readonly IMAGE_WIDTH_MULTIPLIER = .8;
+    readonly IMAGE_WIDTH_MULTIPLIER = .73;
 
     public constructor(props) {
       super(props);

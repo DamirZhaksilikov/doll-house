@@ -1,4 +1,8 @@
-.roomIllustration {
+body {
+  background-color: #F4F1ED;
+  font-family: Arial, Helvetica, sans-serif;
+
+  .content {
     position: absolute;
     display: block;
     top: 50%;
@@ -6,4 +10,108 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     z-index: 0;
+
+    .dialogue {
+      display: flex;
+      margin-top: 10px;
+
+      .row-one {
+        width: 18%;
+        padding-right: 10px;
+  
+        .help-box {
+          border: 2px solid black;
+    
+          .map-icon {
+            width: 24.75%;
+            margin-left: 13%;
+            margin-right: 7.5%;
+            margin-top: 12%; /* 100%-80%/2 */
+            margin-bottom: 10%; /* 100%-80%/2 */
+          }
+    
+          .site-info-icon {
+            width: 38.5%;
+            margin-right: 10%;
+            margin-top: 12%; /* 100%-80%/2 */
+            margin-bottom: 10%; /* 100%-80%/2 */
+          }
+        }
+  
+        .room-title {
+          margin-top: 15px;
+          text-transform: uppercase;
+          text-align: justify; /* For Edge */
+          text-align-last: justify;
+          width: 100%;
+          font-size: calc(min(1.7vw, 24px));
+          letter-spacing: 0.035em;
+  
+          transform: scale(1, 1.1);
+          -webkit-transform: scale(1, 1.1); /* Safari and Chrome */
+          -moz-transform: scale(1, 1.1); /* Firefox */
+          -ms-transform: scale(1, 1.1); /* IE 9+ */
+          -o-transform: scale(1, 1.1); /* Opera */
+        }
+      }
+  
+      .row-two {
+        width: 26%;
+        padding-right: 10px;
+
+        .room-info-container {
+          border: 2px solid black;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .room-info{
+            margin: auto;
+
+            text-align: justify;  /* For Edge */
+            text-align-last: right;
+            width: 85%;
+            letter-spacing: 0.035em;
+            font-size: calc(min(.8vw, 10px));
+    
+            transform: scale(0.95, 1);
+            -webkit-transform: scale(0.95, 1); /* Safari and Chrome */
+            -moz-transform: scale(0.95, 1); /* Firefox */
+            -ms-transform: scale(0.95, 1); /* IE 9+ */
+            -o-transform: scale(0.95, 1); /* Opera */
+          }
+        } 
+      }
+
+      .row-three {
+        width: 56%;
+
+        .links-container {
+          border: 2px solid black;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .links{
+            margin: auto;
+
+            text-align: justify;  /* For Edge */
+            text-align-last: right;
+            width: 85%;
+            letter-spacing: 0.035em;
+            font-size: calc(min(.8vw, 10px));
+    
+            transform: scale(0.95, 1);
+            -webkit-transform: scale(0.95, 1); /* Safari and Chrome */
+            -moz-transform: scale(0.95, 1); /* Firefox */
+            -ms-transform: scale(0.95, 1); /* IE 9+ */
+            -o-transform: scale(0.95, 1); /* Opera */
+          }
+        } 
+      }
+    }
   }
+}
+

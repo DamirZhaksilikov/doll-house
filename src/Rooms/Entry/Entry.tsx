@@ -12,8 +12,9 @@ export class Entry extends Room {
   }
 
   render() {
-    return <div> 
+    return <div className="content"> 
       {this.getRoomIllustration()}
+      {this.getDialogue()}
       <ModalRoute path='/entry/:id' component={(props) => (<ObjectModal onClose={this.closeModal.bind(this)} />)} />
     </div>
   }
@@ -30,6 +31,38 @@ export class Entry extends Room {
         onClick={area => this.onClick(area)}
         strokeColor={"rgba(0, 0, 0, 0.0)"} />
     };
+  }
+
+  private getDialogue() {
+    return <div className="dialogue">
+      <div className="row-one">     
+        <div className="help-box">
+          <div className="icons">
+            <img src="/designs/Icons/Map.png" className="map-icon"/>
+            <img src="/designs/Icons/Site Info.png" className="site-info-icon"/>
+          </div>
+        </div>
+        <div className="room-title">
+          Entry Room    
+        </div>
+      </div>
+
+      <div className="row-two">
+        <div className="room-info-container">
+          <div className="room-info">
+            This room is a collection of things that move me. Curated by me and my community. Select an object to get started.
+          </div>
+        </div>
+      </div>
+
+      <div className="row-three">
+        <div className="links-container">
+          <div className="links">
+            This room is a collection of things that move me. Curated by me and my community. Select an object to get started.
+          </div>
+        </div>
+      </div>
+    </div>
   }
 }
 
