@@ -7,13 +7,6 @@ interface RoomState {
   imageMap: ImageMapper;
 };
 
-export const ENTRY = "entry";
-export const REC_ROOM = "recroom";
-export const STUDIO = "studio";
-export const MAIL_ROOM = "mailroom";
-export const FIELD_NOTES = "fieldnotes";
-
-
 export type RoomProps = {
   history: History;
   room: string;

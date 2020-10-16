@@ -5,6 +5,7 @@ import React from 'react';
 import { EntryData } from './EntryData';
 import { ModalRoute } from 'react-router-modal';
 import { ObjectModal } from '../_Shared Components/ObjectModal';
+import { RoomData } from "../_Shared Components/RoomData";
 
 export class Entry extends Room {
   constructor(props: any) {
@@ -39,20 +40,20 @@ export class Entry extends Room {
       <div id="row-one">     
         <div className="dialogue-container" id="icons-container">
           <div id="icons">
-            <img src="/designs/Icons/Map.png" className="icon" id="map-icon"/>
-            <img src="/designs/Icons/Site Info.png" className="icon" id="site-info-icon"/>
+            <img src={RoomData.MapIconSource} className="icon" id="map-icon"/>
+            <img src={RoomData.SiteInfoIconSource} className="icon" id="site-info-icon"/>
           </div>
         </div>
 
         <div id="room-title">
-          Entry Room    
+          {EntryData.EntryRoomTitle}   
         </div>
       </div>
 
       <div id="row-two">
         <div className="dialogue-container" id="room-info-container">
           <div id="room-info">
-            This room is a collection of things that move me. Curated by me and my community. Select an object to get started.
+            {EntryData.EntryRoomInfo}
           </div>
         </div>
       </div>
@@ -61,7 +62,7 @@ export class Entry extends Room {
         <div className="dialogue-container" id="links-container">
           <div id="link-read-note-container">
             <div id="link-read-note">
-              Read Note
+              {EntryData.EntryRoomLinks.ReadNote}
             </div>
           </div>
         </div>

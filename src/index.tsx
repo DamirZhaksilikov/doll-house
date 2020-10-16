@@ -8,7 +8,7 @@ import { Studio } from './Rooms/Studio/Studio';
 import { RecreationalRoom } from './Rooms/Recreational Room/RecreationalRoom';
 import { FieldNotes } from './Rooms/Field Notes/FieldNotes';
 import { ModalContainer } from 'react-router-modal';
-import { ENTRY, STUDIO, REC_ROOM, MAIL_ROOM, FIELD_NOTES } from './Rooms/_Shared Components/Room';
+import { RoomData } from './Rooms/_Shared Components/RoomData';
 
 const container = (
    <div>
@@ -18,19 +18,19 @@ const container = (
                <Redirect to="/entry" />
             </Route>
             <Route path="/entry" render={(props) => (
-               <Entry {...props} room={ENTRY} />
+               <Entry {...props} room={RoomData.ENTRY} />
             )} />
             <Route path="/fieldnotes" render={(props) => (
-               <FieldNotes {...props} room={FIELD_NOTES} />
+               <FieldNotes {...props} room={RoomData.FIELD_NOTES} />
             )} />
             <Route path="/mailroom" render={(props) => (
-               <MailRoom {...props} room={MAIL_ROOM} />
+               <MailRoom {...props} room={RoomData.MAIL_ROOM} />
             )} />
             <Route path="/studio" render={(props) => (
-               <Studio {...props} room={STUDIO} />
+               <Studio {...props} room={RoomData.STUDIO} />
             )} />
             <Route path="/recroom" render={(props) => (
-               <RecreationalRoom {...props} room={REC_ROOM} />
+               <RecreationalRoom {...props} room={RoomData.REC_ROOM} />
             )} />
          </div>
       </ BrowserRouter >
