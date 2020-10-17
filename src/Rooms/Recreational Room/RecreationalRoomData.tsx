@@ -7,6 +7,8 @@ export interface RecreationalRoomLinkObject {
 }
 
 export class RecreationalRoomData {
+  public static RecreationalRoomBehindDoor = "entry"
+
   public static RecreationalRoomTitle = "Rec Room";
   public static RecreationalRoomInfo="This room is a collection of things that move me. Curated by me and my community. Select an object to get started.";
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import "./Room.scss";
 import ImageMapper from 'react-image-mapper';
 import { History } from 'history';
@@ -32,16 +32,6 @@ export class Room extends React.Component<RoomProps, RoomState> {
         <div id="icons">
           <img src={RoomData.MapIconSource} className="icon" id="map-icon" />
           <img src={RoomData.SiteInfoIconSource} className="icon" id="site-info-icon" />
-        </div>
-      </div>
-    }
-  
-    public getBehindDoorButton() {
-      return <div id="row-one-with-button">
-        <div className="dialogue-container" id="behind-door-container">
-          <div id="behind-door-text">
-            {RoomData.UseBackDoorButtonText}
-          </div>
         </div>
       </div>
     }

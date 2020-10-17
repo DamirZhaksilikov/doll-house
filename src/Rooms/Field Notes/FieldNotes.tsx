@@ -1,10 +1,11 @@
 import './FieldNotes.scss'
 import { Room } from '../_Shared Components/Room';
 import ImageMapper from 'react-image-mapper';
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import { FieldNotesData, FieldNotesLinkObject } from './FieldNotesData';
 import { ModalRoute } from 'react-router-modal';
 import { ObjectModal } from '../_Shared Components/ObjectModal';
+import { RoomData } from '../_Shared Components/RoomData';
 
 export class FieldNotes extends Room {
   constructor(props: any) {
@@ -58,6 +59,20 @@ export class FieldNotes extends Room {
     return <div className="room-title" id="field-notes-title">
       {FieldNotesData.FieldNotesTitle}
     </div>
+  }
+
+  public getBehindDoorButton() {
+    return <div id="row-one-with-button">
+      <button onClick={this.handleClick.bind(this)} className="dialogue-container" id="behind-door-container">
+        <div id="behind-door-text">
+          {RoomData.UseBackDoorButtonText}
+        </div>
+      </button>
+    </div>
+  }
+
+  public handleClick(event: MouseEvent) {
+    this.props.history.push(`/${FieldNotesData.FieldNotesBehindDoor}/`);
   }
 
   private getRoomLinks() {
