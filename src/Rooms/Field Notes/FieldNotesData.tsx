@@ -20,7 +20,7 @@ export class FieldNotesData {
         IsPublic: false
       },
       PrivateEssays: {
-        LinkText: "Private essays",
+        LinkText: "Personal essays",
         IsPublic: false
       }
     }
