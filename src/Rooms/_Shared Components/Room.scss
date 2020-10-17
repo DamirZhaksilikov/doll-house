@@ -22,8 +22,7 @@ body {
       .room-title {
         margin-top: 15px;
         text-transform: uppercase;
-        text-align: justify; /* For Edge */
-        text-align-last: justify;
+        
         width: 100%;
         font-size: calc(min(1.95vw, 25px));
         letter-spacing: 0.035em;

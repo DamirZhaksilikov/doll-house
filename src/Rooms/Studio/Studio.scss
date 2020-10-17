@@ -1,0 +1,86 @@
+#studio-title-container {
+    display:block;
+    letter-spacing:0.65em;
+    text-align:center;
+    width: 100%;
+}
+
+#studio-title-text {
+    margin-right:-0.65em;
+}
+
+#studio-link-content{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 90%;
+    margin-right: 11px;
+    margin-left: -2.5px;
+    margin-top: -2.5px;
+
+    #studio-link-column{
+        width: 25%;
+        height: 100%;
+        margin-left: 15px;
+
+        #studio-link-group-container {
+            border: 1px solid black;
+            text-align: center;
+            letter-spacing: 0.035em;
+            font-size: calc(min(.7vw, 9px));
+            padding-bottom: 3px;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            #studio-link-container {
+                border: 1px solid black;
+                display: flex;
+                margin: 3px 3px 0px;
+                flex-direction: column;
+                align-items: flex-start;
+                height: 100%;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+
+                #studio-link-text {     
+                    padding-top: 1px;               
+                    align-self: stretch;
+                }
+
+                #studio-link-type {     
+                    align-self: stretch;
+                    text-transform: lowercase;
+                    font-style: italic;
+                }
+            }
+        }
+
+        #studio-link-group-title-row {
+            width: 100%;
+            margin-top: 3.5px;
+            margin-bottom: 15px;
+
+            transform: scale(1, 1.1);
+            -webkit-transform: scale(1, 1.1); /* Safari and Chrome */
+            -moz-transform: scale(1, 1.1); /* Firefox */
+            -ms-transform: scale(1, 1.1); /* IE 9+ */
+            -o-transform: scale(1, 1.1); /* Opera */
+
+            #studio-link-group-title-name {
+                text-transform: uppercase;
+                letter-spacing: 0.035em;
+                font-size: calc(min(.75vw, 10px));
+            }
+
+            #studio-link-group-title-location {
+                text-transform: uppercase;
+                font-style: italic;         
+                letter-spacing: 0.035em;
+                font-size: calc(min(.6vw, 7px));   
+            }
+        }
+    }
+}

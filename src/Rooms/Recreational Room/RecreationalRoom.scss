@@ -1,5 +1,7 @@
 #rec-room-title {
     letter-spacing: 0.075em;
+    text-align: justify; /* For Edge */
+    text-align-last: justify;
 }
 
 #rec-room-link-column{
@@ -69,13 +71,5 @@
             -o-transform: scale(1, 1.1); /* Opera */
         }
 
-    }
-
-    #link-read-note {
-      transform: scale(0.95, 1);
-      -webkit-transform: scale(0.95, 1); /* Safari and Chrome */
-      -moz-transform: scale(0.95, 1); /* Firefox */
-      -ms-transform: scale(0.95, 1); /* IE 9+ */
-      -o-transform: scale(0.95, 1); /* Opera */
     }
 }

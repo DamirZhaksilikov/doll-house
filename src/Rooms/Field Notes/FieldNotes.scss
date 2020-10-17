@@ -1,5 +1,7 @@
 #field-notes-title {
     letter-spacing: 0.015em;
+    text-align: justify; /* For Edge */
+    text-align-last: justify;
 }
 
 #links-container-with-button {
@@ -30,7 +32,6 @@
                     display: flex;
                     flex-direction: column;
                     align-items: flex-start;
-
                     height: 100%;
                     width: 100%;
                     
