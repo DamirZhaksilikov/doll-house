@@ -1,4 +1,33 @@
+export interface FieldNotesLinkObject {
+  LinkText: string;
+  IsPublic: boolean;
+}
+
 export class FieldNotesData {
+    public static FieldNotesTitle = "Field Notes";
+    public static FieldNotesInfo = "This room is a collection of things that move me. Curated by me and my community. Select an object to get started.";
+    public static FieldNotesLinks = {
+      Observations: {
+        LinkText: "Essays and observations",
+        IsPublic: true
+      },
+      WorkNotes: {
+        LinkText: "Work notes, sketches",
+        IsPublic: true       
+      },
+      Intimacies: {
+        LinkText: "Intimacies, private notes",
+        IsPublic: false
+      },
+      PrivateEssays: {
+        LinkText: "Private essays",
+        IsPublic: false
+      }
+    }
+
+    public static Public = "(public)";
+    public static Private = "(private)"
+
     public static IllustrationSource = "/designs/Room Illustrations/Field Notes/Room Illustrations_Field Notes.png";
     public static MapCoordinates = { 
       name: "fieldNotesMap",

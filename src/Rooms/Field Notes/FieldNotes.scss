@@ -1,0 +1,49 @@
+#field-notes-title {
+    letter-spacing: 0.015em;
+}
+
+.links-container {
+    #field-notes-link-content{
+        display: flex;
+        width: 99%;
+        height: 95%;
+    
+        #field-notes-link-column{
+            padding: 5px;
+            width: 25%;
+    
+        
+            #field-notes-link-container {
+                border: 1px solid black;
+                text-align: center;
+                height: 96%;
+                letter-spacing: 0.035em;
+                font-size: calc(min(.8vw, 10px));
+    
+                #field-notes-link-content {
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+
+                    height: 100%;
+                    width: 100%;
+                    
+                    #field-notes-link-title {
+                        align-self: stretch;
+                    }
+        
+                    #field-notes-link-is-public {
+                        margin-top: 1.5px;
+                        align-self: stretch;
+                        text-transform: lowercase;
+                        font-style: italic;
+                    }
+                }
+            }
+        }
+    }
+}
+

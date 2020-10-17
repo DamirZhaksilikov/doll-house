@@ -1,11 +1,39 @@
+export interface RecreationalRoomLinkObject {
+  Title: string;
+  Links: {
+    LinkOne: string;
+    LinkTwo: string; 
+  }
+}
+
 export class RecreationalRoomData {
   public static RecreationalRoomTitle = "Rec Room";
   public static RecreationalRoomInfo="This room is a collection of things that move me. Curated by me and my community. Select an object to get started.";
 
   public static RecreationalRoomLinks = {
-    ReadNote: "Read Note"
-  };  
-  
+    Text: {
+      Title: "Text",
+      Links: {
+        LinkOne: "Editorials",
+        LinkTwo: "Books"
+      }
+    },
+    Music: {
+      Title: "Music",
+      Links: {
+        LinkOne: "Playlists",
+        LinkTwo: "Albums"
+      }
+    },
+    Photomedia: {
+      Title: "Photomedia",
+      Links: {
+        LinkOne: "Images",
+        LinkTwo: "Film"
+      }
+    }
+  };
+
   public static IllustrationSource = "/designs/Room Illustrations/Recreational Room/Room Illustrations_Rec Room.png";
     public static MapCoordinates = { 
       name: "recreationalRoomMap",

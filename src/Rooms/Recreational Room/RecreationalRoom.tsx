@@ -2,7 +2,7 @@ import "./RecreationalRoom.scss";
 import { Room } from '../_Shared Components/Room';
 import ImageMapper from 'react-image-mapper';
 import React from 'react';
-import { RecreationalRoomData } from './RecreationalRoomData';
+import { RecreationalRoomData, RecreationalRoomLinkObject } from './RecreationalRoomData';
 import { ModalRoute } from 'react-router-modal';
 import { ObjectModal } from '../_Shared Components/ObjectModal';
 
@@ -63,33 +63,33 @@ export class RecreationalRoom extends Room {
   private getRoomLinks() {
     return <div id="column-three-with-button">
       <div className="dialogue-container links-container" id="links-container-with-button">
-        {this.getRecRoomLinkColumn("Text", "Editorials", "Books")}
-        {this.getRecRoomLinkColumn("Music", "Playlists", "Albums")}
-        {this.getRecRoomLinkColumn("Photomedia", "Images", "Film")}
+        {this.getRecRoomLinkColumn(RecreationalRoomData.RecreationalRoomLinks.Text)}
+        {this.getRecRoomLinkColumn(RecreationalRoomData.RecreationalRoomLinks.Music)}
+        {this.getRecRoomLinkColumn(RecreationalRoomData.RecreationalRoomLinks.Photomedia)}
       </div>
     </div>
   }
 
-  private getRecRoomLinkColumn(group: string, link1: string, link2: string) {
+  private getRecRoomLinkColumn(recRoomLink: RecreationalRoomLinkObject) {
     return <div id="rec-room-link-column">
       <div id="rec-room-link-group-container">
         <div id="rec-room-link-row1">
           <div id="rec-room-link-container">
             <div id="rec-room-link-text">
-              {link1}
+              {recRoomLink.Links.LinkOne}
             </div>
           </div>
         </div><div id="rec-room-link-row2">
           <div id="rec-room-link-container">
             <div id="rec-room-link-text">
-              {link2}
+              {recRoomLink.Links.LinkTwo}
             </div>
           </div>
         </div>
       </div>
       <div id="rec-room-link-group-title-row">
         <div id="rec-room-link-group-title-text">
-          {group}
+          {recRoomLink.Title}
         </div>
       </div>
     </div>

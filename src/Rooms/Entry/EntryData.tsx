@@ -1,6 +1,6 @@
 export class EntryData {
     public static EntryRoomTitle = "Entry Room";
-    public static EntryRoomInfo="This room is a collection of things that move me. Curated by me and my community. Select an object to get started.";
+    public static EntryRoomInfo= "This room is a collection of things that move me. Curated by me and my community. Select an object to get started.";
   
     public static EntryRoomLinks = {
       ReadNote: "Read Note"
