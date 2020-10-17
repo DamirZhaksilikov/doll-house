@@ -1,0 +1,30 @@
+#link1 {
+    margin: 5px 0px 5px 5px;
+}
+
+#link2 {
+    margin: 5px 5px 5px 5px;
+}
+
+.mail-room-link-container{
+    border: 1px solid black;
+
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+    text-align: center;
+    width: 50%;
+    height: 90%;
+
+    letter-spacing: 0.035em;
+    font-size: calc(min(.8vw, 10px));
+
+    #link-read-note {
+      transform: scale(0.95, 1);
+      -webkit-transform: scale(0.95, 1); /* Safari and Chrome */
+      -moz-transform: scale(0.95, 1); /* Firefox */
+      -ms-transform: scale(0.95, 1); /* IE 9+ */
+      -o-transform: scale(0.95, 1); /* Opera */
+    }
+}

@@ -1,4 +1,12 @@
 export class MailRoomData {
+  public static MailRoomTitle = "Mail Room"
+  public static MailRoomInfo = "This room is a collection of things that move me. Curated by me and my community. Select an object to get started.";
+  
+  public static MailRoomLinks = {
+    ContactMe: "Contact me",
+    Interview: "Let me interview you"
+  };
+
   public static IllustrationSource = "/designs/Room Illustrations/Mail Room/Room Illustrations_Mailroom.png";
   public static MapCoordinates = { 
     name: "mailRoomMap",

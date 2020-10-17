@@ -6,8 +6,8 @@
     padding: 5px;
     justify-content: center;
     align-items: center;
-    width: 31%;
-    height: 85%;
+    width: 33%;
+    height: 79%;
 
     #rec-room-link-group-container {
         border: 1px solid black;
@@ -60,7 +60,7 @@
         #rec-room-link-group-title-text {
             text-transform: uppercase;
             letter-spacing: 0.035em;
-            font-size: calc(min(.9vw, 11px));
+            font-size: calc(min(.8vw, 10px));
 
             transform: scale(1, 1.1);
             -webkit-transform: scale(1, 1.1); /* Safari and Chrome */
