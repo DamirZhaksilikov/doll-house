@@ -27,7 +27,6 @@
             border: 1px solid black;
             text-align: center;
             letter-spacing: 0.035em;
-            font-size: calc(min(.7vw, 9px));
             padding-bottom: 3px;
             height: 80%;
             display: flex;
@@ -48,12 +47,14 @@
                 #studio-link-text {     
                     padding-top: 1px;               
                     align-self: stretch;
+                    font-size: calc(min(.7vw, 9px));
                 }
 
                 #studio-link-type {     
                     align-self: stretch;
                     text-transform: lowercase;
                     font-style: italic;
+                    font-size: calc(min(.7vw, 9px));
                 }
             }
         }

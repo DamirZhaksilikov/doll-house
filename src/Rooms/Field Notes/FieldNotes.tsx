@@ -92,7 +92,7 @@ export class FieldNotes extends Room {
     const isPublicText = link.IsPublic ? FieldNotesData.Public : FieldNotesData.Private;
 
     return <div id="field-notes-link-column">
-      <div id="field-notes-link-container">
+      <button id="field-notes-link-container">
         <div id="field-notes-link-content">
           <div id="field-notes-link-title">
             {link.LinkText}
@@ -101,7 +101,7 @@ export class FieldNotes extends Room {
             {isPublicText}
           </div>
         </div>
-      </div>
+      </button>
     </div>
   }
 }

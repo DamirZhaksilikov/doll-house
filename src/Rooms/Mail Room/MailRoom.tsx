@@ -59,16 +59,16 @@ export class MailRoom extends Room {
 
   private getRoomLinks() {
     return <div className="dialogue-container links-container" id="links-container-no-button">
-      <div className="mail-room-link-container" id="link1">
+      <button className="mail-room-link-container" id="link1">
         <div id="mail-room-link">
           {MailRoomData.MailRoomLinks.ContactMe}
         </div>
-      </div>
-      <div className="mail-room-link-container" id="link2">
+      </button>
+      <button className="mail-room-link-container" id="link2">
         <div id="mail-room-link">
           {MailRoomData.MailRoomLinks.Interview}
         </div>
-      </div>
+      </button>
     </div>
   }
 }

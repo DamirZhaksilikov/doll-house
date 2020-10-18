@@ -88,19 +88,16 @@ export class RecreationalRoom extends Room {
   private getRecRoomLinkColumn(recRoomLink: RecreationalRoomLinkObject) {
     return <div id="rec-room-link-column">
       <div id="rec-room-link-group-container">
-        <div id="rec-room-link-row1">
-          <div id="rec-room-link-container">
-            <div id="rec-room-link-text">
-              {recRoomLink.Links.LinkOne}
-            </div>
+        <button id="rec-room-link-container">
+          <div id="rec-room-link-text">
+            {recRoomLink.Links.LinkOne}
           </div>
-        </div><div id="rec-room-link-row2">
-          <div id="rec-room-link-container">
-            <div id="rec-room-link-text">
-              {recRoomLink.Links.LinkTwo}
-            </div>
+        </button>
+        <button id="rec-room-link-container">
+          <div id="rec-room-link-text">
+            {recRoomLink.Links.LinkTwo}
           </div>
-        </div>
+        </button>
       </div>
       <div id="rec-room-link-group-title-row">
         <div id="rec-room-link-group-title-text">

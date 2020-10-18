@@ -59,11 +59,11 @@ export class Entry extends Room {
 
   private getRoomLinks() {
     return <div className="dialogue-container links-container" id="links-container-no-button">
-      <div id="link-read-note-container">
+      <button id="link-read-note-container">
         <div id="link-read-note">
           {EntryData.EntryRoomLinks.ReadNote}
         </div>
-      </div>
+      </button>
     </div>
   }
 }

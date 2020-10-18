@@ -4,6 +4,10 @@
     text-align-last: justify;
 }
 
+#rec-room-link-text {
+    font-size: calc(min(.8vw, 10px));
+}
+
 #rec-room-link-column{
     padding: 5px;
     justify-content: center;
@@ -13,46 +17,27 @@
 
     #rec-room-link-group-container {
         border: 1px solid black;
-        width: 100%;
         text-align: center;
-        height: 80%;
         letter-spacing: 0.035em;
-        font-size: calc(min(.8vw, 10px));
+        padding-bottom: 3px;
+        height: 80%;
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-between;
 
 
-        #rec-room-link-row1 {
-            padding: 3px 3px 1.5px;
-            flex: 0 0 100%;
-
-
-            #rec-room-link-container {
-                height: 90%;
-                width: 95%;
-                border: 1px solid black;
-                justify-content: center;
-                align-items: center;
-                display: flex;
-                text-align: center;
-            }
+        #rec-room-link-container {
+            border: 1px solid black;
+            display: flex;
+            margin: 3px 3px 0px;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
-
-        #rec-room-link-row2 {
-            padding: 1.5px 3px 3px;
-            flex: 0 0 100%;
-
-
-            #rec-room-link-container {
-                height: 90%;
-                width: 95%;
-                border: 1px solid black;
-                justify-content: center;
-                align-items: center;
-                display: flex;
-                text-align: center;
-            }
-        }
+        
     }
 
     #rec-room-link-group-title-row {
