@@ -70,10 +70,10 @@ export class Studio extends Room {
     </div>
   }
 
-  private getStudioLinkColumn(recRoomLink: StudioLinkGroup) {
+  private getStudioLinkColumn(linkGroup: StudioLinkGroup) {
     return <div id="studio-link-column">
       <div id="studio-link-group-container">
-        {recRoomLink.Links.map(link => (
+        {linkGroup.Links.map(link => (
           <button id="studio-link-container">
             <div id="studio-link-text">
               {link.Title}
@@ -89,10 +89,10 @@ export class Studio extends Room {
       </div>
       <div id="studio-link-group-title-row">
         <div id="studio-link-group-title-name">
-          {recRoomLink.Title}
+          {linkGroup.Title}
         </div>
         <div id="studio-link-group-title-location">
-          {`(${recRoomLink.Location})`}
+          {`(${linkGroup.Location})`}
         </div>
       </div>
     </div>

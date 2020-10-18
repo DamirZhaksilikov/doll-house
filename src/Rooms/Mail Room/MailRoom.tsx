@@ -5,6 +5,7 @@ import React from 'react';
 import { MailRoomData } from './MailRoomData';
 import { ModalRoute } from 'react-router-modal';
 import { ObjectModal } from '../_Shared Components/ObjectModal';
+import { RoomObject } from '../_Shared Components/RoomObject';
 
 export class MailRoom extends Room {
   constructor(props: any) {
@@ -29,7 +30,7 @@ export class MailRoom extends Room {
         map={MailRoomData.MapCoordinates}
         width={imageWidth}
         imgWidth={this.ORIGINAL_IMAGE_WIDTH}
-        onClick={area => this.onClick(area)}
+        onClick={area => this.onImageClick(area)}
         strokeColor={"rgba(0, 0, 0, 0.0)"} />
     };
   }
@@ -58,18 +59,27 @@ export class MailRoom extends Room {
   }
 
   private getRoomLinks() {
-    return <div className="dialogue-container links-container" id="links-container-no-button">
-      <button className="mail-room-link-container" id="link1">
-        <div id="mail-room-link">
-          {MailRoomData.MailRoomLinks.ContactMe}
-        </div>
-      </button>
-      <button className="mail-room-link-container" id="link2">
-        <div id="mail-room-link">
-          {MailRoomData.MailRoomLinks.Interview}
-        </div>
-      </button>
+    const objectLinks = MailRoomData.MailRoomLinks.filter(i => !i.isDoor);
+    
+    return <div className="dialogue-container links-container" id="mail-room-links-container">
+      {objectLinks.map(link => (
+        <button onClick={this.onClick.bind(this, link)} className="mail-room-link-container" id="mail-room-link">
+            <div id="mail-room-link">
+              {link.text}
+            </div>
+          </button>
+      ))}
     </div>
+  }
+
+  public onImageClick(object: RoomObject) {
+    const matches = MailRoomData.MailRoomLinks.filter(i => i.id === object.name);
+
+    if (matches.length === 0) {
+      throw new Error("Improperly mapped object name.");
+    }
+
+    return this.onClick(matches[0]);
   }
 }
 

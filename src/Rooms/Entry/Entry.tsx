@@ -5,6 +5,7 @@ import React from 'react';
 import { EntryData } from './EntryData';
 import { ModalRoute } from 'react-router-modal';
 import { ObjectModal } from '../_Shared Components/ObjectModal';
+import { RoomObject } from "../_Shared Components/RoomObject";
 
 export class Entry extends Room {
   constructor(props: any) {
@@ -29,7 +30,7 @@ export class Entry extends Room {
         map={EntryData.MapCoordinates}
         width={imageWidth}
         imgWidth={this.ORIGINAL_IMAGE_WIDTH}
-        onClick={area => this.onClick(area)}
+        onClick={area => this.onImageClick(area)}
         strokeColor={"rgba(0, 0, 0, 0.0)"} />
     };
   }
@@ -59,12 +60,22 @@ export class Entry extends Room {
 
   private getRoomLinks() {
     return <div className="dialogue-container links-container" id="links-container-no-button">
-      <button id="link-read-note-container">
-        <div id="link-read-note">
-          {EntryData.EntryRoomLinks.ReadNote}
+      <button onClick={this.onClick.bind(this, EntryData.EntryRoomLinks[0])} id="entry-room-link-container">
+        <div id="entry-room-link">
+          {EntryData.EntryRoomLinks[0].text}
         </div>
       </button>
     </div>
+  }
+
+  public onImageClick(object: RoomObject) {
+    const matches = EntryData.EntryRoomLinks.filter(i => i.id === object.name);
+
+    if (matches.length === 0) {
+      throw new Error("Improperly mapped object name.");
+    }
+
+    return this.onClick(matches[0]);
   }
 }
 

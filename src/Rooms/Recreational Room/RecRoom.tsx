@@ -2,12 +2,13 @@ import "./RecreationalRoom.scss";
 import { Room } from '../_Shared Components/Room';
 import ImageMapper from 'react-image-mapper';
 import React, { MouseEvent } from 'react';
-import { RecreationalRoomData, RecreationalRoomLinkObject } from './RecreationalRoomData';
+import { RecRoomData, RecRoomLinkObject } from './RecRoomData';
 import { ModalRoute } from 'react-router-modal';
 import { ObjectModal } from '../_Shared Components/ObjectModal';
 import { RoomData } from "../_Shared Components/RoomData";
+import { RoomObject } from "../_Shared Components/RoomObject";
 
-export class RecreationalRoom extends Room {
+export class RecRoom extends Room {
   constructor(props: any) {
     super(props);
     this.initializeMap();
@@ -26,8 +27,8 @@ export class RecreationalRoom extends Room {
 
     this.state = {
       ...this.state,
-      imageMap: <ImageMapper src={RecreationalRoomData.IllustrationSource}
-        map={RecreationalRoomData.MapCoordinates}
+      imageMap: <ImageMapper src={RecRoomData.IllustrationSource}
+        map={RecRoomData.MapCoordinates}
         width={imageWidth}
         imgWidth={this.ORIGINAL_IMAGE_WIDTH}
         onClick={area => this.onClick(area)}
@@ -47,7 +48,7 @@ export class RecreationalRoom extends Room {
 
         <div id="dialog-bottom-with-button">
           <div className="column-two" id="column-two-with-button">
-            {this.getRoomInfo(RecreationalRoomData.RecreationalRoomInfo)}
+            {this.getRoomInfo(RecRoomData.RecreationalRoomInfo)}
           </div>
           {this.getRoomLinks()}
         </div>
@@ -66,26 +67,26 @@ export class RecreationalRoom extends Room {
   }
 
   public handleClick(event: MouseEvent) {
-    this.props.history.push(`/${RecreationalRoomData.RecreationalRoomBehindDoor}/`);
+    this.props.history.push(`/${RecRoomData.RecRoomBehindDoor}/`);
   }
 
   private getRoomTitle() {
     return <div className="room-title" id="rec-room-title">
-      {RecreationalRoomData.RecreationalRoomTitle}
+      {RecRoomData.RecRoomTitle}
     </div>
   }
 
   private getRoomLinks() {
     return <div id="column-three-with-button">
       <div className="dialogue-container links-container" id="links-container-with-button">
-        {this.getRecRoomLinkColumn(RecreationalRoomData.RecreationalRoomLinks.Text)}
-        {this.getRecRoomLinkColumn(RecreationalRoomData.RecreationalRoomLinks.Music)}
-        {this.getRecRoomLinkColumn(RecreationalRoomData.RecreationalRoomLinks.Photomedia)}
+        {this.getRecRoomLinkColumn(RecRoomData.RecRoomLinks.Text)}
+        {this.getRecRoomLinkColumn(RecRoomData.RecRoomLinks.Music)}
+        {this.getRecRoomLinkColumn(RecRoomData.RecRoomLinks.Photomedia)}
       </div>
     </div>
   }
 
-  private getRecRoomLinkColumn(recRoomLink: RecreationalRoomLinkObject) {
+  private getRecRoomLinkColumn(recRoomLink: RecRoomLinkObject) {
     return <div id="rec-room-link-column">
       <div id="rec-room-link-group-container">
         <button id="rec-room-link-container">
@@ -105,6 +106,16 @@ export class RecreationalRoom extends Room {
         </div>
       </div>
     </div>
+  }
+
+  public onImageClick(object: RoomObject) {
+    const matches = RecRoomData.RecRoomLinks.filter(i => i.id === object.name);
+
+    if (matches.length === 0) {
+      throw new Error("Improperly mapped object name.");
+    }
+
+    return this.onClick(matches[0]);
   }
 }
 

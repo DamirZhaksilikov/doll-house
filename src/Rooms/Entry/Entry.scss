@@ -5,7 +5,7 @@
 }
 
 
-#link-read-note-container{
+#entry-room-link-container{
     border: 1px solid black;
     margin: 5px 5px;
 
@@ -20,7 +20,7 @@
     letter-spacing: 0.035em;
     font-size: calc(min(.8vw, 10px));
 
-    #link-read-note {
+    #entry-room-link {
       transform: scale(0.95, 1);
       -webkit-transform: scale(0.95, 1); /* Safari and Chrome */
       -moz-transform: scale(0.95, 1); /* Firefox */

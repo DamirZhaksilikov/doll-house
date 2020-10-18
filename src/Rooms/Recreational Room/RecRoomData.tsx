@@ -1,4 +1,4 @@
-export interface RecreationalRoomLinkObject {
+export interface RecRoomLinkObject {
   Title: string;
   Links: {
     LinkOne: string;
@@ -6,13 +6,13 @@ export interface RecreationalRoomLinkObject {
   }
 }
 
-export class RecreationalRoomData {
-  public static RecreationalRoomBehindDoor = "entry"
+export class RecRoomData {
+  public static RecRoomBehindDoor = "entry"
 
-  public static RecreationalRoomTitle = "Rec Room";
-  public static RecreationalRoomInfo="This room is a collection of things that move me. Curated by me and my community. Select an object to get started.";
+  public static RecRoomTitle = "Rec Room";
+  public static RecRoomInfo="This room is a collection of things that move me. Curated by me and my community. Select an object to get started.";
 
-  public static RecreationalRoomLinks = {
+  public static RecRoomLinks = {
     Text: {
       Title: "Text",
       Links: {
@@ -38,7 +38,7 @@ export class RecreationalRoomData {
 
   public static IllustrationSource = "/designs/Room Illustrations/Recreational Room/Room Illustrations_Rec Room.png";
     public static MapCoordinates = { 
-      name: "recreationalRoomMap",
+      name: "recRoomMap",
       areas: [
         { name: "fieldNotes", isDoor: true, shape: "poly", coords: [162,1066,162,402,162,389,162,379,163,370,166,360,172,352,178,346,184,342,190,340,199,339,214,341,233,344,243,348,248,353,253,360,257,367,260,377,261,386,262,397,262,407,261,939]},
      

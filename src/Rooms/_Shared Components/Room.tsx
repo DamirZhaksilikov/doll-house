@@ -1,8 +1,9 @@
-import React, { MouseEvent } from 'react';
+import React from 'react';
 import "./Room.scss";
 import ImageMapper from 'react-image-mapper';
 import { History } from 'history';
 import { RoomData } from './RoomData';
+import { RoomLink } from './RoomLink';
 
 interface RoomState {
   imageMap: ImageMapper;
@@ -48,10 +49,11 @@ export class Room extends React.Component<RoomProps, RoomState> {
       this.props.history.replace(`/${this.props.room}/`);
     }
   
-    public onClick(area: any) {
+    public onClick(area: RoomLink) {
       if (area.isDoor)
-        this.props.history.push(`/${area.name}/`);
+        this.props.history.push(`/${area.id}/`);  
       else
-      this.props.history.push(`/${this.props.room}/${area.name}/`);
+        this.props.history.push(`/${this.props.room}/${area.id}/`);
     }
  }
+

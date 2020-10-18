@@ -5,7 +5,7 @@ import { Route, BrowserRouter, Redirect } from 'react-router-dom';
 import { Entry } from "./Rooms/Entry/Entry";
 import { MailRoom } from './Rooms/Mail Room/MailRoom';
 import { Studio } from './Rooms/Studio/Studio';
-import { RecreationalRoom } from './Rooms/Recreational Room/RecreationalRoom';
+import { RecRoom } from './Rooms/Recreational Room/RecRoom';
 import { FieldNotes } from './Rooms/Field Notes/FieldNotes';
 import { ModalContainer } from 'react-router-modal';
 import { RoomData } from './Rooms/_Shared Components/RoomData';
@@ -30,7 +30,7 @@ const container = (
                <Studio {...props} room={RoomData.STUDIO} />
             )} />
             <Route path="/recroom" render={(props) => (
-               <RecreationalRoom {...props} room={RoomData.REC_ROOM} />
+               <RecRoom {...props} room={RoomData.REC_ROOM} />
             )} />
          </div>
       </ BrowserRouter >
