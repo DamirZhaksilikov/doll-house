@@ -7,6 +7,7 @@ import { RoomLink } from './RoomLink';
 
 interface RoomState {
   imageMap: ImageMapper;
+  hoveredObjectId: string;
 };
 
 export type RoomProps = {

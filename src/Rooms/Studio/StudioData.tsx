@@ -1,14 +1,5 @@
-export interface StudioLinkGroup {
-  Title: string,
-  Location: string,
-  Links: StudioLink[]
-}
-
-export interface StudioLink {
-  Title: string,
-  HasType: boolean,
-  Type?: string
-}
+import { RoomLink } from "../_Shared Components/RoomLink";
+import { RoomLinkGroup } from "../_Shared Components/RoomLinkGroup";
 
 export class StudioData {
   public static StudioTitle = "Studio";
@@ -19,105 +10,156 @@ export class StudioData {
   public static Photomedia = "photomedia"
   public static Ongoing = "ongoing"
 
-  public static StudioLinks = {
-    Ongoing: {
-      Title: StudioData.Ongoing,
-      Location: "sidetable",
-      Links: [
-        {
-          Title: "Floor Plan",
-          HasType: true,
-          Type: StudioData.Textile
-        },
-        {
-          Title: "Walden, cont.",
-          HasType: true,
-          Type: StudioData.Spacial
-        }
-      ]
-    },
-    Photomedia: {
-      Title: StudioData.Photomedia,
-      Location: "top left main shelf",
-      Links: [
-        {
-          Title: "Photo",
-          HasType: false
-        },
-        {
-          Title: "Collage",
-          HasType: false
-        }
-      ]
-    },
-    Spacial: {
-      Title: StudioData.Spacial,
-      Location: "top right main shelf",
-      Links: [
-        {
-          Title: "Doll House",
-          HasType: false
-        }
-      ]
-    },
-    Textile: {
-      Title: StudioData.Textile,
-      Location: "bottom main shelf",
-      Links: [
-        {
-          Title: "Have/Half",
-          HasType: false
-        },
-        {
-          Title: "Spare Pieces",
-          HasType: false
-        },
-        {
-          Title: "Commerical Cowboy",
-          HasType: false
-        },
-        {
-          Title: "Red Light",
-          HasType: false
-        },
-        {
-          Title: "Plug In",
-          HasType: false
-        }
-      ]
-    }
+  public static StudioIds = {
+    ongoing: "ongoing",
+    floor_plans: "floor_plans",
+    walden_cont: "walden_cont",
+    photomedia: "photomedia",
+    photo: "photo",
+    collage: "collage",
+    spacial: "spacial",
+    doll_house: "doll_house",
+    textile: "textile",
+    have_half: "have_half",
+    spare_pieces: "spare_pieces",
+    commercial_cowboy: "commercial_cowboy",
+    red_light: "red_light",
+    plug_ins: "plug_ins",
+    doors: "doors",
+    entry: "entry",
+    field_notes: "field_notes"
   }
+
+  public static StudioLinks = [
+    {
+      id: StudioData.StudioIds.ongoing,
+      subtext: "(sidetable)",
+      links: [
+        {
+          id: StudioData.StudioIds.floor_plans,
+          isDoor: false,
+          isBehindDoor: false,
+          text: "Floor Plan",
+          subText: "(textile)"
+
+        },
+        {
+          id: StudioData.StudioIds.walden_cont,
+          isDoor: false,
+          isBehindDoor: false,
+          text: "Walden, cont.",
+          subText: "(spacial)"
+        }
+      ]
+    },
+    {
+      id: StudioData.StudioIds.photomedia,
+      subtext: "(top left main shelf)",
+      links: [
+        {
+          id: StudioData.StudioIds.photo,
+          isDoor: false,
+          isBehindDoor: false,
+          text: "Photo",
+
+        },
+        {
+          id: StudioData.StudioIds.collage,
+          isDoor: false,
+          isBehindDoor: false,
+          text: "Collage",
+        }
+      ] as RoomLink[]
+    },
+    {
+      id: StudioData.StudioIds.spacial,
+      subtext: "(top right main shelf)",
+      links: [
+        {
+          id: StudioData.StudioIds.doll_house,
+          isDoor: false,
+          isBehindDoor: false,
+          text: "Doll House",
+
+        }
+      ] as RoomLink[]
+    },
+    {
+      id: StudioData.StudioIds.textile,
+      subtext: "bottom main shelf",
+      links: [
+        {
+          id: StudioData.StudioIds.have_half,
+          isDoor: false,
+          isBehindDoor: false,
+          text: "Have Half",
+
+        },
+        {
+          id: StudioData.StudioIds.spare_pieces,
+          isDoor: false,
+          isBehindDoor: false,
+          text: "Spare Pieces",
+
+        },
+        {
+          id: StudioData.StudioIds.commercial_cowboy,
+          isDoor: false,
+          isBehindDoor: false,
+          text: "Commerical Cowboy",
+
+        },
+        {
+          id: StudioData.StudioIds.red_light,
+          isDoor: false,
+          isBehindDoor: false,
+          text: "Red Light",
+
+        },
+        {
+          id: StudioData.StudioIds.plug_ins,
+          isDoor: false,
+          isBehindDoor: false,
+          text: "Plug Ins",
+
+        }
+      ] as RoomLink[]
+    },
+    {
+      id: StudioData.StudioIds.doors,
+      links: [
+        {
+          id: StudioData.StudioIds.field_notes,
+          isDoor: true,
+          isBehindDoor: false,
+
+        },
+        {
+          id: StudioData.StudioIds.entry,
+          isDoor: true,
+          isBehindDoor: false,
+        }
+      ] as RoomLink[]
+    }
+  ] as RoomLinkGroup[]
 
   public static IllustrationSource = "/designs/Room Illustrations/Studio/Room Illustrations_Studio.png";
   public static MapCoordinates = {
     name: "studioMap",
     areas: [
-      { name: "fieldNotes", isDoor: true, shape: "rect", coords: [1956, 418, 2325, 1086] },
-      { name: "entry", isDoor: true, shape: "poly", coords: [2694, 413, 2934, 408, 2928, 1247, 2686, 1150] },
+      { name: StudioData.StudioIds.field_notes, shape: "rect", coords: [1956, 418, 2325, 1086] },
+      { name: StudioData.StudioIds.entry, shape: "poly", coords: [2694, 413, 2934, 408, 2928, 1247, 2686, 1150] },
 
-      { name: "floorPlans", isDoor: false, shape: "poly", coords: [304, 1107, 304, 1056, 129, 932, 129, 1105] },
-      { name: "waldenContinued", isDoor: false, shape: "rect", coords: [236, 824, 425, 1005] },
-      { name: "haveHalf", isDoor: false, shape: "rect", coords: [648, 835, 809, 934] },
-      { name: "sparePieces", isDoor: false, shape: "rect", coords: [868, 734, 1114, 931] },
-      { name: "commercialCowboy", isDoor: false, shape: "rect", coords: [1256, 670, 1336, 790] },
-      { name: "littleRedLight", isDoor: false, shape: "rect", coords: [1453, 657, 1547, 883] },
-      { name: "plugIns", isDoor: false, shape: "rect", coords: [1692, 808, 1796, 972] },
-      { name: "photoMedia", isDoor: false, shape: "poly", coords: [844, 517, 1071, 436, 1069, 159, 839, 231] },
-      { name: "collage", isDoor: false, shape: "poly", coords: [851, 580, 1033, 578, 1034, 463, 851, 529] },
-      { name: "dollHouse", isDoor: false, shape: "rect", coords: [1292, 142, 1408, 385] },
+      { name: StudioData.StudioIds.floor_plans, shape: "poly", coords: [304, 1107, 304, 1056, 129, 932, 129, 1105] },
+      { name: StudioData.StudioIds.walden_cont, shape: "rect", coords: [236, 824, 425, 1005] },
+      { name: StudioData.StudioIds.have_half, shape: "rect", coords: [648, 835, 809, 934] },
+      { name: StudioData.StudioIds.spare_pieces, shape: "rect", coords: [868, 734, 1114, 931] },
+      { name: StudioData.StudioIds.commercial_cowboy, shape: "rect", coords: [1256, 670, 1336, 790] },
+      { name: StudioData.StudioIds.red_light, shape: "rect", coords: [1453, 657, 1547, 883] },
+      { name: StudioData.StudioIds.plug_ins, shape: "rect", coords: [1692, 808, 1796, 972] },
+      { name: StudioData.StudioIds.photo, shape: "poly", coords: [844, 517, 1071, 436, 1069, 159, 839, 231] },
+      { name: StudioData.StudioIds.collage, shape: "poly", coords: [851, 580, 1033, 578, 1034, 463, 851, 529] },
+      { name: StudioData.StudioIds.doll_house, shape: "rect", coords: [1292, 142, 1408, 385] },
     ]
   };
 }
-
-/*
-  <area shape="poly" coords="304,1107,304,1056,129,932,129,1105" href="#" id="floorPlans">
-  <area shape="rect" coords="236,824,425,1005" href="#" id="waldenContinued">
-  <area shape="rect" coords="648,835,809,934" href="#" id="haveHalf">
-  <area shape="rect" coords="868,734,1114,931" href="#" id="sparePieces">
-  <area shape="rect" coords="1256,670,1336,790" href="#" id="commercialCowboy">
-  <area shape="rect" coords="1453,657,1547,883" href="#" id="littleRedLight">
-  <area shape="rect" coords="1692,808,1796,972" href="#" id="plugIns">
-  <area shape="poly" coords="844,517,1071,436,1069,159,839,231" href="#" id="photoMedia">
-  <area shape="poly" coords="851,580,1033,578,1034,463,851,529" href="#" id="collage">
-  <area shape="rect" coords="1292,142,1408,385" href="#" id="dollHouse">
-*/

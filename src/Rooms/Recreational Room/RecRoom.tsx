@@ -19,7 +19,7 @@ export class RecRoom extends Room {
     return <div className="content">
       {this.getRoomIllustration()}
       {this.getDialogue()}
-      <ModalRoute path='/recroom/:id' component={(props) => (<ObjectModal onClose={this.closeModal.bind(this)} />)} />
+      <ModalRoute path='/rec_room/:id' component={(props) => (<ObjectModal onClose={this.closeModal.bind(this)} />)} />
     </div>
   }
 
@@ -33,6 +33,8 @@ export class RecRoom extends Room {
         width={imageWidth}
         imgWidth={this.ORIGINAL_IMAGE_WIDTH}
         onClick={area => this.onImageClick(area)}
+        onMouseEnter={area => this.onImageObjectEnter(area)}
+        onMouseLeave={area => this.onImageObjectLeave()}
         strokeColor={"rgba(0, 0, 0, 0.0)"} />
     };
   }
@@ -85,7 +87,8 @@ export class RecRoom extends Room {
           <div id="rec-room-link-column">
             <div id="rec-room-link-group-container">
               {group.links.map(link => (
-                <button onClick={this.onClick.bind(this, link)} id="rec-room-link-container">
+                <button onClick={this.onClick.bind(this, link)} id="rec-room-link-container"
+                className={`${this.state.hoveredObjectId === link.id ? 'selected-link' : ''}`}>
                   <div id="rec-room-link-text">
                     {link.text}
                   </div>
@@ -121,6 +124,14 @@ export class RecRoom extends Room {
     throw new Error("Improperly mapped object name.");
 
     return match;
+  }
+
+  private onImageObjectEnter(object: RoomObject) {
+    this.setState({ hoveredObjectId: object.name });
+  }
+
+  private onImageObjectLeave() {
+    this.setState({ hoveredObjectId: null });
   }
 }
 

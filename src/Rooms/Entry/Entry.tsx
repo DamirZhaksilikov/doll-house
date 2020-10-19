@@ -31,6 +31,8 @@ export class Entry extends Room {
         width={imageWidth}
         imgWidth={this.ORIGINAL_IMAGE_WIDTH}
         onClick={area => this.onImageClick(area)}
+        onMouseEnter={area => this.onImageObjectEnter(area)}
+        onMouseLeave={area => this.onImageObjectLeave()}
         strokeColor={"rgba(0, 0, 0, 0.0)"} />
     };
   }
@@ -59,10 +61,13 @@ export class Entry extends Room {
   }
 
   private getRoomLinks() {
+    const link = EntryData.EntryRoomLinks[0];
+    
     return <div className="dialogue-container links-container" id="links-container-no-button">
-      <button onClick={this.onClick.bind(this, EntryData.EntryRoomLinks[0])} id="entry-room-link-container">
+      <button onClick={this.onClick.bind(this, link)} id="entry-room-link-container" 
+      className={`${this.state.hoveredObjectId === link.id ? 'selected-link' : ''}`}>
         <div id="entry-room-link">
-          {EntryData.EntryRoomLinks[0].text}
+          {link.text}
         </div>
       </button>
     </div>
@@ -76,6 +81,14 @@ export class Entry extends Room {
     }
 
     return this.onClick(match);
+  }
+
+  private onImageObjectEnter(object: RoomObject) {
+    this.setState({ hoveredObjectId: object.name });
+  }
+
+  private onImageObjectLeave() {
+    this.setState({ hoveredObjectId: null });
   }
 }
 

@@ -2,9 +2,12 @@ import './Studio.scss'
 import { Room } from '../_Shared Components/Room';
 import ImageMapper from 'react-image-mapper';
 import React from 'react';
-import { StudioData, StudioLinkGroup } from './StudioData';
+import { StudioData } from './StudioData';
 import { ModalRoute } from 'react-router-modal';
 import { ObjectModal } from '../_Shared Components/ObjectModal';
+import { RoomObject } from '../_Shared Components/RoomObject';
+import { RoomLink } from '../_Shared Components/RoomLink';
+import { RoomLinkGroup } from '../_Shared Components/RoomLinkGroup';
 
 export class Studio extends Room {
   constructor(props: any) {
@@ -29,7 +32,9 @@ export class Studio extends Room {
         map={StudioData.MapCoordinates}
         width={imageWidth}
         imgWidth={this.ORIGINAL_IMAGE_WIDTH}
-        onClick={area => this.onClick(area)}
+        onClick={area => this.onImageClick(area)}
+        onMouseEnter={area => this.onImageObjectEnter(area)}
+        onMouseLeave={area => this.onImageObjectLeave()}
         strokeColor={"rgba(0, 0, 0, 0.0)"} />
     };
   }
@@ -60,43 +65,69 @@ export class Studio extends Room {
   }
 
   private getRoomLinks() {
+    const linkGroups = StudioData.StudioLinks.filter(linkGroup => linkGroup.id !== "doors");
+
     return <div className="dialogue-container links-container" id="links-container-with-button">
       <div id="studio-link-content">
-        {this.getStudioLinkColumn(StudioData.StudioLinks.Ongoing)}
-        {this.getStudioLinkColumn(StudioData.StudioLinks.Photomedia)}
-        {this.getStudioLinkColumn(StudioData.StudioLinks.Spacial)}
-        {this.getStudioLinkColumn(StudioData.StudioLinks.Textile)}
+        {linkGroups.map(linkGroup => (
+          <div id="studio-link-column">
+            <div id="studio-link-group-container">
+              {linkGroup.links.map(link => (
+                <button id="studio-link-container" onClick={this.onClick.bind(this, link)}
+                className={`${this.state.hoveredObjectId === link.id ? 'selected-link' : ''}`}>
+                  <div id="studio-link-text">
+                    {link.text}
+                  </div>
+                  {link.subText &&
+                    <div id="studio-link-type">
+                      {link.subText}
+                    </div>
+                  }
+
+                </button>
+              ))}
+            </div>
+            <div id="studio-link-group-title-row">
+              <div id="studio-link-group-title-name">
+                {linkGroup.id}
+              </div>
+              <div id="studio-link-group-title-location">
+                {linkGroup.subtext}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   }
 
-  private getStudioLinkColumn(linkGroup: StudioLinkGroup) {
-    return <div id="studio-link-column">
-      <div id="studio-link-group-container">
-        {linkGroup.Links.map(link => (
-          <button id="studio-link-container">
-            <div id="studio-link-text">
-              {link.Title}
-            </div>
-            {link.HasType && link.Type &&
-              <div id="studio-link-type">
-                {`(${link.Type})`}
-              </div>
-            }
+  private onImageClick(object: RoomObject) {
+    let match = this.getObjectMatch(object);
+    this.onClick(match);
+  }
 
-          </button>
-        ))}
-      </div>
-      <div id="studio-link-group-title-row">
-        <div id="studio-link-group-title-name">
-          {linkGroup.Title}
-        </div>
-        <div id="studio-link-group-title-location">
-          {`(${linkGroup.Location})`}
-        </div>
-      </div>
-    </div>
+  private getObjectMatch(object: RoomObject): RoomLink {
+    let match;
 
+    StudioData.StudioLinks.forEach(function (linkGroup) {
+      linkGroup.links.forEach(function (link) {
+        if (link.id === object.name)
+          match = link;
+      })
+    });
+
+    if (!match)
+      throw new Error("Improperly mapped object name.");
+
+    return match;
+  }
+
+  private onImageObjectEnter(object: RoomObject) {
+    this.setState({ hoveredObjectId: object.name });
+  }
+
+  private onImageObjectLeave() {
+    this.setState({ hoveredObjectId: null });
   }
 }
 

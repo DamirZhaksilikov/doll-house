@@ -15,7 +15,7 @@ body {
       display: flex;
       margin-top: 10px;
       
-      button:hover {
+      button:hover, .selected-link {
         background-color: black;
         color: #F4F1ED;
       }

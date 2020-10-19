@@ -16,8 +16,8 @@ export class RecRoomData {
     images: "images",
     film: "film",
     doors: "doors",
-    referencesArchive: "referencesArchive",
-    fieldNotes: "fieldNotes",
+    references_archive: "references_archive",
+    field_notes: "field_notes",
     entry: "entry"
   }
 
@@ -78,12 +78,12 @@ export class RecRoomData {
       id: RecRoomData.RecRoomIds.doors,
       links: [
         {
-          id: RecRoomData.RecRoomIds.referencesArchive,
+          id: RecRoomData.RecRoomIds.references_archive,
           isDoor: true,
           isBehindDoor: false,
         },
         {
-          id: RecRoomData.RecRoomIds.fieldNotes,
+          id: RecRoomData.RecRoomIds.field_notes,
           isDoor: true,
           isBehindDoor: false,
         },
@@ -107,8 +107,8 @@ export class RecRoomData {
         { name: RecRoomData.RecRoomIds.images, shape: "rect", coords: [857,794,1212,919]},
         { name: RecRoomData.RecRoomIds.film, shape: "rect", coords: [1811,991,1989,1066]},
         
-        { name: RecRoomData.RecRoomIds.referencesArchive, shape: "poly", coords: [2806,846,2807,568,2807,558,2808,548,2810,541,2813,536,2819,532,2824,531,2831,531,2939,532,2951,532,2960,533,2965,535,2971,540,2976,546,2977,554,2977,562,2978,853]},
-        { name: RecRoomData.RecRoomIds.fieldNotes, shape: "poly", coords: [162,1066,162,402,162,389,162,379,163,370,166,360,172,352,178,346,184,342,190,340,199,339,214,341,233,344,243,348,248,353,253,360,257,367,260,377,261,386,262,397,262,407,261,939]}
+        { name: RecRoomData.RecRoomIds.references_archive, shape: "poly", coords: [2806,846,2807,568,2807,558,2808,548,2810,541,2813,536,2819,532,2824,531,2831,531,2939,532,2951,532,2960,533,2965,535,2971,540,2976,546,2977,554,2977,562,2978,853]},
+        { name: RecRoomData.RecRoomIds.field_notes, shape: "poly", coords: [162,1066,162,402,162,389,162,379,163,370,166,360,172,352,178,346,184,342,190,340,199,339,214,341,233,344,243,348,248,353,253,360,257,367,260,377,261,386,262,397,262,407,261,939]}
       ] as RoomObject[]
     };
   }

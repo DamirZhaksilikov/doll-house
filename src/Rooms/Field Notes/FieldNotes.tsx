@@ -19,7 +19,7 @@ export class FieldNotes extends Room {
     return <div className="content">
       {this.getRoomIllustration()}
       {this.getDialogue()}
-      <ModalRoute path='/fieldnotes/:id' component={(props) => (<ObjectModal onClose={this.closeModal.bind(this)} />)} />
+      <ModalRoute path='/field_notes/:id' component={(props) => (<ObjectModal onClose={this.closeModal.bind(this)} />)} />
     </div>
   }
 
@@ -33,6 +33,8 @@ export class FieldNotes extends Room {
         width={imageWidth}
         imgWidth={this.ORIGINAL_IMAGE_WIDTH}
         onClick={area => this.onImageClick(area)}
+        onMouseEnter={area => this.onImageObjectEnter(area)}
+        onMouseLeave={area => this.onImageObjectLeave()}
         strokeColor={"rgba(0, 0, 0, 0.0)"} />
     };
   }
@@ -64,17 +66,15 @@ export class FieldNotes extends Room {
   }
 
   public getBehindDoorButton() {
+    const doorLink = FieldNotesData.FieldNotesLinks.find(links => links.isBehindDoor);
+
     return <div id="row-one-with-button">
-      <button onClick={this.handleClick.bind(this)} className="dialogue-container" id="behind-door-container">
+      <button onClick={this.onClick.bind(this, doorLink)} className="dialogue-container" id="behind-door-container">
         <div id="behind-door-text">
           {RoomData.UseBackDoorButtonText}
         </div>
       </button>
     </div>
-  }
-
-  public handleClick(event: MouseEvent) {
-    this.props.history.push(`/${FieldNotesData.FieldNotesBehindDoor}/`);
   }
 
   private getRoomLinks() {
@@ -94,7 +94,8 @@ export class FieldNotes extends Room {
   }
 
   private getLinkButton(link: RoomLink) {
-    return <button id="field-notes-link-container" onClick={this.onClick.bind(this, link)}>
+    return <button id="field-notes-link-container" onClick={this.onClick.bind(this, link)}
+    className={`${this.state.hoveredObjectId === link.id ? 'selected-link' : ''}`}>
       <div id="field-notes-link-content">
         <div id="field-notes-link-title">
           {link.text}
@@ -114,6 +115,14 @@ export class FieldNotes extends Room {
     }
 
     return this.onClick(match);
+  }
+
+  private onImageObjectEnter(object: RoomObject) {
+    this.setState({ hoveredObjectId: object.name });
+  }
+
+  private onImageObjectLeave() {
+    this.setState({ hoveredObjectId: null });
   }
 }
 

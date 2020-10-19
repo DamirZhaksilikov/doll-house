@@ -4,6 +4,10 @@
     text-align-last: justify;
 }
 
+.site-info {
+  background-color: black;
+}
+
 
 #entry-room-link-container{
     border: 1px solid black;
@@ -26,5 +30,17 @@
       -moz-transform: scale(0.95, 1); /* Firefox */
       -ms-transform: scale(0.95, 1); /* IE 9+ */
       -o-transform: scale(0.95, 1); /* Opera */
+    }
+
+    #entry-room-link {
+      transform: scale(0.95, 1);
+      -webkit-transform: scale(0.95, 1); /* Safari and Chrome */
+      -moz-transform: scale(0.95, 1); /* Firefox */
+      -ms-transform: scale(0.95, 1); /* IE 9+ */
+      -o-transform: scale(0.95, 1); /* Opera */
+    }
+
+    #entry-room-link-selected {
+      color: red;
     }
 }

@@ -17,7 +17,7 @@ export class MailRoom extends Room {
     return <div className="content">
       {this.getRoomIllustration()}
       {this.getDialogue()}
-      <ModalRoute path='/mailroom/:id' component={(props) => (<ObjectModal onClose={this.closeModal.bind(this)} />)} />
+      <ModalRoute path='/mail_room/:id' component={(props) => (<ObjectModal onClose={this.closeModal.bind(this)} />)} />
     </div>
   }
 
@@ -31,6 +31,8 @@ export class MailRoom extends Room {
         width={imageWidth}
         imgWidth={this.ORIGINAL_IMAGE_WIDTH}
         onClick={area => this.onImageClick(area)}
+        onMouseEnter={area => this.onImageObjectEnter(area)}
+        onMouseLeave={area => this.onImageObjectLeave()}
         strokeColor={"rgba(0, 0, 0, 0.0)"} />
     };
   }
@@ -63,7 +65,9 @@ export class MailRoom extends Room {
     
     return <div className="dialogue-container links-container" id="mail-room-links-container">
       {objectLinks.map(link => (
-        <button onClick={this.onClick.bind(this, link)} className="mail-room-link-container" id="mail-room-link">
+        <button onClick={this.onClick.bind(this, link)} id="mail-room-link"
+        className={`${this.state.hoveredObjectId === link.id ? 
+        'selected-link mail-room-link-container' : 'mail-room-link-container'}`}>
             <div id="mail-room-link">
               {link.text}
             </div>
@@ -80,6 +84,14 @@ export class MailRoom extends Room {
     }
 
     return this.onClick(match);
+  }
+
+  private onImageObjectEnter(object: RoomObject) {
+    this.setState({ hoveredObjectId: object.name });
+  }
+
+  private onImageObjectLeave() {
+    this.setState({ hoveredObjectId: null });
   }
 }
 

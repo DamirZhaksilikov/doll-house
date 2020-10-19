@@ -20,16 +20,16 @@ const container = (
             <Route path="/entry" render={(props) => (
                <Entry {...props} room={RoomData.ENTRY} />
             )} />
-            <Route path="/fieldnotes" render={(props) => (
+            <Route path="/field_notes" render={(props) => (
                <FieldNotes {...props} room={RoomData.FIELD_NOTES} />
             )} />
-            <Route path="/mailroom" render={(props) => (
+            <Route path="/mail_room" render={(props) => (
                <MailRoom {...props} room={RoomData.MAIL_ROOM} />
             )} />
             <Route path="/studio" render={(props) => (
                <Studio {...props} room={RoomData.STUDIO} />
             )} />
-            <Route path="/recroom" render={(props) => (
+            <Route path="/rec_room" render={(props) => (
                <RecRoom {...props} room={RoomData.REC_ROOM} />
             )} />
          </div>
