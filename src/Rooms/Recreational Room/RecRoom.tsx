@@ -24,19 +24,23 @@ export class RecRoom extends Room {
   }
 
   private initializeMap(): ImageMapper {
-    const imageWidth = window.innerWidth * this.IMAGE_WIDTH_MULTIPLIER;
-
     this.state = {
       ...this.state,
-      imageMap: <ImageMapper src={RecRoomData.IllustrationSource}
-        map={RecRoomData.MapCoordinates}
-        width={imageWidth}
-        imgWidth={this.ORIGINAL_IMAGE_WIDTH}
-        onClick={area => this.onImageClick(area)}
-        onMouseEnter={area => this.onImageObjectEnter(area)}
-        onMouseLeave={area => this.onImageObjectLeave()}
-        strokeColor={"rgba(0, 0, 0, 0.0)"} />
+      imageMap: this.getImageMap(RecRoomData.MapCoordinates)
     };
+  }
+
+  private getImageMap(imageMap: any) {
+    const imageWidth = window.innerWidth * this.IMAGE_WIDTH_MULTIPLIER;
+
+    return <ImageMapper src={RecRoomData.IllustrationSource}
+      map={imageMap}
+      width={imageWidth}
+      imgWidth={this.ORIGINAL_IMAGE_WIDTH}
+      onClick={area => this.onImageClick(area)}
+      onMouseEnter={area => this.onImageObjectEnter(area)}
+      onMouseLeave={area => this.onImageObjectLeave()}
+      strokeColor={"rgba(0, 0, 0, 0.0)"} />
   }
 
   private getDialogue() {
@@ -87,7 +91,10 @@ export class RecRoom extends Room {
           <div id="rec-room-link-column">
             <div id="rec-room-link-group-container">
               {group.links.map(link => (
-                <button onClick={this.onClick.bind(this, link)} id="rec-room-link-container"
+                <button onClick={this.onClick.bind(this, link)} 
+                onMouseEnter={() => this.onLinkBoxEnter(link)}
+                onMouseLeave={() => this.onLinkBoxLeave(link)} 
+                id="rec-room-link-container"
                 className={`${this.state.hoveredObjectId === link.id ? 'selected-link' : ''}`}>
                   <div id="rec-room-link-text">
                     {link.text}
@@ -132,6 +139,42 @@ export class RecRoom extends Room {
 
   private onImageObjectLeave() {
     this.setState({ hoveredObjectId: null });
+  }
+
+  private onLinkBoxEnter(link: RoomLink) {
+    const matchIndex = RecRoomData.MapCoordinates.areas.findIndex(area => area.name === link.id),
+      areas = [...RecRoomData.MapCoordinates.areas];
+    areas[matchIndex] = {
+      name: areas[matchIndex].name,
+      shape: areas[matchIndex].shape,
+      coords: areas[matchIndex].coords,
+      preFillColor: "rgba(255, 255, 255, 0.5)"
+    };
+
+    const map = RecRoomData.MapCoordinates;
+    map.areas = areas;
+
+    this.setState({
+      imageMap: this.getImageMap(map)
+    });
+  }
+
+  private onLinkBoxLeave(link: RoomLink) {
+    const matchIndex = RecRoomData.MapCoordinates.areas.findIndex(area => area.name === link.id),
+      areas = [...RecRoomData.MapCoordinates.areas];
+    areas[matchIndex] = {
+      name: areas[matchIndex].name,
+      shape: areas[matchIndex].shape,
+      coords: areas[matchIndex].coords,
+      preFillColor: null
+    };
+
+    const map = RecRoomData.MapCoordinates;
+    map.areas = areas;
+
+    this.setState({
+      imageMap: this.getImageMap(map)
+    });
   }
 }
 

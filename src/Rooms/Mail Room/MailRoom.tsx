@@ -6,6 +6,7 @@ import { MailRoomData } from './MailRoomData';
 import { ModalRoute } from 'react-router-modal';
 import { ObjectModal } from '../_Shared Components/ObjectModal';
 import { RoomObject } from '../_Shared Components/RoomObject';
+import { RoomLink } from '../_Shared Components/RoomLink';
 
 export class MailRoom extends Room {
   constructor(props: any) {
@@ -22,19 +23,23 @@ export class MailRoom extends Room {
   }
 
   private initializeMap(): ImageMapper {
-    const imageWidth = window.innerWidth * this.IMAGE_WIDTH_MULTIPLIER;
-
     this.state = {
       ...this.state,
-      imageMap: <ImageMapper src={MailRoomData.IllustrationSource}
-        map={MailRoomData.MapCoordinates}
-        width={imageWidth}
-        imgWidth={this.ORIGINAL_IMAGE_WIDTH}
-        onClick={area => this.onImageClick(area)}
-        onMouseEnter={area => this.onImageObjectEnter(area)}
-        onMouseLeave={area => this.onImageObjectLeave()}
-        strokeColor={"rgba(0, 0, 0, 0.0)"} />
+      imageMap: this.getImageMap(MailRoomData.MapCoordinates)
     };
+  }
+
+  private getImageMap(imageMap: any) {
+    const imageWidth = window.innerWidth * this.IMAGE_WIDTH_MULTIPLIER;
+
+    return <ImageMapper src={MailRoomData.IllustrationSource}
+      map={imageMap}
+      width={imageWidth}
+      imgWidth={this.ORIGINAL_IMAGE_WIDTH}
+      onClick={area => this.onImageClick(area)}
+      onMouseEnter={area => this.onImageObjectEnter(area)}
+      onMouseLeave={area => this.onImageObjectLeave()}
+      strokeColor={"rgba(0, 0, 0, 0.0)"} />
   }
 
   private getDialogue() {
@@ -65,9 +70,11 @@ export class MailRoom extends Room {
     
     return <div className="dialogue-container links-container" id="mail-room-links-container">
       {objectLinks.map(link => (
-        <button onClick={this.onClick.bind(this, link)} id="mail-room-link"
-        className={`${this.state.hoveredObjectId === link.id ? 
-        'selected-link mail-room-link-container' : 'mail-room-link-container'}`}>
+        <button onClick={this.onClick.bind(this, link)}
+          onMouseEnter={() => this.onLinkBoxEnter(link)}
+          onMouseLeave={() => this.onLinkBoxLeave(link)} id="mail-room-link"
+          className={`${this.state.hoveredObjectId === link.id ? 
+          'selected-link mail-room-link-container' : 'mail-room-link-container'}`}>
             <div id="mail-room-link">
               {link.text}
             </div>
@@ -92,6 +99,56 @@ export class MailRoom extends Room {
 
   private onImageObjectLeave() {
     this.setState({ hoveredObjectId: null });
+  }
+
+  private onLinkBoxEnter(link: RoomLink) {
+    const indexes = this.getAllIndexes(MailRoomData.MapCoordinates.areas, link.id)
+    let areas = [...MailRoomData.MapCoordinates.areas];
+
+    indexes.forEach(matchIndex => {
+      areas[matchIndex] = {
+        name: areas[matchIndex].name,
+        shape: areas[matchIndex].shape,
+        coords: areas[matchIndex].coords,
+        preFillColor: "rgba(255, 255, 255, 0.5)"
+      };
+    });
+    
+    const map = MailRoomData.MapCoordinates;
+    map.areas = areas;
+
+    this.setState({
+      imageMap: this.getImageMap(map)
+    });
+  }
+
+  private onLinkBoxLeave(link: RoomLink) {
+    const indexes = this.getAllIndexes(MailRoomData.MapCoordinates.areas, link.id)
+    let areas = [...MailRoomData.MapCoordinates.areas];
+
+    indexes.forEach(matchIndex => {
+      areas[matchIndex] = {
+        name: areas[matchIndex].name,
+        shape: areas[matchIndex].shape,
+        coords: areas[matchIndex].coords,
+        preFillColor: null
+      };
+    });
+
+    const map = MailRoomData.MapCoordinates;
+    map.areas = areas;
+
+    this.setState({
+      imageMap: this.getImageMap(map)
+    });
+  }
+
+  private getAllIndexes(arr, val) {
+    var indexes = [], i;
+    for(i = 0; i < arr.length; i++)
+        if (arr[i].name === val)
+            indexes.push(i);
+    return indexes;
   }
 }
 

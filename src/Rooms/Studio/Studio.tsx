@@ -7,7 +7,6 @@ import { ModalRoute } from 'react-router-modal';
 import { ObjectModal } from '../_Shared Components/ObjectModal';
 import { RoomObject } from '../_Shared Components/RoomObject';
 import { RoomLink } from '../_Shared Components/RoomLink';
-import { RoomLinkGroup } from '../_Shared Components/RoomLinkGroup';
 
 export class Studio extends Room {
   constructor(props: any) {
@@ -24,19 +23,23 @@ export class Studio extends Room {
   }
 
   private initializeMap(): ImageMapper {
-    const imageWidth = window.innerWidth * this.IMAGE_WIDTH_MULTIPLIER;
-
     this.state = {
       ...this.state,
-      imageMap: <ImageMapper src={StudioData.IllustrationSource}
-        map={StudioData.MapCoordinates}
-        width={imageWidth}
-        imgWidth={this.ORIGINAL_IMAGE_WIDTH}
-        onClick={area => this.onImageClick(area)}
-        onMouseEnter={area => this.onImageObjectEnter(area)}
-        onMouseLeave={area => this.onImageObjectLeave()}
-        strokeColor={"rgba(0, 0, 0, 0.0)"} />
+      imageMap: this.getImageMap(StudioData.MapCoordinates)
     };
+  }
+
+  private getImageMap(imageMap: any) {
+    const imageWidth = window.innerWidth * this.IMAGE_WIDTH_MULTIPLIER;
+
+    return <ImageMapper src={StudioData.IllustrationSource}
+      map={imageMap}
+      width={imageWidth}
+      imgWidth={this.ORIGINAL_IMAGE_WIDTH}
+      onClick={area => this.onImageClick(area)}
+      onMouseEnter={area => this.onImageObjectEnter(area)}
+      onMouseLeave={area => this.onImageObjectLeave()}
+      strokeColor={"rgba(0, 0, 0, 0.0)"} />
   }
 
   private getDialogue() {
@@ -73,7 +76,10 @@ export class Studio extends Room {
           <div id="studio-link-column">
             <div id="studio-link-group-container">
               {linkGroup.links.map(link => (
-                <button id="studio-link-container" onClick={this.onClick.bind(this, link)}
+                <button id="studio-link-container" 
+                onClick={this.onClick.bind(this, link)}
+                onMouseEnter={() => this.onLinkBoxEnter(link)}
+                onMouseLeave={() => this.onLinkBoxLeave(link)} 
                 className={`${this.state.hoveredObjectId === link.id ? 'selected-link' : ''}`}>
                   <div id="studio-link-text">
                     {link.text}
@@ -128,6 +134,42 @@ export class Studio extends Room {
 
   private onImageObjectLeave() {
     this.setState({ hoveredObjectId: null });
+  }
+
+  private onLinkBoxEnter(link: RoomLink) {
+    const matchIndex = StudioData.MapCoordinates.areas.findIndex(area => area.name === link.id),
+      areas = [...StudioData.MapCoordinates.areas];
+    areas[matchIndex] = {
+      name: areas[matchIndex].name,
+      shape: areas[matchIndex].shape,
+      coords: areas[matchIndex].coords,
+      preFillColor: "rgba(255, 255, 255, 0.5)"
+    };
+
+    const map = StudioData.MapCoordinates;
+    map.areas = areas;
+
+    this.setState({
+      imageMap: this.getImageMap(map)
+    });
+  }
+
+  private onLinkBoxLeave(link: RoomLink) {
+    const matchIndex = StudioData.MapCoordinates.areas.findIndex(area => area.name === link.id),
+      areas = [...StudioData.MapCoordinates.areas];
+    areas[matchIndex] = {
+      name: areas[matchIndex].name,
+      shape: areas[matchIndex].shape,
+      coords: areas[matchIndex].coords,
+      preFillColor: null
+    };
+
+    const map = StudioData.MapCoordinates;
+    map.areas = areas;
+
+    this.setState({
+      imageMap: this.getImageMap(map)
+    });
   }
 }
 

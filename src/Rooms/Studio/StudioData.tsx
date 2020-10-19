@@ -1,5 +1,6 @@
 import { RoomLink } from "../_Shared Components/RoomLink";
 import { RoomLinkGroup } from "../_Shared Components/RoomLinkGroup";
+import { RoomObject } from "../_Shared Components/RoomObject";
 
 export class StudioData {
   public static StudioTitle = "Studio";
@@ -160,6 +161,6 @@ export class StudioData {
       { name: StudioData.StudioIds.photo, shape: "poly", coords: [844, 517, 1071, 436, 1069, 159, 839, 231] },
       { name: StudioData.StudioIds.collage, shape: "poly", coords: [851, 580, 1033, 578, 1034, 463, 851, 529] },
       { name: StudioData.StudioIds.doll_house, shape: "rect", coords: [1292, 142, 1408, 385] },
-    ]
+    ] as RoomObject[]
   };
 }

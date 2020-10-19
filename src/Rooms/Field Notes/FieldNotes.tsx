@@ -1,7 +1,7 @@
 import './FieldNotes.scss'
 import { Room } from '../_Shared Components/Room';
 import ImageMapper from 'react-image-mapper';
-import React, { MouseEvent } from 'react';
+import React from 'react';
 import { FieldNotesData } from './FieldNotesData';
 import { ModalRoute } from 'react-router-modal';
 import { ObjectModal } from '../_Shared Components/ObjectModal';
@@ -24,19 +24,23 @@ export class FieldNotes extends Room {
   }
 
   private initializeMap(): ImageMapper {
-    const imageWidth = window.innerWidth * this.IMAGE_WIDTH_MULTIPLIER;
-
     this.state = {
       ...this.state,
-      imageMap: <ImageMapper src={FieldNotesData.IllustrationSource}
-        map={FieldNotesData.MapCoordinates}
-        width={imageWidth}
-        imgWidth={this.ORIGINAL_IMAGE_WIDTH}
-        onClick={area => this.onImageClick(area)}
-        onMouseEnter={area => this.onImageObjectEnter(area)}
-        onMouseLeave={area => this.onImageObjectLeave()}
-        strokeColor={"rgba(0, 0, 0, 0.0)"} />
+      imageMap: this.getImageMap(FieldNotesData.MapCoordinates)
     };
+  }
+
+  private getImageMap(imageMap: any) {
+    const imageWidth = window.innerWidth * this.IMAGE_WIDTH_MULTIPLIER;
+
+    return <ImageMapper src={FieldNotesData.IllustrationSource}
+      map={imageMap}
+      width={imageWidth}
+      imgWidth={this.ORIGINAL_IMAGE_WIDTH}
+      onClick={area => this.onImageClick(area)}
+      onMouseEnter={area => this.onImageObjectEnter(area)}
+      onMouseLeave={area => this.onImageObjectLeave()}
+      strokeColor={"rgba(0, 0, 0, 0.0)"} />
   }
 
   private getDialogue() {
@@ -69,7 +73,8 @@ export class FieldNotes extends Room {
     const doorLink = FieldNotesData.FieldNotesLinks.find(links => links.isBehindDoor);
 
     return <div id="row-one-with-button">
-      <button onClick={this.onClick.bind(this, doorLink)} className="dialogue-container" id="behind-door-container">
+      <button 
+      onClick={this.onClick.bind(this, doorLink)} className="dialogue-container" id="behind-door-container">
         <div id="behind-door-text">
           {RoomData.UseBackDoorButtonText}
         </div>
@@ -94,7 +99,10 @@ export class FieldNotes extends Room {
   }
 
   private getLinkButton(link: RoomLink) {
-    return <button id="field-notes-link-container" onClick={this.onClick.bind(this, link)}
+    return <button id="field-notes-link-container" 
+    onClick={this.onClick.bind(this, link)}
+    onMouseEnter={() => this.onLinkBoxEnter(link)}
+    onMouseLeave={() => this.onLinkBoxLeave(link)}
     className={`${this.state.hoveredObjectId === link.id ? 'selected-link' : ''}`}>
       <div id="field-notes-link-content">
         <div id="field-notes-link-title">
@@ -123,6 +131,42 @@ export class FieldNotes extends Room {
 
   private onImageObjectLeave() {
     this.setState({ hoveredObjectId: null });
+  }
+
+  private onLinkBoxEnter(link: RoomLink) {
+    const matchIndex = FieldNotesData.MapCoordinates.areas.findIndex(area => area.name === link.id),
+      areas = [...FieldNotesData.MapCoordinates.areas];
+    areas[matchIndex] = {
+      name: areas[matchIndex].name,
+      shape: areas[matchIndex].shape,
+      coords: areas[matchIndex].coords,
+      preFillColor: "rgba(255, 255, 255, 0.5)"
+    };
+
+    const map = FieldNotesData.MapCoordinates;
+    map.areas = areas;
+
+    this.setState({
+      imageMap: this.getImageMap(map)
+    });
+  }
+
+  private onLinkBoxLeave(link: RoomLink) {
+    const matchIndex = FieldNotesData.MapCoordinates.areas.findIndex(area => area.name === link.id),
+      areas = [...FieldNotesData.MapCoordinates.areas];
+    areas[matchIndex] = {
+      name: areas[matchIndex].name,
+      shape: areas[matchIndex].shape,
+      coords: areas[matchIndex].coords,
+      preFillColor: null
+    };
+
+    const map = FieldNotesData.MapCoordinates;
+    map.areas = areas;
+
+    this.setState({
+      imageMap: this.getImageMap(map)
+    });
   }
 }
 

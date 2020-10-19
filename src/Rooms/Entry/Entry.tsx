@@ -6,6 +6,7 @@ import { EntryData } from './EntryData';
 import { ModalRoute } from 'react-router-modal';
 import { ObjectModal } from '../_Shared Components/ObjectModal';
 import { RoomObject } from "../_Shared Components/RoomObject";
+import { RoomLink } from "../_Shared Components/RoomLink";
 
 export class Entry extends Room {
   constructor(props: any) {
@@ -22,19 +23,23 @@ export class Entry extends Room {
   }
 
   private initializeMap(): ImageMapper {
-    const imageWidth = window.innerWidth * this.IMAGE_WIDTH_MULTIPLIER;
-
     this.state = {
       ...this.state,
-      imageMap: <ImageMapper src={EntryData.IllustrationSource}
-        map={EntryData.MapCoordinates}
-        width={imageWidth}
-        imgWidth={this.ORIGINAL_IMAGE_WIDTH}
-        onClick={area => this.onImageClick(area)}
-        onMouseEnter={area => this.onImageObjectEnter(area)}
-        onMouseLeave={area => this.onImageObjectLeave()}
-        strokeColor={"rgba(0, 0, 0, 0.0)"} />
+      imageMap: this.getImageMap(EntryData.MapCoordinates)
     };
+  }
+
+  private getImageMap(imageMap: any) {
+    const imageWidth = window.innerWidth * this.IMAGE_WIDTH_MULTIPLIER;
+
+    return <ImageMapper src={EntryData.IllustrationSource}
+      map={imageMap}
+      width={imageWidth}
+      imgWidth={this.ORIGINAL_IMAGE_WIDTH}
+      onClick={area => this.onImageClick(area)}
+      onMouseEnter={area => this.onImageObjectEnter(area)}
+      onMouseLeave={area => this.onImageObjectLeave()}
+      strokeColor={"rgba(0, 0, 0, 0.0)"} />
   }
 
   private getDialogue() {
@@ -64,8 +69,12 @@ export class Entry extends Room {
     const link = EntryData.EntryRoomLinks[0];
     
     return <div className="dialogue-container links-container" id="links-container-no-button">
-      <button onClick={this.onClick.bind(this, link)} id="entry-room-link-container" 
-      className={`${this.state.hoveredObjectId === link.id ? 'selected-link' : ''}`}>
+      <button 
+        onClick={this.onClick.bind(this, link)}
+        onMouseEnter={() => this.onLinkBoxEnter(link)}
+        onMouseLeave={() => this.onLinkBoxLeave(link)} 
+        id="entry-room-link-container" 
+        className={`${this.state.hoveredObjectId === link.id ? 'selected-link' : ''}`}>
         <div id="entry-room-link">
           {link.text}
         </div>
@@ -89,6 +98,42 @@ export class Entry extends Room {
 
   private onImageObjectLeave() {
     this.setState({ hoveredObjectId: null });
+  }
+
+  private onLinkBoxEnter(link: RoomLink) {
+    const matchIndex = EntryData.MapCoordinates.areas.findIndex(area => area.name === link.id),
+      areas = [...EntryData.MapCoordinates.areas];
+    areas[matchIndex] = {
+      name: areas[matchIndex].name,
+      shape: areas[matchIndex].shape,
+      coords: areas[matchIndex].coords,
+      preFillColor: "rgba(255, 255, 255, 0.5)"
+    };
+
+    const map = EntryData.MapCoordinates;
+    map.areas = areas;
+
+    this.setState({
+      imageMap: this.getImageMap(map)
+    });
+  }
+
+  private onLinkBoxLeave(link: RoomLink) {
+    const matchIndex = EntryData.MapCoordinates.areas.findIndex(area => area.name === link.id),
+      areas = [...EntryData.MapCoordinates.areas];
+    areas[matchIndex] = {
+      name: areas[matchIndex].name,
+      shape: areas[matchIndex].shape,
+      coords: areas[matchIndex].coords,
+      preFillColor: null
+    };
+
+    const map = EntryData.MapCoordinates;
+    map.areas = areas;
+
+    this.setState({
+      imageMap: this.getImageMap(map)
+    });
   }
 }
 
