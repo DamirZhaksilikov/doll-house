@@ -12,24 +12,24 @@ import { RoomData } from './Rooms/_Shared Components/RoomData';
 
 const container = (
    <div>
-      < BrowserRouter >
+      < BrowserRouter basename={process.env.PUBLIC_URL}>
          <div>
-            <Route exact path="doll-house/">
-               <Redirect to="doll-house/entry" />
+            <Route exact path="/">
+               <Redirect to="/entry" />
             </Route>
-            <Route path="doll-house/entry" render={(props) => (
+            <Route path="/entry" render={(props) => (
                <Entry {...props} room={RoomData.ENTRY} />
             )} />
-            <Route path="doll-house/field_notes" render={(props) => (
+            <Route path="/field_notes" render={(props) => (
                <FieldNotes {...props} room={RoomData.FIELD_NOTES} />
             )} />
-            <Route path="doll-house/mail_room" render={(props) => (
+            <Route path="/mail_room" render={(props) => (
                <MailRoom {...props} room={RoomData.MAIL_ROOM} />
             )} />
-            <Route path="doll-house/studio" render={(props) => (
+            <Route path="/studio" render={(props) => (
                <Studio {...props} room={RoomData.STUDIO} />
             )} />
-            <Route path="doll-house/rec_room" render={(props) => (
+            <Route path="/rec_room" render={(props) => (
                <RecRoom {...props} room={RoomData.REC_ROOM} />
             )} />
          </div>
