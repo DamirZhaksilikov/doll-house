@@ -5,20 +5,29 @@ export class MailRoomData {
   public static MailRoomTitle = "Mail Room"
   public static MailRoomInfo = "This room is a collection of things that move me. Curated by me and my community. Select an object to get started.";
   
+  public static MailRoomIds = {
+    mailMe: "mailMe",
+    interviewYou: "interviewYou",
+    entry: "entry"
+  }
+
   public static MailRoomLinks = [
     {
-      id: "mailMe",
-      isObject: true,
+      id: MailRoomData.MailRoomIds.mailMe,
+      isDoor: false,
+      isBehindDoor: false,
       text: "Contact me"
     },
     {
-      id: "interviewYou",
-      isObject: true,
+      id: MailRoomData.MailRoomIds.interviewYou,
+      isDoor: false,
+      isBehindDoor: false,
       text: "Let me interview you"
     },
     {
-      id: "entry",
-      isObject: false
+      id: MailRoomData.MailRoomIds.entry,
+      isDoor: true,
+      isBehindDoor: false,
     }
 
   ] as RoomLink[];

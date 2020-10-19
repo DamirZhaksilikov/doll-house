@@ -68,14 +68,14 @@ export class Entry extends Room {
     </div>
   }
 
-  public onImageClick(object: RoomObject) {
-    const matches = EntryData.EntryRoomLinks.filter(i => i.id === object.name);
+  private onImageClick(object: RoomObject) {
+    const match = EntryData.EntryRoomLinks.find(i => i.id === object.name);
 
-    if (matches.length === 0) {
+    if(!match) {
       throw new Error("Improperly mapped object name.");
     }
 
-    return this.onClick(matches[0]);
+    return this.onClick(match);
   }
 }
 
