@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/doll-house/static/css/main.7b976c6b.chunk.css",
+    "main.js": "/doll-house/static/js/main.687ff358.chunk.js",
+    "main.js.map": "/doll-house/static/js/main.687ff358.chunk.js.map",
+    "runtime-main.js": "/doll-house/static/js/runtime-main.c9571b0f.js",
+    "runtime-main.js.map": "/doll-house/static/js/runtime-main.c9571b0f.js.map",
+    "static/js/2.6fe3b82d.chunk.js": "/doll-house/static/js/2.6fe3b82d.chunk.js",
+    "static/js/2.6fe3b82d.chunk.js.map": "/doll-house/static/js/2.6fe3b82d.chunk.js.map",
+    "index.html": "/doll-house/index.html",
+    "precache-manifest.36780f27f61101e94b3e1eb2c53a9d90.js": "/doll-house/precache-manifest.36780f27f61101e94b3e1eb2c53a9d90.js",
+    "service-worker.js": "/doll-house/service-worker.js",
+    "static/css/main.7b976c6b.chunk.css.map": "/doll-house/static/css/main.7b976c6b.chunk.css.map",
+    "static/js/2.6fe3b82d.chunk.js.LICENSE.txt": "/doll-house/static/js/2.6fe3b82d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c9571b0f.js",
+    "static/js/2.6fe3b82d.chunk.js",
+    "static/css/main.7b976c6b.chunk.css",
+    "static/js/main.687ff358.chunk.js"
+  ]
+}
