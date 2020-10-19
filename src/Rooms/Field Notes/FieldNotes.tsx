@@ -1,13 +1,16 @@
 import './FieldNotes.scss'
 import { Room } from '../_Shared Components/Room';
 import ImageMapper from 'react-image-mapper';
+<<<<<<< HEAD
 import React from 'react';
 import { FieldNotesData } from './FieldNotesData';
+=======
+import React, { MouseEvent } from 'react';
+import { FieldNotesData, FieldNotesLinkObject } from './FieldNotesData';
+>>>>>>> parent of 2aec593... Completed rec room and field notes mapping
 import { ModalRoute } from 'react-router-modal';
 import { ObjectModal } from '../_Shared Components/ObjectModal';
 import { RoomData } from '../_Shared Components/RoomData';
-import { RoomObject } from '../_Shared Components/RoomObject';
-import { RoomLink } from '../_Shared Components/RoomLink';
 
 export class FieldNotes extends Room {
   constructor(props: any) {
@@ -26,7 +29,16 @@ export class FieldNotes extends Room {
   private initializeMap(): ImageMapper {
     this.state = {
       ...this.state,
+<<<<<<< HEAD
       imageMap: this.getImageMap(FieldNotesData.MapCoordinates)
+=======
+      imageMap: <ImageMapper src={FieldNotesData.IllustrationSource}
+        map={FieldNotesData.MapCoordinates}
+        width={imageWidth}
+        imgWidth={this.ORIGINAL_IMAGE_WIDTH}
+        onClick={area => this.onClick(area)}
+        strokeColor={"rgba(0, 0, 0, 0.0)"} />
+>>>>>>> parent of 2aec593... Completed rec room and field notes mapping
     };
   }
 
@@ -83,21 +95,19 @@ export class FieldNotes extends Room {
   }
 
   private getRoomLinks() {
-    const dialogueLinks = FieldNotesData.FieldNotesLinks.filter(link => !link.isDoor);
-
     return <div id="column-three-with-button">
       <div className="dialogue-container links-container" id="links-container-with-button">
         <div id="field-notes-link-content">
-          {dialogueLinks.map(link => (
-            <div id="field-notes-link-column">
-              {this.getLinkButton(link)}
-            </div>
-          ))}
+          {this.getFieldNotesLinkColumn(FieldNotesData.FieldNotesLinks.Observations)}
+          {this.getFieldNotesLinkColumn(FieldNotesData.FieldNotesLinks.WorkNotes)}
+          {this.getFieldNotesLinkColumn(FieldNotesData.FieldNotesLinks.Intimacies)}
+          {this.getFieldNotesLinkColumn(FieldNotesData.FieldNotesLinks.PrivateEssays)}
         </div>
       </div>
     </div>
   }
 
+<<<<<<< HEAD
   private getLinkButton(link: RoomLink) {
     return <button id="field-notes-link-container" 
     onClick={this.onClick.bind(this, link)}
@@ -121,8 +131,23 @@ export class FieldNotes extends Room {
     if (!match) {
       throw new Error("Improperly mapped object name.");
     }
+=======
+  private getFieldNotesLinkColumn(link: FieldNotesLinkObject) {
+    const isPublicText = link.IsPublic ? FieldNotesData.Public : FieldNotesData.Private;
+>>>>>>> parent of 2aec593... Completed rec room and field notes mapping
 
-    return this.onClick(match);
+    return <div id="field-notes-link-column">
+      <button id="field-notes-link-container">
+        <div id="field-notes-link-content">
+          <div id="field-notes-link-title">
+            {link.LinkText}
+          </div>
+          <div id="field-notes-link-is-public">
+            {isPublicText}
+          </div>
+        </div>
+      </button>
+    </div>
   }
 
   private onImageObjectEnter(object: RoomObject) {

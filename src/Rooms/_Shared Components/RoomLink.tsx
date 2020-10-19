@@ -3,5 +3,4 @@ export interface RoomLink {
     isDoor: boolean;
     isBehindDoor: boolean;
     text?: string;
-    subText?: string;
   }  

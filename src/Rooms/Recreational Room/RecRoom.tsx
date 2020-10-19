@@ -1,13 +1,12 @@
-import "./RecRoom.scss";
+import "./RecreationalRoom.scss";
 import { Room } from '../_Shared Components/Room';
 import ImageMapper from 'react-image-mapper';
-import React from 'react';
-import { RecRoomData } from './RecRoomData';
+import React, { MouseEvent } from 'react';
+import { RecRoomData, RecRoomLinkObject } from './RecRoomData';
 import { ModalRoute } from 'react-router-modal';
 import { ObjectModal } from '../_Shared Components/ObjectModal';
 import { RoomData } from "../_Shared Components/RoomData";
 import { RoomObject } from "../_Shared Components/RoomObject";
-import { RoomLink } from "../_Shared Components/RoomLink";
 
 export class RecRoom extends Room {
   constructor(props: any) {
@@ -26,7 +25,16 @@ export class RecRoom extends Room {
   private initializeMap(): ImageMapper {
     this.state = {
       ...this.state,
+<<<<<<< HEAD
       imageMap: this.getImageMap(RecRoomData.MapCoordinates)
+=======
+      imageMap: <ImageMapper src={RecRoomData.IllustrationSource}
+        map={RecRoomData.MapCoordinates}
+        width={imageWidth}
+        imgWidth={this.ORIGINAL_IMAGE_WIDTH}
+        onClick={area => this.onClick(area)}
+        strokeColor={"rgba(0, 0, 0, 0.0)"} />
+>>>>>>> parent of 2aec593... Completed rec room and field notes mapping
     };
   }
 
@@ -55,7 +63,7 @@ export class RecRoom extends Room {
 
         <div id="dialog-bottom-with-button">
           <div className="column-two" id="column-two-with-button">
-            {this.getRoomInfo(RecRoomData.RecRoomInfo)}
+            {this.getRoomInfo(RecRoomData.RecreationalRoomInfo)}
           </div>
           {this.getRoomLinks()}
         </div>
@@ -64,16 +72,17 @@ export class RecRoom extends Room {
   }
 
   public getBehindDoorButton() {
-    const doorLinkGroup = RecRoomData.RecRoomLinks.find(group => group.id === "doors");
-    const behindDoorLink = doorLinkGroup.links.find(link => link.isBehindDoor);
-    
     return <div id="row-one-with-button">
-      <button onClick={this.onClick.bind(this, behindDoorLink)} className="dialogue-container" id="behind-door-container">
+      <button onClick={this.handleClick.bind(this)} className="dialogue-container" id="behind-door-container">
         <div id="behind-door-text">
           {RoomData.UseBackDoorButtonText}
         </div>
       </button>
     </div>
+  }
+
+  public handleClick(event: MouseEvent) {
+    this.props.history.push(`/${RecRoomData.RecRoomBehindDoor}/`);
   }
 
   private getRoomTitle() {
@@ -83,10 +92,9 @@ export class RecRoom extends Room {
   }
 
   private getRoomLinks() {
-    const linkGroups = RecRoomData.RecRoomLinks.filter(i => i.id !== "doors");
-
     return <div id="column-three-with-button">
       <div className="dialogue-container links-container" id="links-container-with-button">
+<<<<<<< HEAD
         {linkGroups.map(group => (
           <div id="rec-room-link-column">
             <div id="rec-room-link-group-container">
@@ -108,29 +116,45 @@ export class RecRoom extends Room {
               </div>
             </div>
           </div>))}
+=======
+        {this.getRecRoomLinkColumn(RecRoomData.RecRoomLinks.Text)}
+        {this.getRecRoomLinkColumn(RecRoomData.RecRoomLinks.Music)}
+        {this.getRecRoomLinkColumn(RecRoomData.RecRoomLinks.Photomedia)}
+>>>>>>> parent of 2aec593... Completed rec room and field notes mapping
       </div>
     </div>
   }
 
-  private onImageClick(object: RoomObject) {
-    let match = this.getObjectMatch(object);
-    this.onClick(match);
+  private getRecRoomLinkColumn(recRoomLink: RecRoomLinkObject) {
+    return <div id="rec-room-link-column">
+      <div id="rec-room-link-group-container">
+        <button id="rec-room-link-container">
+          <div id="rec-room-link-text">
+            {recRoomLink.Links.LinkOne}
+          </div>
+        </button>
+        <button id="rec-room-link-container">
+          <div id="rec-room-link-text">
+            {recRoomLink.Links.LinkTwo}
+          </div>
+        </button>
+      </div>
+      <div id="rec-room-link-group-title-row">
+        <div id="rec-room-link-group-title-text">
+          {recRoomLink.Title}
+        </div>
+      </div>
+    </div>
   }
 
-  private getObjectMatch(object: RoomObject): RoomLink {
-    let match;
+  public onImageClick(object: RoomObject) {
+    const matches = RecRoomData.RecRoomLinks.filter(i => i.id === object.name);
 
-    RecRoomData.RecRoomLinks.forEach(function(linkGroup) {
-      linkGroup.links.forEach(function(link) {
-        if(link.id  === object.name)
-          match = link;
-        })
-    });
+    if (matches.length === 0) {
+      throw new Error("Improperly mapped object name.");
+    }
 
-  if(!match)
-    throw new Error("Improperly mapped object name.");
-
-    return match;
+    return this.onClick(matches[0]);
   }
 
   private onImageObjectEnter(object: RoomObject) {
