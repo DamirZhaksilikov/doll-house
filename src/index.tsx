@@ -14,22 +14,22 @@ const container = (
    <div>
       < BrowserRouter >
          <div>
-            <Route exact path="/">
-               <Redirect to="/entry" />
+            <Route exact path="doll-house/">
+               <Redirect to="doll-house/entry" />
             </Route>
-            <Route path="/entry" render={(props) => (
+            <Route path="doll-house/entry" render={(props) => (
                <Entry {...props} room={RoomData.ENTRY} />
             )} />
-            <Route path="/field_notes" render={(props) => (
+            <Route path="doll-house/field_notes" render={(props) => (
                <FieldNotes {...props} room={RoomData.FIELD_NOTES} />
             )} />
-            <Route path="/mail_room" render={(props) => (
+            <Route path="doll-house/mail_room" render={(props) => (
                <MailRoom {...props} room={RoomData.MAIL_ROOM} />
             )} />
-            <Route path="/studio" render={(props) => (
+            <Route path="doll-house/studio" render={(props) => (
                <Studio {...props} room={RoomData.STUDIO} />
             )} />
-            <Route path="/rec_room" render={(props) => (
+            <Route path="doll-house/rec_room" render={(props) => (
                <RecRoom {...props} room={RoomData.REC_ROOM} />
             )} />
          </div>
