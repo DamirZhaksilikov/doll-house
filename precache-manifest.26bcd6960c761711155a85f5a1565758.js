@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e9527797bd356b7f2383d4fb5852e4be",
+    "revision": "65571511a868c4898ed6f25c5de28de0",
     "url": "/doll-house/index.html"
   },
   {
-    "revision": "471e2ebd72a08ee54b84",
+    "revision": "e65b3726ba2a90bb2587",
     "url": "/doll-house/static/css/main.7b976c6b.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/doll-house/static/js/2.6fe3b82d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "471e2ebd72a08ee54b84",
-    "url": "/doll-house/static/js/main.14672b20.chunk.js"
+    "revision": "e65b3726ba2a90bb2587",
+    "url": "/doll-house/static/js/main.575864be.chunk.js"
   },
   {
     "revision": "1a31f915a938ff0dc704",
