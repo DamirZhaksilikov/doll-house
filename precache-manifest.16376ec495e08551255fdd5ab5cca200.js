@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8c8a0a814e9d4485c44bd478e86a774f",
+    "revision": "bf9741d8ff7aec25654f9e51d10dc7d3",
     "url": "/doll-house/index.html"
   },
   {
