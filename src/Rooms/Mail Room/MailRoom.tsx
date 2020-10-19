@@ -83,14 +83,14 @@ export class MailRoom extends Room {
     </div>
   }
 
-  public onImageClick(object: RoomObject) {
-    const matches = MailRoomData.MailRoomLinks.filter(i => i.id === object.name);
+  private onImageClick(object: RoomObject) {
+    const match = MailRoomData.MailRoomLinks.find(i => i.id === object.name);
 
-    if (matches.length === 0) {
+    if (!match) {
       throw new Error("Improperly mapped object name.");
     }
 
-    return this.onClick(matches[0]);
+    return this.onClick(match);
   }
 
   private onImageObjectEnter(object: RoomObject) {
