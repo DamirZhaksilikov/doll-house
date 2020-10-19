@@ -1,6 +1,6 @@
 export class RoomData {
-    public static MapIconSource = "/designs/Icons/Map.png";
-    public static SiteInfoIconSource = "/designs/Icons/Site Info.png";
+    public static MapIconSource = `${process.env.PUBLIC_URL}/designs/Icons/Map.png`;
+    public static SiteInfoIconSource = `${process.env.PUBLIC_URL}/designs/Icons/Site Info.png`;
 
     public static ENTRY = "entry";
     public static REC_ROOM = "rec_room";

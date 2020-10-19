@@ -96,7 +96,7 @@ export class RecRoomData {
     }    
   ] as RoomLinkGroup[];
 
-  public static IllustrationSource = "/designs/Room Illustrations/Recreational Room/Room Illustrations_Rec Room.png";
+  public static IllustrationSource = `${process.env.PUBLIC_URL}/designs/Room Illustrations/Recreational Room/Room Illustrations_Rec Room.png`;
     public static MapCoordinates = { 
       name: "recRoomMap",
       areas: [

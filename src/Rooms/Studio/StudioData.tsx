@@ -144,7 +144,7 @@ export class StudioData {
     }
   ] as RoomLinkGroup[]
 
-  public static IllustrationSource = "/designs/Room Illustrations/Studio/Room Illustrations_Studio.png";
+  public static IllustrationSource = `${process.env.PUBLIC_URL}/designs/Room Illustrations/Studio/Room Illustrations_Studio.png`;
   public static MapCoordinates = {
     name: "studioMap",
     areas: [

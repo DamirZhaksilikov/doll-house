@@ -32,7 +32,7 @@ export class MailRoomData {
 
   ] as RoomLink[];
 
-  public static IllustrationSource = "/designs/Room Illustrations/Mail Room/Room Illustrations_Mailroom.png";
+  public static IllustrationSource = `${process.env.PUBLIC_URL}/designs/Room Illustrations/Mail Room/Room Illustrations_Mailroom.png`;
   public static MapCoordinates = { 
     name: "mailRoomMap",
     areas: [

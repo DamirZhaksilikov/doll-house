@@ -67,7 +67,7 @@ export class FieldNotesData {
   
     ] as RoomLink[];
 
-    public static IllustrationSource = "/designs/Room Illustrations/Field Notes/Room Illustrations_Field Notes.png";
+    public static IllustrationSource = `${process.env.PUBLIC_URL}/designs/Room Illustrations/Field Notes/Room Illustrations_Field Notes.png`;
     public static MapCoordinates = { 
       name: "fieldNotesMap",
       areas: [
