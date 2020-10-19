@@ -2,7 +2,7 @@
   "name": "doll-house",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://damika.cc/",
+  "homepage": "https://damirzhaksilikov.github.io/doll-house/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
