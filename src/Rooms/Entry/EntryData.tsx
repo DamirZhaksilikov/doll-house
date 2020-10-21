@@ -3,8 +3,14 @@ import { RoomObject } from '../_Shared Components/RoomObject';
 
 export class EntryData {
     public static EntryRoomTitle = "Entry Room";
-    public static EntryRoomInfo= "This room is a collection of things that move me. Curated by me and my community. Select an object to get started.";
-  
+    public static EntryRoomInfoHeader = "iMessage\ndamir, "
+    public static EntryRoomInfo= "I won’t be home when you get there, but I left a lunch tray out for you. On the tray, you'll find a note with some house rules.\n\nTap the tray to read it.";
+
+    public static EntryRoomPromptInfo = "Welcome stranger,\n\nIf there’s something you’d like to be called, sign in below.\n\nHere, anonymity works just fine too."
+    public static EntryRoomPrompText = "alias";
+    public static EntryRoomSubmitText = "submit";
+    public static EntryRoomPromptAliasSet = "Welcome";
+    
     public static EntryRoomIds = {
       site_info: "site_info",
       rec_room: "rec_room",

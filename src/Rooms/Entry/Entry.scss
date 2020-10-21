@@ -4,14 +4,86 @@
     text-align-last: justify;
 }
 
-.site-info {
-  background-color: black;
+::placeholder {
+  color: black;
+  opacity: 1;
 }
 
 
-#entry-room-link-container{
+#entry-column-two-no-button {
+  width: 25%;
+
+  #entry-room-alias-prompt-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    #room-prompt-info {
+      text-align-last: left;
+    }
+
+    #room-prompt-alias-set {
+      text-align-last: center;
+    }
+
+    #entry-room-alias-prompt {
+      margin-top: 10px;
+      height: 100%;
+      display: flex;
+
+      #alias-input {
+        font-style: italic;
+        width: 71%;
+        background-color: #F4F1ED;
+        border: 1px solid black;
+        text-align: left !important;
+        font-size: calc(min(.8vw, 10px));
+      }
+
+      #alias-submit {
+        text-transform: uppercase;
+        width: 25%;
+        letter-spacing: 0.035em;
+        font-size: calc(min(.8vw, 10px));
+        border: 1px solid black;
+
+        transform: scale(0.95, 1);
+        -webkit-transform: scale(0.95, 1); /* Safari and Chrome */
+        -moz-transform: scale(0.95, 1); /* Firefox */
+        -ms-transform: scale(0.95, 1); /* IE 9+ */
+        -o-transform: scale(0.95, 1); /* Opera */
+      }
+
+      .submit-alias-enabled:hover {
+        background-color: black;
+        color: #F4F1ED;
+      }
+    }
+  }
+}
+
+#entry-column-three-no-button {
+  width: 25%;
+
+  #room-info {
+    justify-content: center;
+    align-items: center;
+    text-align-last: left;
+
+    #room-info-header {
+      font-style: italic;
+    }
+  }
+
+}
+
+#entry-column-four-no-button {
+  width: 32%;
+
+  #entry-room-link-container{
     border: 1px solid black;
-    margin: 5px 5px;
+    margin: 0px 5px;
 
     justify-content: center;
     align-items: center;
@@ -19,7 +91,7 @@
 
     text-align: center;
     width: 100%;
-    height: 90%;
+    height: 94%;
 
     letter-spacing: 0.035em;
     font-size: calc(min(.8vw, 10px));
@@ -39,8 +111,8 @@
       -ms-transform: scale(0.95, 1); /* IE 9+ */
       -o-transform: scale(0.95, 1); /* Opera */
     }
-
-    #entry-room-link-selected {
-      color: red;
-    }
+  }
 }
+
+
+

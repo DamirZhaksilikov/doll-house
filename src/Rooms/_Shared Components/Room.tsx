@@ -4,8 +4,9 @@ import ImageMapper from 'react-image-mapper';
 import { History } from 'history';
 import { RoomData } from './RoomData';
 import { RoomLink } from './RoomLink';
+import { Alias } from './Alias';
 
-interface RoomState {
+export interface RoomState {
   imageMap: ImageMapper;
   hoveredObjectId: string;
 };
@@ -13,9 +14,10 @@ interface RoomState {
 export type RoomProps = {
   history: History;
   room: string;
+  alias: Alias;
 };
 
-export class Room extends React.Component<RoomProps, RoomState> {
+export class Room<S extends RoomState = RoomState, P extends RoomProps = RoomProps> extends React.Component<P, S> {
     readonly ORIGINAL_IMAGE_WIDTH = 3000; 
     readonly IMAGE_WIDTH_MULTIPLIER = .73;
 
@@ -30,10 +32,13 @@ export class Room extends React.Component<RoomProps, RoomState> {
     }
 
     public getHelpIcons() {
+      const mapLink = RoomData.LinkIcons.find(link => link.id === RoomData.IconIds.site_map)
+      const siteInfoLink = RoomData.LinkIcons.find(link => link.id === RoomData.IconIds.site_info)
+      
       return <div className="dialogue-container" id="icons-container">
         <div id="icons">
-          <img src={RoomData.MapIconSource} className="icon" id="map-icon" />
-          <img src={RoomData.SiteInfoIconSource} className="icon" id="site-info-icon" />
+          <img onClick={this.onClick.bind(this, mapLink)} src={RoomData.MapIconSource} className="icon" id="map-icon" />
+          <img onClick={this.onClick.bind(this, siteInfoLink)} src={RoomData.SiteInfoIconSource} className="icon" id="site-info-icon" />
         </div>
       </div>
     }

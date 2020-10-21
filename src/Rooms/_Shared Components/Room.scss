@@ -14,11 +14,6 @@ body {
     .dialogue {
       display: flex;
       margin-top: 10px;
-      
-      button:hover, .selected-link {
-        background-color: black;
-        color: #F4F1ED;
-      }
 
       .dialogue-container {
         border: 2px solid black;
@@ -39,10 +34,9 @@ body {
         -o-transform: scale(1, 1.15); /* Opera */
       }
 
-      #room-info {
+      #room-info, #room-prompt {
         margin: auto;
         text-align: justify;  /* For Edge */
-        text-align-last: right;
         width: 85%;
         letter-spacing: 0.035em;
         font-size: calc(min(.8vw, 10px));
@@ -66,6 +60,11 @@ body {
         justify-content: center;
         align-items: center;
         display: flex;
+
+        button:hover, .selected-link {
+          background-color: black;
+          color: #F4F1ED;
+        }
       }
 
       .column-one {
@@ -86,6 +85,10 @@ body {
           .icon {
             margin-top: 12%; 
             margin-bottom: 10%;
+          }
+
+          .icon:hover {
+            background-color: black;
           }
         }
       }
