@@ -91,7 +91,8 @@ export class Entry extends Room<EntryState, EntryProps> {
           </div>
         ))}
       </div>
-      <form onSubmit={this.handleSubmitPrompt} id="entry-room-alias-prompt" >
+      <form onSubmit={this.handleSubmitPrompt} id="entry-room-alias-prompt" autoComplete="off">
+        <input type="hidden" value="something"/>
         <input type="text"
           id="alias-input"
           placeholder="alias"
