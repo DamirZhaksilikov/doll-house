@@ -13,6 +13,7 @@ export class FieldNotes extends Room {
   constructor(props: any) {
     super(props);
     this.initializeMap();
+    this.setResizeListener();
   }
 
   render() {
@@ -28,6 +29,16 @@ export class FieldNotes extends Room {
       ...this.state,
       imageMap: this.getImageMap(FieldNotesData.MapCoordinates)
     };
+  }
+
+  private setResizeListener() {
+    window.addEventListener('resize', this.resizeListener.bind(this));
+  }
+
+  private resizeListener() {
+    this.setState({
+      imageMap: this.getImageMap(FieldNotesData.MapCoordinates)
+    })
   }
 
   private getImageMap(imageMap: any) {

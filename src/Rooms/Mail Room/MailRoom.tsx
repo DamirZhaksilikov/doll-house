@@ -12,6 +12,7 @@ export class MailRoom extends Room {
   constructor(props: any) {
     super(props);
     this.initializeMap();
+    this.setResizeListener();
   }
 
   render() {
@@ -27,6 +28,16 @@ export class MailRoom extends Room {
       ...this.state,
       imageMap: this.getImageMap(MailRoomData.MapCoordinates)
     };
+  }
+
+  private setResizeListener() {
+    window.addEventListener('resize', this.resizeListener.bind(this));
+  }
+
+  private resizeListener() {
+    this.setState({
+      imageMap: this.getImageMap(MailRoomData.MapCoordinates)
+    })
   }
 
   private getImageMap(imageMap: any) {

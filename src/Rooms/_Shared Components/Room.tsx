@@ -27,8 +27,8 @@ export class Room<S extends RoomState = RoomState, P extends RoomProps = RoomPro
     
     public getRoomIllustration() {
       return <div id="room-illustration">
-      {this.state.imageMap}
-    </div>
+        {this.state.imageMap}
+      </div>
     }
 
     public getHelpIcons() {

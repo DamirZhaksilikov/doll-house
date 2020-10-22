@@ -23,6 +23,7 @@ export class Entry extends Room<EntryState, EntryProps> {
   constructor(props: any) {
     super(props);
     this.initializeState();
+    this.setResizeListener();
   }
 
   render() {
@@ -39,6 +40,16 @@ export class Entry extends Room<EntryState, EntryProps> {
       alias: this.props.alias,
       imageMap: this.getImageMap(EntryData.MapCoordinates)
     };
+  }
+
+  private setResizeListener() {
+    window.addEventListener('resize', this.resizeListener.bind(this));
+  }
+
+  private resizeListener() {
+    this.setState({
+      imageMap: this.getImageMap(EntryData.MapCoordinates)
+    })
   }
 
   private getImageMap(imageMap: any) {
