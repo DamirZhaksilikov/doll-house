@@ -3,6 +3,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 
   .content {
+    margin-top: -.25%;
     position: absolute;
     display: block;
     top: 50%;
@@ -17,6 +18,7 @@ body {
 
       .dialogue-container {
         border: 2px solid black;
+        background-color: #F4F1ED;
       }
 
       .room-title {
@@ -37,9 +39,9 @@ body {
       #room-info, #room-prompt {
         margin: auto;
         text-align: justify;  /* For Edge */
-        width: 85%;
-        letter-spacing: 0.035em;
-        font-size: calc(min(.8vw, 10px));
+        width: 80%;
+        letter-spacing: 0.02em;
+        font-size: .79vw;
 
         transform: scale(0.95, 1);
         -webkit-transform: scale(0.95, 1); /* Safari and Chrome */
@@ -68,8 +70,9 @@ body {
       }
 
       .column-one {
-        width: 18%;
+        width: 19%;
         padding-right: 10px;
+        padding-bottom: 0.5%;
 
           #map-icon {
             width: 24.75%;
@@ -84,7 +87,7 @@ body {
 
           .icon {
             margin-top: 12%; 
-            margin-bottom: 10%;
+            margin-bottom: 9%;
           }
 
           .icon:hover {
@@ -98,7 +101,7 @@ body {
       }
 
       #column-two-no-button {
-        width: 26%;
+        width: 28%;
       }
 
       #column-three-no-button {

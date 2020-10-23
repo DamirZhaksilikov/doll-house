@@ -27,10 +27,12 @@ export class Entry extends Room<EntryState, EntryProps> {
   }
 
   render() {
-    return <div className="content">
-      {this.getRoomIllustration()}
-      {this.getDialogue()}
-      <ModalRoute path='/entry/:id' component={(props) => (<ObjectModal onClose={this.closeModal.bind(this)} />)} />
+    return <div id="parent" style={{ backgroundImage: `url("${EntryData.BackgroundSource}")` }}>
+      <div className="content">
+        {this.getRoomIllustration()}
+        {this.getDialogue()}
+        <ModalRoute path='/entry/:id' component={(props) => (<ObjectModal onClose={this.closeModal.bind(this)} />)} />
+      </div>
     </div>
   }
 

@@ -8,9 +8,16 @@
   opacity: 1;
 }
 
+#parent {
+  height: 100vh;
+  background-size: 100vw;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
 
 #entry-column-two-no-button {
-  width: 25%;
+  width: 26%;
 
   #entry-room-alias-prompt-container {
     display: flex;
@@ -19,7 +26,6 @@
     height: 100%;
 
     #room-prompt-info {
-      margin-top:5px;
       text-align-last: left;
     }
 
@@ -28,7 +34,7 @@
     }
 
     #entry-room-alias-prompt {
-      margin-top: 12px;
+      margin-top: 1.2vw;
       height: 100%;
       display: flex;
 
@@ -37,15 +43,15 @@
         width: 71%;
         background-color: #F4F1ED;
         border: 1px solid black;
-        text-align: left !important;
-        font-size: calc(min(.8vw, 10px));
+        font-size: .82vw;
       }
 
       #alias-submit {
+        margin: auto;
         text-transform: uppercase;
-        width: 25%;
+        width: 29%;
         letter-spacing: 0.035em;
-        font-size: calc(min(.8vw, 10px));
+        font-size: .82vw;
         border: 1px solid black;
 
         transform: scale(0.95, 1);
@@ -64,7 +70,7 @@
 }
 
 #entry-column-three-no-button {
-  width: 25%;
+  width: 26%;
 
   #room-info {
     justify-content: center;
