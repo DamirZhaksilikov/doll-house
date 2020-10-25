@@ -9,6 +9,8 @@ import { RoomObject } from "../_Shared Components/RoomObject";
 import { RoomLink } from "../_Shared Components/RoomLink";
 import moment from "moment";
 import { Alias } from "../_Shared Components/Alias";
+import { HouseMap } from "../_Shared Components/HouseMap";
+import { RoomData } from "../_Shared Components/RoomData";
 
 interface EntryState extends RoomState {
   aliasInput: string;
@@ -31,7 +33,11 @@ export class Entry extends Room<EntryState, EntryProps> {
       <div className="content">
         {this.getRoomIllustration()}
         {this.getDialogue()}
-        <ModalRoute path='/entry/:id' component={(props) => (<ObjectModal onClose={this.closeModal.bind(this)} />)} />
+        <ModalRoute 
+          path='/entry/:id' 
+          component={(props) => (
+            this.getEntryModal((props.match.params as any).id)
+          )} />
       </div>
     </div>
   }
@@ -256,6 +262,19 @@ export class Entry extends Room<EntryState, EntryProps> {
     this.setState({
       imageMap: this.getImageMap(map)
     });
+  }
+
+  private getEntryModal(id: string) {
+   let content;
+
+   if(id === RoomData.IconIds.site_map) {
+        content = <HouseMap documentSource={`${process.env.PUBLIC_URL}/designs/Screen Mocks/Entry/Entry_Map.png`}/>
+   }
+    
+    return <ObjectModal 
+      onClose={this.closeModal.bind(this)} 
+      content={content}
+    />
   }
 }
 

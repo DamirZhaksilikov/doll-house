@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 
 type ObjectModalProps = {
     onClose: any;
+    content?: any;
 };
 
 export class ObjectModal extends React.Component<ObjectModalProps, {}> {  
@@ -14,7 +15,7 @@ export class ObjectModal extends React.Component<ObjectModalProps, {}> {
             contentLabel="Modal with image"
             appElement={document.getElementById('app')}>
             <div id="modal-body">
-                <img id="map" src={`${process.env.PUBLIC_URL}/designs/Screen Mocks/Entry/Entry_Map.png`} />
+                {this.props.content}
             </div>
                 
         </Modal>

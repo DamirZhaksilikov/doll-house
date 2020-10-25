@@ -5,6 +5,7 @@ import { History } from 'history';
 import { RoomData } from './RoomData';
 import { RoomLink } from './RoomLink';
 import { Alias } from './Alias';
+import { match } from 'react-router-dom';
 
 export interface RoomState {
   imageMap: ImageMapper;
@@ -13,6 +14,7 @@ export interface RoomState {
 
 export type RoomProps = {
   history: History;
+  match: match;
   room: string;
   alias: Alias;
 };
