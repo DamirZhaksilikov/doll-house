@@ -46,7 +46,7 @@ export class EntryData {
 
     public static IllustrationSource = `${process.env.PUBLIC_URL}/designs/Room Illustrations/Entry/Room Illustrations_Entry.png`;
     public static BackgroundSource = `${process.env.PUBLIC_URL}/designs/Screen Mocks/Entry/Entry_Background.png`;
-    public static EntryMapDocumentSource = `${process.env.PUBLIC_URL}/designs/Documents/Entry/Entry_Map.pdf`;    
+    public static EntryMapDocumentSource = `${process.env.PUBLIC_URL}/documents/Entry/Entry_Map.pdf`;    
 
     public static MapCoordinates = { 
       name: "entryMap",
