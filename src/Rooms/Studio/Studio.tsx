@@ -1,12 +1,12 @@
 import './Studio.scss'
-import { Room } from '../_Shared Components/Room';
+import { Room } from '../_Shared Components/Room/Room';
 import ImageMapper from 'react-image-mapper';
 import React from 'react';
 import { StudioData } from './StudioData';
 import { ModalRoute } from 'react-router-modal';
-import { ObjectModal } from '../_Shared Components/ObjectModal';
-import { RoomObject } from '../_Shared Components/RoomObject';
-import { RoomLink } from '../_Shared Components/RoomLink';
+import { ObjectModal } from '../_Shared Components/Modal/ObjectModal';
+import { RoomObject } from '../_Shared Components/Room/RoomObject';
+import { RoomLink } from '../_Shared Components/Room/RoomLink';
 
 export class Studio extends Room {
   constructor(props: any) {

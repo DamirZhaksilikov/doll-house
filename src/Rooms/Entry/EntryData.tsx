@@ -1,6 +1,6 @@
-import { RoomData } from '../_Shared Components/RoomData';
-import { RoomLink } from '../_Shared Components/RoomLink'
-import { RoomObject } from '../_Shared Components/RoomObject';
+import { RoomData } from '../_Shared Components/Room/RoomData';
+import { RoomLink } from '../_Shared Components/Room/RoomLink'
+import { RoomObject } from '../_Shared Components/Room/RoomObject';
 
 export class EntryData {
     public static EntryRoomTitle = "Entry Room";
@@ -46,7 +46,7 @@ export class EntryData {
 
     public static IllustrationSource = `${process.env.PUBLIC_URL}/designs/Room Illustrations/Entry/Room Illustrations_Entry.png`;
     public static BackgroundSource = `${process.env.PUBLIC_URL}/designs/Screen Mocks/Entry/Entry_Background.png`;
-    public static EntryMapDocumentSource = `${process.env.PUBLIC_URL}/designs/Screen Mocks/Entry/Entry_Map.pdf`;    
+    public static EntryMapDocumentSource = `${process.env.PUBLIC_URL}/designs/Documents/Entry/Entry_Map.pdf`;    
 
     public static MapCoordinates = { 
       name: "entryMap",

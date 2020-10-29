@@ -1,16 +1,16 @@
 import "./Entry.scss";
-import { Room, RoomProps, RoomState } from '../_Shared Components/Room';
+import { Room, RoomProps, RoomState } from '../_Shared Components/Room/Room';
 import ImageMapper from 'react-image-mapper';
 import React from 'react';
 import { EntryData } from './EntryData';
 import { ModalRoute } from 'react-router-modal';
-import { ObjectModal } from '../_Shared Components/ObjectModal';
-import { RoomObject } from "../_Shared Components/RoomObject";
-import { RoomLink } from "../_Shared Components/RoomLink";
+import { ObjectModal } from '../_Shared Components/Modal/ObjectModal';
+import { RoomObject } from "../_Shared Components/Room/RoomObject";
+import { RoomLink } from "../_Shared Components/Room/RoomLink";
 import moment from "moment";
-import { Alias } from "../_Shared Components/Alias";
-import { RoomData } from "../_Shared Components/RoomData";
-import { ObjectDocument } from "../_Shared Components/ObjectDocument";
+import { Alias } from "../_Shared Components/Room/Alias";
+import { RoomData } from "../_Shared Components/Room/RoomData";
+import { ObjectDocument } from "../_Shared Components/Modal/ObjectDocument";
 
 interface EntryState extends RoomState {
   aliasInput: string;

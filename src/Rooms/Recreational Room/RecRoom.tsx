@@ -1,13 +1,13 @@
 import "./RecRoom.scss";
-import { Room } from '../_Shared Components/Room';
+import { Room } from '../_Shared Components/Room/Room';
 import ImageMapper from 'react-image-mapper';
 import React from 'react';
 import { RecRoomData } from './RecRoomData';
 import { ModalRoute } from 'react-router-modal';
-import { ObjectModal } from '../_Shared Components/ObjectModal';
-import { RoomData } from "../_Shared Components/RoomData";
-import { RoomObject } from "../_Shared Components/RoomObject";
-import { RoomLink } from "../_Shared Components/RoomLink";
+import { ObjectModal } from '../_Shared Components/Modal/ObjectModal';
+import { RoomData } from "../_Shared Components/Room/RoomData";
+import { RoomObject } from "../_Shared Components/Room/RoomObject";
+import { RoomLink } from "../_Shared Components/Room/RoomLink";
 
 export class RecRoom extends Room {
   constructor(props: any) {

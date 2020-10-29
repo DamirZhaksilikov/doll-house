@@ -7,8 +7,8 @@ import { Studio } from './Rooms/Studio/Studio';
 import { RecRoom } from './Rooms/Recreational Room/RecRoom';
 import { FieldNotes } from './Rooms/Field Notes/FieldNotes';
 import { ModalContainer } from 'react-router-modal';
-import { RoomData } from './Rooms/_Shared Components/RoomData';
-import { Alias } from './Rooms/_Shared Components/Alias';
+import { RoomData } from './Rooms/_Shared Components/Room/RoomData';
+import { Alias } from './Rooms/_Shared Components/Room/Alias';
 
 export interface AppState {
     alias: Alias;

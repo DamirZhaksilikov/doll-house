@@ -1,6 +1,6 @@
-import { RoomLink } from "../_Shared Components/RoomLink";
-import { RoomLinkGroup } from "../_Shared Components/RoomLinkGroup";
-import { RoomObject } from "../_Shared Components/RoomObject";
+import { RoomLink } from "../_Shared Components/Room/RoomLink";
+import { RoomLinkGroup } from "../_Shared Components/Room/RoomLinkGroup";
+import { RoomObject } from "../_Shared Components/Room/RoomObject";
 
 export class StudioData {
   public static StudioTitle = "Studio";

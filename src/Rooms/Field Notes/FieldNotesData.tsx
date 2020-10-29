@@ -1,5 +1,5 @@
-import { RoomLink } from "../_Shared Components/RoomLink";
-import { RoomObject } from "../_Shared Components/RoomObject";
+import { RoomLink } from "../_Shared Components/Room/RoomLink";
+import { RoomObject } from "../_Shared Components/Room/RoomObject";
 
 export interface FieldNotesLinkObject {
   LinkText: string;

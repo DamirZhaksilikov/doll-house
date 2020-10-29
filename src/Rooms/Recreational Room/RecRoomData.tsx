@@ -1,5 +1,5 @@
-import { RoomLinkGroup } from "../_Shared Components/RoomLinkGroup";
-import { RoomObject } from "../_Shared Components/RoomObject";
+import { RoomLinkGroup } from "../_Shared Components/Room/RoomLinkGroup";
+import { RoomObject } from "../_Shared Components/Room/RoomObject";
 
 export class RecRoomData {
   public static RecRoomTitle = "Rec Room";
