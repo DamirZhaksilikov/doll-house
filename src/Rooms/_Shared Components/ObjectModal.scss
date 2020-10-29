@@ -3,7 +3,7 @@
     background-color: #F4F1ED;
     outline: none !important;
     width: 70vw;
-    height: 72.5vh;
+    height: 73vh;
     overflow-y: initial !important;
 
     position: fixed;
@@ -12,11 +12,16 @@
     left: 50%;
     transform: translate(-50%, -50%);
 
+    .react-pdf__Page {
+        height: 72.5vh;
+        overflow-y: auto;
+    }
+
     #modal-body {
         height: 72.5vh;
         overflow-y: auto;
 
-        #house-map {
+        .modal-document {
             width: 70vw;
         }
     }

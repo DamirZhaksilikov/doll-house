@@ -20,6 +20,7 @@
     "react-dom": "^16.13.1",
     "react-image-mapper": "0.0.15",
     "react-modal": "^3.11.2",
+    "react-pdf": "^5.0.0",
     "react-router-dom": "^5.2.0",
     "react-router-modal": "^1.5.2",
     "react-router-modal-gallery": "^1.1.3",

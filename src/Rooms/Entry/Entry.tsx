@@ -9,8 +9,8 @@ import { RoomObject } from "../_Shared Components/RoomObject";
 import { RoomLink } from "../_Shared Components/RoomLink";
 import moment from "moment";
 import { Alias } from "../_Shared Components/Alias";
-import { HouseMap } from "../_Shared Components/HouseMap";
 import { RoomData } from "../_Shared Components/RoomData";
+import { ObjectDocument } from "../_Shared Components/ObjectDocument";
 
 interface EntryState extends RoomState {
   aliasInput: string;
@@ -268,7 +268,9 @@ export class Entry extends Room<EntryState, EntryProps> {
    let content;
 
    if(id === RoomData.IconIds.site_map) {
-        content = <HouseMap documentSource={`${process.env.PUBLIC_URL}/designs/Screen Mocks/Entry/Entry_Map.png`}/>
+      content = <ObjectDocument documentSource={EntryData.EntryMapDocumentSource}/>
+   } else if(id === RoomData.IconIds.site_info) {
+      content = <ObjectDocument documentSource={RoomData.SiteInfoDocumentSource}/>
    }
     
     return <ObjectModal 
