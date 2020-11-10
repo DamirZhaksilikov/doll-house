@@ -3,7 +3,7 @@ import { RoomObject } from "../_Shared Components/Room/RoomObject";
 
 export class MailRoomData {
   public static MailRoomTitle = "Mail Room"
-  public static MailRoomInfo = "This room is a collection of things that move me. Curated by me and my community. Select an object to get started.";
+  public static MailRoomInfo = "My digital P.O. box. Get in contact with me.";
   
   public static MailRoomIds = {
     mail_me: "mail_me",
@@ -33,6 +33,9 @@ export class MailRoomData {
   ] as RoomLink[];
 
   public static IllustrationSource = `${process.env.PUBLIC_URL}/designs/Room Illustrations/Mail Room/Room Illustrations_Mailroom.png`;
+  public static MailRoomMapDocumentSource = `${process.env.PUBLIC_URL}/documents/Mail Room/Mail Room Map/Mail_Room_Map`;    
+
+  
   public static MapCoordinates = { 
     name: "mailRoomMap",
     areas: [

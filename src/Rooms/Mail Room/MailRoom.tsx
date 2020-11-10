@@ -7,6 +7,8 @@ import { ModalRoute } from 'react-router-modal';
 import { ObjectModal } from '../_Shared Components/Modal/ObjectModal';
 import { RoomObject } from '../_Shared Components/Room/RoomObject';
 import { RoomLink } from '../_Shared Components/Room/RoomLink';
+import { ObjectDocument } from '../_Shared Components/Modal/ObjectDocument';
+import { RoomData } from '../_Shared Components/Room/RoomData';
 
 export class MailRoom extends Room {
   constructor(props: any) {
@@ -19,7 +21,11 @@ export class MailRoom extends Room {
     return <div className="content">
       {this.getRoomIllustration()}
       {this.getDialogue()}
-      <ModalRoute path='/mail_room/:id' component={(props) => (<ObjectModal onClose={this.closeModal.bind(this)} />)} />
+      <ModalRoute
+        path='/mail_room/:id'
+        component={(props) => (
+          this.getMailRoomModal((props.match.params as any).id)
+        )} />
     </div>
   }
 
@@ -78,18 +84,18 @@ export class MailRoom extends Room {
 
   private getRoomLinks() {
     const objectLinks = MailRoomData.MailRoomLinks.filter(i => !i.isDoor);
-    
+
     return <div className="dialogue-container links-container" id="mail-room-links-container">
       {objectLinks.map(link => (
         <button onClick={this.onClick.bind(this, link)}
           onMouseEnter={() => this.onLinkBoxEnter(link)}
           onMouseLeave={() => this.onLinkBoxLeave(link)} id="mail-room-link"
-          className={`${this.state.hoveredObjectId === link.id ? 
-          'selected-link mail-room-link-container' : 'mail-room-link-container'}`}>
-            <div id="mail-room-link">
-              {link.text}
-            </div>
-          </button>
+          className={`${this.state.hoveredObjectId === link.id ?
+            'selected-link mail-room-link-container' : 'mail-room-link-container'}`}>
+          <div id="mail-room-link">
+            {link.text}
+          </div>
+        </button>
       ))}
     </div>
   }
@@ -124,7 +130,7 @@ export class MailRoom extends Room {
         preFillColor: "rgba(255, 255, 255, 0.5)"
       };
     });
-    
+
     const map = MailRoomData.MapCoordinates;
     map.areas = areas;
 
@@ -156,10 +162,25 @@ export class MailRoom extends Room {
 
   private getAllIndexes(arr, val) {
     var indexes = [], i;
-    for(i = 0; i < arr.length; i++)
-        if (arr[i].name === val)
-            indexes.push(i);
+    for (i = 0; i < arr.length; i++)
+      if (arr[i].name === val)
+        indexes.push(i);
     return indexes;
+  }
+
+  private getMailRoomModal(id: string) {
+    let content;
+
+    if (id === RoomData.IconIds.site_map) {
+      content = <ObjectDocument baseFileSource={MailRoomData.MailRoomMapDocumentSource} numPages={1} />
+    } else if (id === RoomData.IconIds.site_info) {
+      content = <ObjectDocument baseFileSource={RoomData.SiteInfoDocumentSource} numPages={1} />
+    }
+
+    return <ObjectModal
+      onClose={this.closeModal.bind(this)}
+      content={content}
+    />
   }
 }
 

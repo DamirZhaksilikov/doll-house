@@ -7,6 +7,9 @@ import { ModalRoute } from 'react-router-modal';
 import { ObjectModal } from '../_Shared Components/Modal/ObjectModal';
 import { RoomObject } from '../_Shared Components/Room/RoomObject';
 import { RoomLink } from '../_Shared Components/Room/RoomLink';
+import { RoomData } from '../_Shared Components/Room/RoomData';
+import { ObjectDocument } from '../_Shared Components/Modal/ObjectDocument';
+import { PhotomediaContent } from './PhotomediaContent';
 
 export class Studio extends Room {
   constructor(props: any) {
@@ -19,8 +22,11 @@ export class Studio extends Room {
     return <div className="content">
       {this.getRoomIllustration()}
       {this.getDialogue()}
-      <ModalRoute path='/studio/:id' component={(props) => (<ObjectModal onClose={this.closeModal.bind(this)} />)} />
-    </div>
+      <ModalRoute 
+          path='/studio/:id' 
+          component={(props) => (
+            this.getStudioModal((props.match.params as any).id)
+          )} />    </div>
   }
 
   private initializeMap(): ImageMapper {
@@ -182,5 +188,37 @@ export class Studio extends Room {
       imageMap: this.getImageMap(map)
     });
   }
+
+  private getStudioModal(id: string) {
+    let content;
+ 
+    if(id === RoomData.IconIds.site_map) {
+      content = <ObjectDocument baseFileSource={StudioData.StudioMapDocumentSource} numPages={1}/>
+    } else if(id === RoomData.IconIds.site_info) {
+       content = <ObjectDocument baseFileSource={RoomData.SiteInfoDocumentSource} numPages={1}/>
+    } else if(id === StudioData.StudioIds.photo) {
+      content = <PhotomediaContent links={StudioData.PhotoSources} />
+    } else if(id === StudioData.StudioIds.collage) {
+      content = <PhotomediaContent links={StudioData.CollageSources} />
+    } else if(id === StudioData.StudioIds.floor_plans) {
+      content = <ObjectDocument baseFileSource={StudioData.FloorPlanDocumentSource} numPages={4}/>
+    } else if(id === StudioData.StudioIds.walden_cont) {
+      content = <ObjectDocument baseFileSource={StudioData.WaldenContDocumentSource} numPages={1}/>
+    } else if(id === StudioData.StudioIds.have_half) {
+      content = <ObjectDocument baseFileSource={StudioData.HaveHalfDocumentSource} numPages={16}/>
+    } else if(id === StudioData.StudioIds.spare_pieces) {
+      content = <ObjectDocument baseFileSource={StudioData.SparePiecesDocumentSource} numPages={5}/>
+    } else if(id === StudioData.StudioIds.commercial_cowboy) {
+      content = <ObjectDocument baseFileSource={StudioData.CommercialCowboyDocumentSource} numPages={18}/>
+    } else if(id === StudioData.StudioIds.plug_ins) {
+       content = <ObjectDocument baseFileSource={StudioData.PlugInsDocumentSource} numPages={7}/>
+    }
+    
+     
+     return <ObjectModal 
+       onClose={this.closeModal.bind(this)} 
+       content={content}
+     />
+   }
 }
 

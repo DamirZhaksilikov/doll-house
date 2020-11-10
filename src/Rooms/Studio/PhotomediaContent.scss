@@ -1,0 +1,16 @@
+#photomedia-container {
+    width: 100%;
+    
+    #photomedia-item-slide {
+        height: 73vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        #photomedia-item {
+            border: 5px solid black;
+            height: 75%;
+        }
+    }    
+}

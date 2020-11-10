@@ -8,6 +8,7 @@ import { ObjectModal } from '../_Shared Components/Modal/ObjectModal';
 import { RoomData } from "../_Shared Components/Room/RoomData";
 import { RoomObject } from "../_Shared Components/Room/RoomObject";
 import { RoomLink } from "../_Shared Components/Room/RoomLink";
+import { ObjectDocument } from "../_Shared Components/Modal/ObjectDocument";
 
 export class RecRoom extends Room {
   constructor(props: any) {
@@ -20,7 +21,11 @@ export class RecRoom extends Room {
     return <div className="content">
       {this.getRoomIllustration()}
       {this.getDialogue()}
-      <ModalRoute path='/rec_room/:id' component={(props) => (<ObjectModal onClose={this.closeModal.bind(this)} />)} />
+      <ModalRoute
+        path='/rec_room/:id'
+        component={(props) => (
+          this.getRecRoomModal((props.match.params as any).id)
+        )} />
     </div>
   }
 
@@ -77,7 +82,7 @@ export class RecRoom extends Room {
   public getBehindDoorButton() {
     const doorLinkGroup = RecRoomData.RecRoomLinks.find(group => group.id === "doors");
     const behindDoorLink = doorLinkGroup.links.find(link => link.isBehindDoor);
-    
+
     return <div id="row-one-with-button">
       <button onClick={this.onClick.bind(this, behindDoorLink)} className="dialogue-container" id="behind-door-container">
         <div id="behind-door-text">
@@ -102,11 +107,11 @@ export class RecRoom extends Room {
           <div id="rec-room-link-column">
             <div id="rec-room-link-group-container">
               {group.links.map(link => (
-                <button onClick={this.onClick.bind(this, link)} 
-                onMouseEnter={() => this.onLinkBoxEnter(link)}
-                onMouseLeave={() => this.onLinkBoxLeave(link)} 
-                id="rec-room-link-container"
-                className={`${this.state.hoveredObjectId === link.id ? 'selected-link' : ''}`}>
+                <button onClick={this.onClick.bind(this, link)}
+                  onMouseEnter={() => this.onLinkBoxEnter(link)}
+                  onMouseLeave={() => this.onLinkBoxLeave(link)}
+                  id="rec-room-link-container"
+                  className={`${this.state.hoveredObjectId === link.id ? 'selected-link' : ''}`}>
                   <div id="rec-room-link-text">
                     {link.text}
                   </div>
@@ -131,15 +136,15 @@ export class RecRoom extends Room {
   private getObjectMatch(object: RoomObject): RoomLink {
     let match;
 
-    RecRoomData.RecRoomLinks.forEach(function(linkGroup) {
-      linkGroup.links.forEach(function(link) {
-        if(link.id  === object.name)
+    RecRoomData.RecRoomLinks.forEach(function (linkGroup) {
+      linkGroup.links.forEach(function (link) {
+        if (link.id === object.name)
           match = link;
-        })
+      })
     });
 
-  if(!match)
-    throw new Error("Improperly mapped object name.");
+    if (!match)
+      throw new Error("Improperly mapped object name.");
 
     return match;
   }
@@ -186,6 +191,21 @@ export class RecRoom extends Room {
     this.setState({
       imageMap: this.getImageMap(map)
     });
+  }
+
+  private getRecRoomModal(id: string) {
+    let content;
+
+    if (id === RoomData.IconIds.site_map) {
+      content = <ObjectDocument baseFileSource={RecRoomData.RecRoomMapDocumentSource} numPages={1} />
+    } else if (id === RoomData.IconIds.site_info) {
+      content = <ObjectDocument baseFileSource={RoomData.SiteInfoDocumentSource} numPages={1} />
+    }
+
+    return <ObjectModal
+      onClose={this.closeModal.bind(this)}
+      content={content}
+    />
   }
 }
 

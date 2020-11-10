@@ -14,11 +14,12 @@ export class ObjectModal extends React.Component<ObjectModalProps, {}> {
             isOpen={true}
             contentLabel="Modal with image"
             appElement={document.getElementById('app')}>
+                  
             <div id="modal-body">
                 {this.props.content}
-            </div>
-                
+            </div>        
         </Modal>
+
         return modal;
     }
 

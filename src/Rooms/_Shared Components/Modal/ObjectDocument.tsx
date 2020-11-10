@@ -1,48 +1,25 @@
+import './ObjectDocument.scss';
 import React from 'react';
-import { Document, Page, pdfjs } from 'react-pdf'
 
 export interface ObjectDocumentProps {
-    documentSource: string;
+    baseFileSource: string;
+    numPages: number;
 }
 
-export interface ObjectDocumentState {
-    document: any;
-}
-
-export class ObjectDocument extends React.Component<ObjectDocumentProps, ObjectDocumentState> {
-    constructor(props: any) {
-        super(props);
-        this.state = {
-            document: this.getDocument()
-        }
-
-        this.setResizeListener();
-        pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-    }
-
+export class ObjectDocument extends React.Component<ObjectDocumentProps, {}> {
     render() {
-        return this.state.document;
+        return <div className="modal-document">
+            {
+                Array.from(
+                    new Array(this.props.numPages),
+                    (el, index) => (
+                        <img className="modal-document-page" src={`${this.props.baseFileSource}_${index+1}.png`}/>
+                    ),
+                )
+            }
+        </div>
     }
 
-    private reloadDocument() {
-        var document = this.getDocument();
-        this.setState({ document: document })
-    };
-
-    private getDocument() {
-        return <Document
-            class="modal-document"
-            file={this.props.documentSource}  >
-            <Page
-                pageNumber={1}
-                width={.7 * window.innerWidth}
-            />
-        </Document>
-    }
-
-    private setResizeListener() {
-        window.addEventListener("resize", this.reloadDocument.bind(this));
-    }
 }
 
 

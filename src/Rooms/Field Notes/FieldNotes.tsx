@@ -8,6 +8,7 @@ import { ObjectModal } from '../_Shared Components/Modal/ObjectModal';
 import { RoomData } from '../_Shared Components/Room/RoomData';
 import { RoomObject } from '../_Shared Components/Room/RoomObject';
 import { RoomLink } from '../_Shared Components/Room/RoomLink';
+import { ObjectDocument } from '../_Shared Components/Modal/ObjectDocument';
 
 export class FieldNotes extends Room {
   constructor(props: any) {
@@ -20,7 +21,11 @@ export class FieldNotes extends Room {
     return <div className="content">
       {this.getRoomIllustration()}
       {this.getDialogue()}
-      <ModalRoute path='/field_notes/:id' component={(props) => (<ObjectModal onClose={this.closeModal.bind(this)} />)} />
+      <ModalRoute
+        path='/field_notes/:id'
+        component={(props) => (
+          this.getFieldNotesModal((props.match.params as any).id)
+        )} />
     </div>
   }
 
@@ -84,8 +89,8 @@ export class FieldNotes extends Room {
     const doorLink = FieldNotesData.FieldNotesLinks.find(links => links.isBehindDoor);
 
     return <div id="row-one-with-button">
-      <button 
-      onClick={this.onClick.bind(this, doorLink)} className="dialogue-container" id="behind-door-container">
+      <button
+        onClick={this.onClick.bind(this, doorLink)} className="dialogue-container" id="behind-door-container">
         <div id="behind-door-text">
           {RoomData.UseBackDoorButtonText}
         </div>
@@ -110,11 +115,11 @@ export class FieldNotes extends Room {
   }
 
   private getLinkButton(link: RoomLink) {
-    return <button id="field-notes-link-container" 
-    onClick={this.onClick.bind(this, link)}
-    onMouseEnter={() => this.onLinkBoxEnter(link)}
-    onMouseLeave={() => this.onLinkBoxLeave(link)}
-    className={`${this.state.hoveredObjectId === link.id ? 'selected-link' : ''}`}>
+    return <button id="field-notes-link-container"
+      onClick={this.onClick.bind(this, link)}
+      onMouseEnter={() => this.onLinkBoxEnter(link)}
+      onMouseLeave={() => this.onLinkBoxLeave(link)}
+      className={`${this.state.hoveredObjectId === link.id ? 'selected-link' : ''}`}>
       <div id="field-notes-link-content">
         <div id="field-notes-link-title">
           {link.text}
@@ -178,6 +183,21 @@ export class FieldNotes extends Room {
     this.setState({
       imageMap: this.getImageMap(map)
     });
+  }
+
+  private getFieldNotesModal(id: string) {
+    let content;
+
+    if (id === RoomData.IconIds.site_map) {
+      content = <ObjectDocument baseFileSource={FieldNotesData.FieldNotesMapDocumentSource} numPages={1} />
+    } else if (id === RoomData.IconIds.site_info) {
+      content = <ObjectDocument baseFileSource={RoomData.SiteInfoDocumentSource} numPages={1} />
+    }
+
+    return <ObjectModal
+      onClose={this.closeModal.bind(this)}
+      content={content}
+    />
   }
 }
 

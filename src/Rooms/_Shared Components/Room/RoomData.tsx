@@ -8,20 +8,20 @@ export class RoomData {
 
     public static LinkIcons: RoomLink[] = [
         {
-        isDoor: false,
-        isBehindDoor: false,
-        id: RoomData.IconIds.site_info
+            isDoor: false,
+            isBehindDoor: false,
+            id: RoomData.IconIds.site_info
         },
         {
-        isDoor: false,
-        isBehindDoor: false,
-        id: RoomData.IconIds.site_map
+            isDoor: false,
+            isBehindDoor: false,
+            id: RoomData.IconIds.site_map
         }
     ];
 
     public static MapIconSource = `${process.env.PUBLIC_URL}/designs/Icons/Map.png`;
     public static SiteInfoIconSource = `${process.env.PUBLIC_URL}/designs/Icons/Site Info.png`;
-    public static SiteInfoDocumentSource = `${process.env.PUBLIC_URL}/documents/Shared/Site_Info.pdf`;
+    public static SiteInfoDocumentSource = `${process.env.PUBLIC_URL}/documents/Shared/Site Info/Site_Info`;
 
     public static ENTRY = "entry";
     public static REC_ROOM = "rec_room";

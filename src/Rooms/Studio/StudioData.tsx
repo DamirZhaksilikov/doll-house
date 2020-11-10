@@ -2,9 +2,15 @@ import { RoomLink } from "../_Shared Components/Room/RoomLink";
 import { RoomLinkGroup } from "../_Shared Components/Room/RoomLinkGroup";
 import { RoomObject } from "../_Shared Components/Room/RoomObject";
 
+export class PhotomediaLink {
+  name: string;
+  type: string;
+  link: string;
+}
+
 export class StudioData {
   public static StudioTitle = "Studio";
-  public static StudioInfo = "This room is a collection of things that move me. Curated by me and my community. Select an object to get started.";
+  public static StudioInfo = "This room is a collection of personal works. Select an object to view a project.";
 
   public static Spacial = "spacial";
   public static Textile = "textile";
@@ -24,7 +30,6 @@ export class StudioData {
     have_half: "have_half",
     spare_pieces: "spare_pieces",
     commercial_cowboy: "commercial_cowboy",
-    red_light: "red_light",
     plug_ins: "plug_ins",
     doors: "doors",
     entry: "entry",
@@ -109,14 +114,7 @@ export class StudioData {
           isBehindDoor: false,
           text: "Commerical Cowboy",
 
-        },
-        {
-          id: StudioData.StudioIds.red_light,
-          isDoor: false,
-          isBehindDoor: false,
-          text: "Red Light",
-
-        },
+        },,
         {
           id: StudioData.StudioIds.plug_ins,
           isDoor: false,
@@ -145,6 +143,73 @@ export class StudioData {
   ] as RoomLinkGroup[]
 
   public static IllustrationSource = `${process.env.PUBLIC_URL}/designs/Room Illustrations/Studio/Room Illustrations_Studio.png`;
+  public static StudioMapDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Studio Map/Studio_Map`;    
+
+  public static CommercialCowboyDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Commercial Cowboy/Commercial Cowboy`;    
+  public static FloorPlanDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Floor Plan/Floor_Plan`;    
+  public static HaveHalfDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Have Half/Have Half`;    
+  public static PlugInsDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Plug Ins/Plug_Ins`;    
+  public static WaldenContDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Walden Cont/Walden Cont`;    
+  public static SparePiecesDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Spare Pieces/Spare Pieces`;    
+
+  public static PhotoBaseSource = `${process.env.PUBLIC_URL}/documents/Studio/Photomedia/Photo`;
+  public static PhotoSources = [
+    {
+      name: "1",
+      type: "JPG",
+      link: `${StudioData.PhotoBaseSource}/1.jpg`
+    },
+    {
+      name: "2",
+      type: "JPG",
+      link: `${StudioData.PhotoBaseSource}/2.jpg`
+    },
+    {
+      name: "3",
+      type: "JPG",
+      link: `${StudioData.PhotoBaseSource}/3.jpg`
+    },
+    {
+      name: "4",
+      type: "JPG",
+      link: `${StudioData.PhotoBaseSource}/4.jpg`
+    },
+    {
+      name: "5",
+      type: "JPG",
+      link: `${StudioData.PhotoBaseSource}/5.jpg`
+    },
+    {
+      name: "6",
+      type: "JPG",
+      link: `${StudioData.PhotoBaseSource}/6.jpg`
+    },
+    {
+      name: "7",
+      type: "JPG",
+      link: `${StudioData.PhotoBaseSource}/7.jpg`
+    }
+  ] as PhotomediaLink[];
+
+  public static CollageBaseSource = `${process.env.PUBLIC_URL}/documents/Studio/Photomedia/Collage`;
+  public static CollageSources = [
+    {
+      name: "tinker_bell",
+      type: "JPG",
+      link: `${StudioData.CollageBaseSource}/tinker_bell.jpg`
+    },
+    {
+      name: "nimbus",
+      type: "JPG",
+      link: `${StudioData.CollageBaseSource}/nimbus.jpg`
+    },
+    {
+      name: "chinatown",
+      type: "GIF",
+      link: `${StudioData.CollageBaseSource}/chinatown.gif`
+    }
+  ] as PhotomediaLink[];
+
   public static MapCoordinates = {
     name: "studioMap",
     areas: [
@@ -156,7 +221,6 @@ export class StudioData {
       { name: StudioData.StudioIds.have_half, shape: "rect", coords: [648, 835, 809, 934] },
       { name: StudioData.StudioIds.spare_pieces, shape: "rect", coords: [868, 734, 1114, 931] },
       { name: StudioData.StudioIds.commercial_cowboy, shape: "rect", coords: [1256, 670, 1336, 790] },
-      { name: StudioData.StudioIds.red_light, shape: "rect", coords: [1453, 657, 1547, 883] },
       { name: StudioData.StudioIds.plug_ins, shape: "rect", coords: [1692, 808, 1796, 972] },
       { name: StudioData.StudioIds.photo, shape: "poly", coords: [844, 517, 1071, 436, 1069, 159, 839, 231] },
       { name: StudioData.StudioIds.collage, shape: "poly", coords: [851, 580, 1033, 578, 1034, 463, 851, 529] },

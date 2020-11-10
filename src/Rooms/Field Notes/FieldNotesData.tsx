@@ -10,7 +10,7 @@ export class FieldNotesData {
     public static FieldNotesBehindDoor = "studio"
   
     public static FieldNotesTitle = "Field Notes";
-    public static FieldNotesInfo = "This room is a collection of things that move me. Curated by me and my community. Select an object to get started.";
+    public static FieldNotesInfo = "A room as a public journal. Private entries require a password.";
     
     public static FieldNotesIds = {
       observations: "observations",
@@ -68,6 +68,8 @@ export class FieldNotesData {
     ] as RoomLink[];
 
     public static IllustrationSource = `${process.env.PUBLIC_URL}/designs/Room Illustrations/Field Notes/Room Illustrations_Field Notes.png`;
+    public static FieldNotesMapDocumentSource = `${process.env.PUBLIC_URL}/documents/Field Notes/Field Notes Map/Field_Notes_Map`;    
+   
     public static MapCoordinates = { 
       name: "fieldNotesMap",
       areas: [
