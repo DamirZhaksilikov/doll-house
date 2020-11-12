@@ -11,7 +11,7 @@ export class PhotomediaContent extends React.Component<PhotomediaContentProps, {
         return <div id="photomedia-container">
             {this.props.links.map(link => (
                 <div id ="photomedia-item-slide">
-                    <img id="photomedia-item" src={link.link}/>      
+                    <img id="photomedia-item" src={link.link} alt="photomedia"/>      
                 </div>      
             ))}
         </div>

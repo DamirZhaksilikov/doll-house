@@ -39,8 +39,8 @@ export class Room<S extends RoomState = RoomState, P extends RoomProps = RoomPro
       
       return <div className="dialogue-container" id="icons-container">
         <div id="icons">
-          <img onClick={this.onClick.bind(this, mapLink)} src={RoomData.MapIconSource} className="icon" id="map-icon" />
-          <img onClick={this.onClick.bind(this, siteInfoLink)} src={RoomData.SiteInfoIconSource} className="icon" id="site-info-icon" />
+          <img onClick={this.onClick.bind(this, mapLink)} src={RoomData.MapIconSource} className="icon" id="map-icon" alt="View house map"/>
+          <img onClick={this.onClick.bind(this, siteInfoLink)} src={RoomData.SiteInfoIconSource} className="icon" id="site-info-icon" alt="View site info"/>
         </div>
       </div>
     }

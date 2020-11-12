@@ -17,6 +17,7 @@ export class ObjectDocument extends React.Component<ObjectDocumentProps, {}> {
                             className={this.getClassName(index)} 
                             id={"modal-document-page"}
                             src={`${this.props.baseFileSource}_${index+1}.png`}
+                            alt={`Document Page ${index+1}`}
                         />
                     ),
                 )

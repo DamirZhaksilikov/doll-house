@@ -98,8 +98,7 @@ export class StudioData {
           id: StudioData.StudioIds.have_half,
           isDoor: false,
           isBehindDoor: false,
-          text: "Have Half",
-
+          text: "Have Half"
         },
         {
           id: StudioData.StudioIds.spare_pieces,
@@ -114,7 +113,7 @@ export class StudioData {
           isBehindDoor: false,
           text: "Commerical Cowboy",
 
-        },,
+        },
         {
           id: StudioData.StudioIds.plug_ins,
           isDoor: false,
