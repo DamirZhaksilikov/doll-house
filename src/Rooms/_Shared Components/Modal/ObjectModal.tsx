@@ -17,7 +17,13 @@ export class ObjectModal extends React.Component<ObjectModalProps, {}> {
                   
             <div id="modal-body">
                 {this.props.content}
-            </div>        
+            </div>
+            
+            <button id="modal-close-button" onClick={this.closeObjectModal.bind(this)}>
+                <div id="modal-close-button-text">
+                    {"Close"}
+                </div>
+            </button>        
         </Modal>
 
         return modal;

@@ -1,9 +1,16 @@
 .modal-document {
-    width: 70vw;
+    width: 69.2vw;
     overflow-y: auto;
+    padding-bottom: -5px;
 
-    .modal-document-page {
-        width: 70vw;
+    #modal-document-page {
+        width: 100%;
         overflow-y: auto;
+        vertical-align: middle;
     }
+
+    .bottom-border {
+        border-bottom: 2px solid black;
+    }
+
 }

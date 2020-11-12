@@ -13,13 +13,20 @@ export class ObjectDocument extends React.Component<ObjectDocumentProps, {}> {
                 Array.from(
                     new Array(this.props.numPages),
                     (el, index) => (
-                        <img className="modal-document-page" src={`${this.props.baseFileSource}_${index+1}.png`}/>
+                        <img 
+                            className={this.getClassName(index)} 
+                            id={"modal-document-page"}
+                            src={`${this.props.baseFileSource}_${index+1}.png`}
+                        />
                     ),
                 )
             }
         </div>
     }
 
+    private getClassName(index: number): string {
+        return (index + 1) < this.props.numPages ? "bottom-border" : "";
+    }
 }
 
 
