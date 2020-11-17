@@ -145,6 +145,7 @@ export class StudioData {
   public static StudioMapDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Studio Map/Studio_Map`;    
 
   public static CommercialCowboyDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Commercial Cowboy/Commercial Cowboy`;    
+  public static DollHouseDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Doll House/Doll House`;    
   public static FloorPlanDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Floor Plan/Floor_Plan`;    
   public static HaveHalfDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Have Half/Have Half`;    
   public static PlugInsDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Plug Ins/Plug_Ins`;    
