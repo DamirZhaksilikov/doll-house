@@ -10,7 +10,7 @@ export class PhotomediaLink {
 
 export class StudioData {
   public static StudioTitle = "Studio";
-  public static StudioInfo = "This room is a collection of personal works. Select an object to view a project.";
+  public static StudioInfo = "A collection of personal works. Projects on the side table are currently ongoing. While on the main shelf, I’ve organized objects by the project’s medium. Tap a piece to get started.";
 
   public static Spacial = "spacial";
   public static Textile = "textile";
@@ -146,9 +146,9 @@ export class StudioData {
 
   public static CommercialCowboyDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Commercial Cowboy/Commercial Cowboy`;    
   public static DollHouseDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Doll House/Doll House`;    
-  public static FloorPlanDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Floor Plan/Floor_Plan`;    
+  public static FloorPlanDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Floor Plan/Floor Plan`;    
   public static HaveHalfDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Have Half/Have Half`;    
-  public static PlugInsDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Plug Ins/Plug_Ins`;    
+  public static PlugInsDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Plug Ins/Plug Ins`;    
   public static WaldenContDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Walden Cont/Walden Cont`;    
   public static SparePiecesDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Spare Pieces/Spare Pieces`;    
 
@@ -220,8 +220,8 @@ export class StudioData {
       { name: StudioData.StudioIds.walden_cont, shape: "rect", coords: [236, 824, 425, 1005] },
       { name: StudioData.StudioIds.have_half, shape: "rect", coords: [648, 835, 809, 934] },
       { name: StudioData.StudioIds.spare_pieces, shape: "rect", coords: [868, 734, 1114, 931] },
-      { name: StudioData.StudioIds.commercial_cowboy, shape: "rect", coords: [1256, 670, 1336, 790] },
-      { name: StudioData.StudioIds.plug_ins, shape: "rect", coords: [1692, 808, 1796, 972] },
+      { name: StudioData.StudioIds.commercial_cowboy, shape: "rect", coords: [1480,738,1586,898] },
+      { name: StudioData.StudioIds.plug_ins, shape: "rect", coords: [1226,632,1346,804] },
       { name: StudioData.StudioIds.photo, shape: "poly", coords: [844, 517, 1071, 436, 1069, 159, 839, 231] },
       { name: StudioData.StudioIds.collage, shape: "poly", coords: [851, 580, 1033, 578, 1034, 463, 851, 529] },
       { name: StudioData.StudioIds.doll_house, shape: "rect", coords: [1292, 142, 1408, 385] },

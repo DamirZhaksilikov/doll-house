@@ -21,7 +21,7 @@ export class RoomData {
 
     public static MapIconSource = `${process.env.PUBLIC_URL}/designs/Icons/Map.png`;
     public static SiteInfoIconSource = `${process.env.PUBLIC_URL}/designs/Icons/Site Info.png`;
-    public static SiteInfoDocumentSource = `${process.env.PUBLIC_URL}/documents/Shared/Site Info/Site_Info`;
+    public static SiteInfoDocumentSource = `${process.env.PUBLIC_URL}/documents/Shared/Site Info/Site Info`;
 
     public static ENTRY = "entry";
     public static REC_ROOM = "rec_room";
