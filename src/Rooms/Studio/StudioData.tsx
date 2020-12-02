@@ -10,7 +10,7 @@ export class PhotomediaLink {
 
 export class StudioData {
   public static StudioTitle = "Studio";
-  public static StudioInfo = "A collection of personal works. I’m currently working on the projects sitting on the side table. On the main shelf are finished works that I’ve organized by the medium. Tap an object to get started.";
+  public static StudioInfo = "A collection of personal works. I’m currently working on the projects sitting on the side table. On the main shelf are finished works that I’ve organized by the medium. To get more information about this space, tap the doll house.";
 
   public static Spacial = "spacial";
   public static Textile = "textile";
