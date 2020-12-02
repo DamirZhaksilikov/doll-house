@@ -10,8 +10,9 @@ export class FieldNotesData {
     public static FieldNotesBehindDoor = "studio"
   
     public static FieldNotesTitle = "Field Notes";
-    public static FieldNotesInfo = "A room as a public journal. Private entries require a password.";
-    
+    public static FieldNotesInfo = "A room as a public journal. Private entries are available to those that are close to me.";
+    public static SecretsBlurb = "How do we keep our secrets? In truth, there’s no real way to measure this. We confide when we need to, but I think the best barometer to determine who’s most likely to be the recipient of our next secrets is measured by who is already keeping our previous ones. With these people, there’s no need to wonder about trust. It’s another drop in the bucket. So below is a kind of security question: correctly reveal a secret of mine to get access to more.";
+
     public static FieldNotesIds = {
       observations: "observations",
       work_notes: "work_notes",

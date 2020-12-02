@@ -3,7 +3,7 @@ import { RoomObject } from "../_Shared Components/Room/RoomObject";
 
 export class RecRoomData {
   public static RecRoomTitle = "Rec Room";
-  public static RecRoomInfo= "This room is a collection of things that move me. Curated by me and my community. Select an object to get started.";
+  public static RecRoomInfo= "A rotating collection of things my loved ones keep close to their chest. Items are organized by media types. One person at a time is selected to compile a list for each media type.";
 
   public static RecRoomIds = {
     text: "text",

@@ -9,6 +9,7 @@ import { RoomData } from '../_Shared Components/Room/RoomData';
 import { RoomObject } from '../_Shared Components/Room/RoomObject';
 import { RoomLink } from '../_Shared Components/Room/RoomLink';
 import { ObjectDocument } from '../_Shared Components/Modal/ObjectDocument';
+import { PasswordProtectedContent } from './PasswordProtectedContent';
 
 export class FieldNotes extends Room {
   constructor(props: any) {
@@ -192,6 +193,8 @@ export class FieldNotes extends Room {
       content = <ObjectDocument baseFileSource={FieldNotesData.FieldNotesMapDocumentSource} numPages={1} />
     } else if (id === RoomData.IconIds.site_info) {
       content = <ObjectDocument baseFileSource={RoomData.SiteInfoDocumentSource} numPages={1} />
+    } else {
+      //content = <PasswordProtectedContent />
     }
 
     return <ObjectModal
