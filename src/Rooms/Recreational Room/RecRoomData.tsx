@@ -98,7 +98,8 @@ export class RecRoomData {
 
   public static IllustrationSource = `${process.env.PUBLIC_URL}/designs/Room Illustrations/Recreational Room/Room Illustrations_Rec Room.png`;
   public static RecRoomMapDocumentSource = `${process.env.PUBLIC_URL}/documents/Rec Room/Rec Room Map/Rec_Room_Map`;    
-  
+  public static YoureEarlyDocumentSource = `${process.env.PUBLIC_URL}/documents/Rec Room/Youre Early Note/Youre Early Note`;    
+
   public static MapCoordinates = { 
     name: "recRoomMap",
     areas: [
