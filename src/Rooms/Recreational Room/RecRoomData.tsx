@@ -79,7 +79,7 @@ export class RecRoomData {
       links: [
         {
           id: RecRoomData.RecRoomIds.references_archive,
-          isDoor: true,
+          isDoor: false,
           isBehindDoor: false,
         },
         {
