@@ -54,7 +54,7 @@ export class PasswordProtectedContent extends React.Component<PasswordProtectedC
                 </div>
                 <input type="text"
                     id="password-input"
-                    placeholder= {this.state.hasAttempted ? "not quite, try again." : "enter answer"}
+                    placeholder= {this.state.hasAttempted ? FieldNotesData.FailedAttemptPlaceHolder : FieldNotesData.SecretAnswerPlaceHolder}
                     value={this.state.passwordInput || ""}
                     onChange={this.onPasswordChange.bind(this)}
                 />
