@@ -14,7 +14,7 @@ export class FieldNotesData {
     public static SecretsBlurb = "How do we keep our secrets? In truth, there’s no real way to measure this. We confide when we need to, but I think the best barometer to determine who’s most likely to be the recipient of our next secrets is measured by who is already keeping our previous ones. With these people, there’s no need to wonder about trust. It’s another drop in the bucket. So, a kind of security question: correctly reveal a secret of mine and you’ll get access to more.";
 
     public static Secret1Question = "What was I leaving on kitchen countertops in 2017?";
-    public static Secret1HintText = "hint (audio): listen to the chorus and think: similar shape, opposite taste."
+    public static Secret1HintText = "hint (audio): the chorus. similar shape, opposite taste."
 
     public static SecretAnswerPlaceHolder = "write your answer here. two words."
     public static SubmitText = "submit";
