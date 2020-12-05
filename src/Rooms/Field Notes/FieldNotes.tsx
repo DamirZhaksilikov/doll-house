@@ -194,7 +194,7 @@ export class FieldNotes extends Room {
     } else if (id === RoomData.IconIds.site_info) {
       content = <ObjectDocument baseFileSource={RoomData.SiteInfoDocumentSource} numPages={1} />
     } else {
-      //content = <PasswordProtectedContent />
+      content = <PasswordProtectedContent coverImagesrc={FieldNotesData.IntimaciesCoverImageSource}/>
     }
 
     return <ObjectModal

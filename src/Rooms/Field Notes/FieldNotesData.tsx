@@ -11,7 +11,13 @@ export class FieldNotesData {
   
     public static FieldNotesTitle = "Field Notes";
     public static FieldNotesInfo = "A room as a public journal. Private entries are available to those that are close to me.";
-    public static SecretsBlurb = "How do we keep our secrets? In truth, there’s no real way to measure this. We confide when we need to, but I think the best barometer to determine who’s most likely to be the recipient of our next secrets is measured by who is already keeping our previous ones. With these people, there’s no need to wonder about trust. It’s another drop in the bucket. So below is a kind of security question: correctly reveal a secret of mine to get access to more.";
+    public static SecretsBlurb = "How do we keep our secrets? In truth, there’s no real way to measure this. We confide when we need to, but I think the best barometer to determine who’s most likely to be the recipient of our next secrets is measured by who is already keeping our previous ones. With these people, there’s no need to wonder about trust. It’s another drop in the bucket. So, a kind of security question: correctly reveal a secret of mine and you’ll get access to more.";
+
+    public static Secret1Question = "What was I leaving on kitchen countertops in 2017?";
+    public static Secret1HintText = "hint (audio): similar shape, opposite taste."
+
+    public static SecretAnswerPlaceHolder = "Write your answer here"
+    public static SubmitText = "submit";
 
     public static FieldNotesIds = {
       observations: "observations",
@@ -70,7 +76,10 @@ export class FieldNotesData {
 
     public static IllustrationSource = `${process.env.PUBLIC_URL}/designs/Room Illustrations/Field Notes/Room Illustrations_Field Notes.png`;
     public static FieldNotesMapDocumentSource = `${process.env.PUBLIC_URL}/documents/Field Notes/Field Notes Map/Field_Notes_Map`;    
-   
+    public static IntimaciesCoverImageSource = `${process.env.PUBLIC_URL}/documents/Field Notes/Intimacies/Intimacies Cover.jpeg`;    
+    
+    public static PlayIcon = `${process.env.PUBLIC_URL}/designs/Icons/Play.png`;    
+    
     public static MapCoordinates = { 
       name: "fieldNotesMap",
       areas: [
