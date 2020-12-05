@@ -1,7 +1,7 @@
 import "./PasswordProtectedContent.scss";
 import React from 'react';
 import { FieldNotesData } from "./FieldNotesData";
-//import { FieldNotesData } from "./FieldNotesData";
+import YouTube from 'react-youtube';
 
 type PasswordProtectedContentProps = {
     coverImagesrc: string;
@@ -9,7 +9,11 @@ type PasswordProtectedContentProps = {
 
 type PasswordProtectedContentState = {
     isPassEntered: boolean;
+    hasAttempted: boolean;
+    isMatch: boolean;
+    playMedia: boolean;
     passwordInput: string;
+    player: any;
 };
 
 export class PasswordProtectedContent extends React.Component<PasswordProtectedContentProps, PasswordProtectedContentState> {
@@ -18,7 +22,11 @@ export class PasswordProtectedContent extends React.Component<PasswordProtectedC
 
         this.state = {
             isPassEntered: false,
-            passwordInput: ""
+            hasAttempted: false,
+            isMatch: false,
+            playMedia: false,
+            passwordInput: "",
+            player: null
         };
     }
 
@@ -46,12 +54,15 @@ export class PasswordProtectedContent extends React.Component<PasswordProtectedC
                 </div>
                 <input type="text"
                     id="password-input"
-                    placeholder="enter answer"
+                    placeholder= {this.state.hasAttempted ? "not quite, try again." : "enter answer"}
                     value={this.state.passwordInput || ""}
                     onChange={this.onPasswordChange.bind(this)}
                 />
-                <button id="password-prompt-hint" >
-                    {FieldNotesData.Secret1HintText}
+                <button 
+                    id="password-prompt-hint" 
+                    type="button" onClick={this.toggleSong.bind(this)} 
+                    className={this.state.playMedia ? "password-prompt-hint-playing" : ""}>
+                    {this.state.playMedia ? "pause" : FieldNotesData.Secret1HintText}
                 </button>
             </div>
             <button onClick={this.handleSubmitPrompt.bind(this)}
@@ -60,7 +71,33 @@ export class PasswordProtectedContent extends React.Component<PasswordProtectedC
                 className={!!this.state.passwordInput ? 'submit-password-enabled' : ''}>
                 {FieldNotesData.SubmitText}
             </button>
+            {this.getYoutubePlayer()}
         </form>
+    }
+
+    private toggleSong() {
+        const newToggleVal = !this.state.playMedia;
+
+        if(newToggleVal) {
+            this.state.player.playVideo();
+        } else {
+            this.state.player.pauseVideo();
+        }
+        
+        this.setState({ playMedia: newToggleVal });
+    }
+
+    private getYoutubePlayer() {
+        const opts = {
+            height: '0',
+            width: '0'
+        };
+
+        return <YouTube videoId="UtKcXp7-sWU" opts={opts} onReady={this._onReady.bind(this)} />
+    }
+
+    private _onReady(event) {
+        this.setState({player: event.target});
     }
 
     private onPasswordChange(event) {
@@ -68,9 +105,8 @@ export class PasswordProtectedContent extends React.Component<PasswordProtectedC
     }
 
     private handleSubmitPrompt() {
-        const newAlias = this.state.passwordInput;
-
         this.setState({
+            hasAttempted: true,
             passwordInput: "",
         });
     }
