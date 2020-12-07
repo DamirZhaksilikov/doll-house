@@ -10,6 +10,7 @@ import { RoomObject } from '../_Shared Components/Room/RoomObject';
 import { RoomLink } from '../_Shared Components/Room/RoomLink';
 import { ObjectDocument } from '../_Shared Components/Modal/ObjectDocument';
 import { PasswordProtectedContent } from './PasswordProtectedContent';
+import { BlogiFrame } from './BlogiFrame';
 
 export class FieldNotes extends Room {
   constructor(props: any) {
@@ -204,13 +205,17 @@ export class FieldNotes extends Room {
       />
     } else if(id === FieldNotesData.FieldNotesIds.personal_essays) {
       content = <PasswordProtectedContent 
-      secretsBlurb={FieldNotesData.SecretsBlurb}
-      coverImagesrc={FieldNotesData.PersonalEssaysCoverImageSource}
-      question={FieldNotesData.PersonalEssaysQuestion}
-      hint={FieldNotesData.PersonalEssaysHintText}
-      answerPlaceholder={FieldNotesData.PersonalEssaysSecretAnswerPlaceHolder}
-      audioSrc={FieldNotesData.PersonalEssaysAudioSrc}
-    />
+        secretsBlurb={FieldNotesData.SecretsBlurb}
+        coverImagesrc={FieldNotesData.PersonalEssaysCoverImageSource}
+        question={FieldNotesData.PersonalEssaysQuestion}
+        hint={FieldNotesData.PersonalEssaysHintText}
+        answerPlaceholder={FieldNotesData.PersonalEssaysSecretAnswerPlaceHolder}
+        audioSrc={FieldNotesData.PersonalEssaysAudioSrc}
+      />
+    } else if(id === FieldNotesData.FieldNotesIds.work_notes) {
+      content = <BlogiFrame src={FieldNotesData.WorkNotesBlogLink} />
+    } else if(id === FieldNotesData.FieldNotesIds.intimacies) {
+      content = <BlogiFrame src={FieldNotesData.JournalBlogLink} />
     }
 
     return <ObjectModal
