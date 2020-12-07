@@ -25,8 +25,8 @@ export class FieldNotesData {
     public static PersonalEssaysSecretAnswerPlaceHolder = "write your answer here."
     public static PersonalEssaysAudioSrc = "WxlWtkTOQDg";
 
-    public static WorkNotesBlogLink = "http://damikastudy.tumblr.com/";
-    public static JournalBlogLink = "http://damika.tumblr.com/";
+    public static WorkNotesBlogLink = "https://damikastudy.tumblr.com/";
+    public static JournalBlogLink = "https://damika.tumblr.com/";
 
     public static FieldNotesIds = {
       observations: "observations",
