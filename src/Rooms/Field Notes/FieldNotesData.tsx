@@ -15,13 +15,15 @@ export class FieldNotesData {
 
     public static IntimaciesCoverImageSource = `${process.env.PUBLIC_URL}/documents/Field Notes/Intimacies/Intimacies Cover.jpeg`;    
     public static IntimaciesQuestion = "What was I leaving on kitchen countertops in 2017?";
-    public static IntimaciesHintText = "hint (audio): think similar shape as the chorus, but not taste."
+    public static IntimaciesHintText = "hint (audio): listen to the chorus. think similar shape, different taste."
+    public static IntimaciesSecretAnswerPlaceHolder = "write your answer here. two words."
     public static IntimaciesAudioSrc = "UtKcXp7-sWU";
 
     public static PersonalEssaysCoverImageSource = `${process.env.PUBLIC_URL}/documents/Field Notes/Personal Essays/Personal Essays Cover.jpeg`;    
-    public static PersonalEssaysQuestion = "Which shoes have I held on to for too long?";
-    public static PersonalEssaysHintText = "hint (audio): same city as the artist"
-    public static PersonalEssaysAudioSrc = "UAXKmlqeO7A";
+    public static PersonalEssaysQuestion = "That's me above. But, who's the cat?";
+    public static PersonalEssaysHintText = "hint (audio): if you know the movie, you've got the name."
+    public static PersonalEssaysSecretAnswerPlaceHolder = "write your answer here."
+    public static PersonalEssaysAudioSrc = "WxlWtkTOQDg";
 
     public static FieldNotesIds = {
       observations: "observations",

@@ -2,7 +2,6 @@ import "./PasswordProtectedContent.scss";
 import React from 'react';
 import YouTube from 'react-youtube';
 
-const SecretAnswerPlaceHolder = "write your answer here. two words."
 const FailedAttemptPlaceHolder = "not quite, try again."
 const SubmitText = "submit";
 
@@ -11,6 +10,7 @@ type PasswordProtectedContentProps = {
     question: string;
     hint: string;
     secretsBlurb: string;
+    answerPlaceholder: string;
     audioSrc: string;
 };
 
@@ -61,14 +61,14 @@ export class PasswordProtectedContent extends React.Component<PasswordProtectedC
                 </div>
                 <input type="text"
                     id="password-input"
-                    placeholder= {this.state.hasAttempted ? FailedAttemptPlaceHolder : SecretAnswerPlaceHolder}
+                    placeholder= {this.state.hasAttempted ? FailedAttemptPlaceHolder : this.props.answerPlaceholder}
                     value={this.state.passwordInput || ""}
                     onChange={this.onPasswordChange.bind(this)}
                 />
                 <button 
                     id="password-prompt-hint" 
                     type="button" onClick={this.toggleSong.bind(this)} 
-                    className={this.state.playMedia ? "password-prompt-hint-playing" : ""}>
+                    className={this.state.playMedia ? "password-prompt-hint-playing" : "password-prompt-hint-paused"}>
                     {this.state.playMedia ? "pause" : this.props.hint}
                 </button>
             </div>

@@ -198,6 +198,7 @@ export class FieldNotes extends Room {
         secretsBlurb={FieldNotesData.SecretsBlurb}
         coverImagesrc={FieldNotesData.IntimaciesCoverImageSource}
         question={FieldNotesData.IntimaciesQuestion}
+        answerPlaceholder={FieldNotesData.IntimaciesSecretAnswerPlaceHolder}
         hint={FieldNotesData.IntimaciesHintText}
         audioSrc={FieldNotesData.IntimaciesAudioSrc}
       />
@@ -207,6 +208,7 @@ export class FieldNotes extends Room {
       coverImagesrc={FieldNotesData.PersonalEssaysCoverImageSource}
       question={FieldNotesData.PersonalEssaysQuestion}
       hint={FieldNotesData.PersonalEssaysHintText}
+      answerPlaceholder={FieldNotesData.PersonalEssaysSecretAnswerPlaceHolder}
       audioSrc={FieldNotesData.PersonalEssaysAudioSrc}
     />
     }
