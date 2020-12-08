@@ -189,6 +189,7 @@ export class FieldNotes extends Room {
 
   private getFieldNotesModal(id: string) {
     let content;
+    let hideOverflow = false;
 
     if (id === RoomData.IconIds.site_map) {
       content = <ObjectDocument baseFileSource={FieldNotesData.FieldNotesMapDocumentSource} numPages={1} />
@@ -214,13 +215,16 @@ export class FieldNotes extends Room {
       />
     } else if(id === FieldNotesData.FieldNotesIds.work_notes) {
       content = <BlogiFrame src={FieldNotesData.WorkNotesBlogLink} />
+      hideOverflow = true;
     } else if(id === FieldNotesData.FieldNotesIds.intimacies) {
       content = <BlogiFrame src={FieldNotesData.JournalBlogLink} />
+      hideOverflow = true;
     }
 
     return <ObjectModal
       onClose={this.closeModal.bind(this)}
       content={content}
+      overflowHidden={hideOverflow}
     />
   }
 }

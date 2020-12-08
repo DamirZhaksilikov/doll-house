@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 type ObjectModalProps = {
     onClose: any;
     content?: any;
+    overflowHidden?: boolean;
 };
 
 export class ObjectModal extends React.Component<ObjectModalProps, {}> {  
@@ -13,9 +14,9 @@ export class ObjectModal extends React.Component<ObjectModalProps, {}> {
             className={"objectModal"}
             isOpen={true}
             contentLabel="Modal with image"
-            appElement={document.getElementById('app')}>
-                  
-            <div id="modal-body">
+            appElement={document.getElementById('app')}>    
+            
+            <div id={this.props.overflowHidden ? "modal-body-no-scroll" : "modal-body"}>
                 {this.props.content}
             </div>
             
