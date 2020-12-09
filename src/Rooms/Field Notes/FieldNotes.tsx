@@ -216,7 +216,7 @@ export class FieldNotes extends Room {
     } else if(id === FieldNotesData.FieldNotesIds.work_notes) {
       content = <BlogiFrame src={FieldNotesData.WorkNotesBlogLink} />
       hideOverflow = true;
-    } else if(id === FieldNotesData.FieldNotesIds.intimacies) {
+    } else if(id === FieldNotesData.FieldNotesIds.observations) {
       content = <BlogiFrame src={FieldNotesData.JournalBlogLink} />
       hideOverflow = true;
     }
