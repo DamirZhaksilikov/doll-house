@@ -195,16 +195,16 @@ export class FieldNotes extends Room {
       content = <ObjectDocument baseFileSource={FieldNotesData.FieldNotesMapDocumentSource} numPages={1} />
     } else if (id === RoomData.IconIds.site_info) {
       content = <ObjectDocument baseFileSource={RoomData.SiteInfoDocumentSource} numPages={1} />
-    } else if (id == FieldNotesData.FieldNotesIds.intimacies) {
+    } else if (id == FieldNotesData.FieldNotesIds.private_notes) {
       content = <PasswordProtectedContent 
         secretsBlurb={FieldNotesData.SecretsBlurb}
-        coverImagesrc={FieldNotesData.IntimaciesCoverImageSource}
-        question={FieldNotesData.IntimaciesQuestion}
-        answerPlaceholder={FieldNotesData.IntimaciesSecretAnswerPlaceHolder}
-        hint={FieldNotesData.IntimaciesHintText}
-        audioSrc={FieldNotesData.IntimaciesAudioSrc}
+        coverImagesrc={FieldNotesData.NotesCoverImageSource}
+        question={FieldNotesData.NotesQuestion}
+        answerPlaceholder={FieldNotesData.NotesSecretAnswerPlaceHolder}
+        hint={FieldNotesData.NotesHintText}
+        audioSrc={FieldNotesData.NotesAudioSrc}
       />
-    } else if(id === FieldNotesData.FieldNotesIds.personal_essays) {
+    } else if(id === FieldNotesData.FieldNotesIds.essays) {
       content = <PasswordProtectedContent 
         secretsBlurb={FieldNotesData.SecretsBlurb}
         coverImagesrc={FieldNotesData.PersonalEssaysCoverImageSource}
@@ -216,7 +216,7 @@ export class FieldNotes extends Room {
     } else if(id === FieldNotesData.FieldNotesIds.work_notes) {
       content = <BlogiFrame src={FieldNotesData.WorkNotesBlogLink} />
       hideOverflow = true;
-    } else if(id === FieldNotesData.FieldNotesIds.observations) {
+    } else if(id === FieldNotesData.FieldNotesIds.intimacies) {
       content = <BlogiFrame src={FieldNotesData.JournalBlogLink} />
       hideOverflow = true;
     }
