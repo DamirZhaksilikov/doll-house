@@ -17,6 +17,7 @@
     "node-sass": "^4.14.1",
     "pdf": "^0.1.0",
     "react": "^16.14.0",
+    "react-device-detect": "^1.14.0",
     "react-dom": "^16.13.1",
     "react-image-mapper": "0.0.15",
     "react-modal": "^3.11.2",
