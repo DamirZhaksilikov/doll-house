@@ -7,12 +7,8 @@ type BlogiFrameProps = {
 };
 
 export class BlogiFrame extends React.Component<BlogiFrameProps, {}> {
-    constructor(props: any) {
-        super(props);
-    }
-
     render() {
-        return <iframe src={this.props.src} id="blog-iframe"/>    
+        return <iframe src={this.props.src} id="blog-iframe" title="feed"/>    
     }
 
 }

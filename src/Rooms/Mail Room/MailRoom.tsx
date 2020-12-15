@@ -9,6 +9,7 @@ import { RoomObject } from '../_Shared Components/Room/RoomObject';
 import { RoomLink } from '../_Shared Components/Room/RoomLink';
 import { ObjectDocument } from '../_Shared Components/Modal/ObjectDocument';
 import { RoomData } from '../_Shared Components/Room/RoomData';
+import { ContactForm } from './ContactForm';
 
 export class MailRoom extends Room {
   constructor(props: any) {
@@ -175,6 +176,8 @@ export class MailRoom extends Room {
       content = <ObjectDocument baseFileSource={MailRoomData.MailRoomMapDocumentSource} numPages={1} />
     } else if (id === RoomData.IconIds.site_info) {
       content = <ObjectDocument baseFileSource={RoomData.SiteInfoDocumentSource} numPages={1} />
+    } else if(id === MailRoomData.MailRoomIds.mail_me) {
+      content = <ContactForm />
     }
 
     return <ObjectModal

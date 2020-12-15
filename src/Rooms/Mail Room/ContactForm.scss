@@ -1,0 +1,42 @@
+#contact-type-select-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    .contact-option {
+        height: 100%;
+        width: 50%;
+        position: relative;
+
+        .anonymous-option-container {
+            height: 100%;
+            width: 100%;
+
+            .contact-option-image {
+                width: 100%;
+                height: 100%;
+            }
+    
+            #right-option-text{
+    
+                color: #F4F1ED;
+            }
+    
+            .contact-option-text {
+                text-transform: uppercase;
+                position: absolute;
+                transform: translate(-50%, -50%);
+                top: 95%;
+                left: 50%;
+                width: 100%;
+                text-align: center;
+
+                text-transform: uppercase;
+                letter-spacing: -.02em;
+                font-size: 1.1vw;
+            }
+        }
+
+        }
+        
+}

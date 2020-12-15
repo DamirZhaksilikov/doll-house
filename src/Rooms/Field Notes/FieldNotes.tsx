@@ -195,7 +195,7 @@ export class FieldNotes extends Room {
       content = <ObjectDocument baseFileSource={FieldNotesData.FieldNotesMapDocumentSource} numPages={1} />
     } else if (id === RoomData.IconIds.site_info) {
       content = <ObjectDocument baseFileSource={RoomData.SiteInfoDocumentSource} numPages={1} />
-    } else if (id == FieldNotesData.FieldNotesIds.private_notes) {
+    } else if (id === FieldNotesData.FieldNotesIds.private_notes) {
       content = <PasswordProtectedContent 
         secretsBlurb={FieldNotesData.SecretsBlurb}
         coverImagesrc={FieldNotesData.NotesCoverImageSource}

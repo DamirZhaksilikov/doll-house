@@ -46,7 +46,7 @@ export class PasswordProtectedContent extends React.Component<PasswordProtectedC
 
     private getCoverPhoto() {
         return <div id="password-prompt-cover-image-container">
-            <img id="password-prompt-cover-image" src={this.props.coverImagesrc} />
+            <img id="password-prompt-cover-image" src={this.props.coverImagesrc} alt="cover"/>
         </div>
     }
 
