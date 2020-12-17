@@ -36,10 +36,10 @@ export class MailRoomData {
   public static MailRoomMapDocumentSource = `${process.env.PUBLIC_URL}/documents/Mail Room/Mail Room Map/Mail_Room_Map`;    
 
   public static ContactMeLeftBlockBGSource = `${process.env.PUBLIC_URL}/documents/Mail Room/Contact Me/Left Block.png`;    
-  public static ContactMeLeftBlockBGInvertedSource = `${process.env.PUBLIC_URL}/documents/Mail Room/Contact Me/Left Block Inverted.png`;    
+  public static ContactMeLeftBlockBGHighlightedource = `${process.env.PUBLIC_URL}/documents/Mail Room/Contact Me/Left Block Highlighted.png`;    
 
   public static ContactMeRightBlockBGSource = `${process.env.PUBLIC_URL}/documents/Mail Room/Contact Me/Right Block.png`;    
-  public static ContactMeRightBlockBGInvertedSource = `${process.env.PUBLIC_URL}/documents/Mail Room/Contact Me/Right Block Inverted.png`;    
+  public static ContactMeRightBlockBGHighlightedSource = `${process.env.PUBLIC_URL}/documents/Mail Room/Contact Me/Right Block Highlighted.png`;    
 
   public static MapCoordinates = { 
     name: "mailRoomMap",

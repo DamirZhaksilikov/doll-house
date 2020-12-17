@@ -24,27 +24,39 @@ export class ContactForm extends React.Component<{}, ContactFormState> {
                 onMouseEnter={this.onBlockEnter.bind(this, true)}
                 onMouseLeave={this.onBlockLeave.bind(this, true)}>
                 {!this.state.isHoveringOnLeftBlock &&
-                    <div className="anonymous-option-container"><img
-                        src={MailRoomData.ContactMeLeftBlockBGSource}
+                <div className="anonymous-option-container"><img
+                    src={MailRoomData.ContactMeLeftBlockBGSource}
+                    className="contact-option-image" alt="cover" />
+                    <div className="contact-option-text" id="left-option-text">
+                        {"mail me"}
+                    </div>
+                </div>}
+                {this.state.isHoveringOnLeftBlock &&
+                <div className="anonymous-option-container">
+                    <img
+                        src={MailRoomData.ContactMeLeftBlockBGHighlightedource}
                         className="contact-option-image" alt="cover" />
-                        <div className="contact-option-text" id="left-option-text">
-                            {"mail me"}
-                        </div>
-                    </div>}
+                </div>}
             </div>
             <div id="anonymous-option"
                 className="contact-option"
                 onMouseEnter={this.onBlockEnter.bind(this, false)}
                 onMouseLeave={this.onBlockLeave.bind(this, false)}>
                 {!this.state.isHoveringOnRightBlock &&
-                    <div className="anonymous-option-container">
-                        <img
-                            src={MailRoomData.ContactMeRightBlockBGSource}
-                            className="contact-option-image" alt="cover" />
-                        <div className="contact-option-text" id="right-option-text">
-                            {"or, leave a note anonymously"}
-                        </div>
-                    </div>}
+                <div className="anonymous-option-container">
+                    <img
+                        src={MailRoomData.ContactMeRightBlockBGSource}
+                        className="contact-option-image" alt="cover" />
+                    <div className="contact-option-text" id="right-option-text">
+                        {"or, leave a note anonymously"}
+                    </div>
+                </div>}
+                {this.state.isHoveringOnRightBlock &&
+                <div className="anonymous-option-container">
+                    <img
+                        src={MailRoomData.ContactMeRightBlockBGHighlightedSource}
+                        className="contact-option-image" alt="cover" />
+                </div>}
             </div>
 
         </div>
