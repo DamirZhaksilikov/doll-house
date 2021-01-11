@@ -201,17 +201,17 @@ export class Studio extends Room {
     } else if(id === StudioData.StudioIds.collage) {
       content = <PhotomediaContent links={StudioData.CollageSources} />
     } else if(id === StudioData.StudioIds.floor_plans) {
-      content = <ObjectDocument baseFileSource={StudioData.FloorPlanDocumentSource} numPages={4}/>
+      content = <ObjectDocument baseFileSource={StudioData.FloorPlanDocumentSource} numPages={6}/>
     } else if(id === StudioData.StudioIds.walden_cont) {
-      content = <ObjectDocument baseFileSource={StudioData.WaldenContDocumentSource} numPages={1}/>
+      content = <ObjectDocument baseFileSource={StudioData.WaldenContDocumentSource} numPages={2}/>
     } else if(id === StudioData.StudioIds.have_half) {
-      content = <ObjectDocument baseFileSource={StudioData.HaveHalfDocumentSource} numPages={16}/>
+      content = <ObjectDocument baseFileSource={StudioData.HaveHalfDocumentSource} numPages={12}/>
     } else if(id === StudioData.StudioIds.spare_pieces) {
-      content = <ObjectDocument baseFileSource={StudioData.SparePiecesDocumentSource} numPages={5}/>
+      content = <ObjectDocument baseFileSource={StudioData.SparePiecesDocumentSource} numPages={4}/>
     } else if(id === StudioData.StudioIds.commercial_cowboy) {
-      content = <ObjectDocument baseFileSource={StudioData.CommercialCowboyDocumentSource} numPages={18}/>
+      content = <ObjectDocument baseFileSource={StudioData.CommercialCowboyDocumentSource} numPages={9}/>
     } else if(id === StudioData.StudioIds.plug_ins) {
-       content = <ObjectDocument baseFileSource={StudioData.PlugInsDocumentSource} numPages={7}/>
+       content = <ObjectDocument baseFileSource={StudioData.PlugInsDocumentSource} numPages={9}/>
     } else if(id === StudioData.StudioIds.doll_house) {
       content = <ObjectDocument baseFileSource={StudioData.DollHouseDocumentSource} numPages={3} />
     }
