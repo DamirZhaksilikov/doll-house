@@ -10,14 +10,16 @@ export class PhotomediaLink {
 
 export class StudioData {
   public static StudioTitle = "Studio";
-  public static StudioInfo = "A collection of personal works. I’m currently working on the projects sitting on the side table. On the main shelf are finished works that I’ve organized by the medium. To get more information about this space, tap the doll house.";
+  public static StudioInfo = "A collection of personal works. Projects on the main shelf are completed, while those on side table are works in progress. To learn more about the space, tap the doll house.";
 
-  public static Spacial = "spacial";
-  public static Textile = "textile";
-  public static Photomedia = "photomedia"
-  public static Ongoing = "ongoing"
+  public static Spacial = "3. spacial";
+  public static Textile = "2. textile";
+  public static IntroAndVisuals = "0–1. introduction and visuals"
+  public static Ongoing = "4. ongoing"
 
   public static StudioIds = {
+    intro_and_visuals: "introduction",
+    introduction: "introduction",
     ongoing: "ongoing",
     floor_plans: "floor_plans",
     walden_cont: "walden_cont",
@@ -28,7 +30,7 @@ export class StudioData {
     doll_house: "doll_house",
     textile: "textile",
     have_half: "have_half",
-    spare_pieces: "spare_pieces",
+    leather_collar_worker: "leather_collar_worker",
     commercial_cowboy: "commercial_cowboy",
     plug_ins: "plug_ins",
     doors: "doors",
@@ -38,6 +40,77 @@ export class StudioData {
 
   public static StudioLinks = [
     {
+      id: StudioData.StudioIds.introduction,
+      subtext: "(top right shelf)",
+      links: [
+        {
+          id: StudioData.StudioIds.introduction,
+          isDoor: false,
+          isBehindDoor: false,
+          text: "0. Introduction",
+
+        },
+      ] as RoomLink[]
+    },    {
+      id: StudioData.StudioIds.photomedia,
+      subtext: "(top right shelf)",
+      links: [
+        {
+          id: StudioData.StudioIds.photomedia,
+          isDoor: false,
+          isBehindDoor: false,
+          text: "1A–B. Photomedia",
+
+        }
+      ] as RoomLink[]
+    },
+    {
+      id: StudioData.StudioIds.textile,
+      subtext: "(bottom shelf)",
+      links: [
+        {
+          id: StudioData.StudioIds.commercial_cowboy,
+          isDoor: false,
+          isBehindDoor: false,
+          text: "2A. Commerical Cowboy",
+
+        },
+        {
+          id: StudioData.StudioIds.plug_ins,
+          isDoor: false,
+          isBehindDoor: false,
+          text: "2B. Plug Ins",
+
+        },
+        {
+          id: StudioData.StudioIds.have_half,
+          isDoor: false,
+          isBehindDoor: false,
+          text: "2C. Have Half"
+        },
+        {
+          id: StudioData.StudioIds.leather_collar_worker,
+          isDoor: false,
+          isBehindDoor: false,
+          text: "2D. Leather-Collar Worker",
+
+        }
+      ] as RoomLink[]
+    },
+    {
+      id: StudioData.StudioIds.spacial,
+      subtext: "(top left shelf)",
+      links: [
+        {
+          id: StudioData.StudioIds.doll_house,
+          isDoor: false,
+          isBehindDoor: false,
+          text: "3A. Doll House",
+
+        }
+      ] as RoomLink[]
+    },
+    {
       id: StudioData.StudioIds.ongoing,
       subtext: "(sidetable)",
       links: [
@@ -45,7 +118,7 @@ export class StudioData {
           id: StudioData.StudioIds.floor_plans,
           isDoor: false,
           isBehindDoor: false,
-          text: "Floor Plan",
+          text: "4A. Floor Plan",
           subText: "(textile)"
 
         },
@@ -53,75 +126,10 @@ export class StudioData {
           id: StudioData.StudioIds.walden_cont,
           isDoor: false,
           isBehindDoor: false,
-          text: "Walden, cont.",
+          text: "4B. Walden, cont.",
           subText: "(spacial)"
         }
       ]
-    },
-    {
-      id: StudioData.StudioIds.photomedia,
-      subtext: "(top left main shelf)",
-      links: [
-        {
-          id: StudioData.StudioIds.photo,
-          isDoor: false,
-          isBehindDoor: false,
-          text: "Photo",
-
-        },
-        {
-          id: StudioData.StudioIds.collage,
-          isDoor: false,
-          isBehindDoor: false,
-          text: "Collage",
-        }
-      ] as RoomLink[]
-    },
-    {
-      id: StudioData.StudioIds.spacial,
-      subtext: "(top right main shelf)",
-      links: [
-        {
-          id: StudioData.StudioIds.doll_house,
-          isDoor: false,
-          isBehindDoor: false,
-          text: "Doll House",
-
-        }
-      ] as RoomLink[]
-    },
-    {
-      id: StudioData.StudioIds.textile,
-      subtext: "bottom main shelf",
-      links: [
-        {
-          id: StudioData.StudioIds.have_half,
-          isDoor: false,
-          isBehindDoor: false,
-          text: "Have Half"
-        },
-        {
-          id: StudioData.StudioIds.spare_pieces,
-          isDoor: false,
-          isBehindDoor: false,
-          text: "Spare Pieces",
-
-        },
-        {
-          id: StudioData.StudioIds.commercial_cowboy,
-          isDoor: false,
-          isBehindDoor: false,
-          text: "Commerical Cowboy",
-
-        },
-        {
-          id: StudioData.StudioIds.plug_ins,
-          isDoor: false,
-          isBehindDoor: false,
-          text: "Plug Ins",
-
-        }
-      ] as RoomLink[]
     },
     {
       id: StudioData.StudioIds.doors,
@@ -144,71 +152,17 @@ export class StudioData {
   public static IllustrationSource = `${process.env.PUBLIC_URL}/designs/Room Illustrations/Studio/Room Illustrations_Studio.png`;
   public static StudioMapDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Studio Map/Studio_Map`;    
 
+  public static IntroductionDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Introduction/Introduction`;    
+  public static PhotomediaDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Photomedia/Photomedia`;    
+
   public static CommercialCowboyDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Commercial Cowboy/Commercial Cowboy`;    
   public static DollHouseDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Doll House/Doll House`;    
   public static FloorPlanDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Floor Plan/Floor Plan`;    
   public static HaveHalfDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Have Half/Have Half`;    
   public static PlugInsDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Plug Ins/Plug Ins`;    
   public static WaldenContDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Walden Cont/Walden Cont`;    
-  public static SparePiecesDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Spare Pieces/Spare Pieces`;    
+  public static LeatherCollarWorkerDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Leather-Collar Worker/Leather-Collar Worker`;    
 
-  public static PhotoBaseSource = `${process.env.PUBLIC_URL}/documents/Studio/Photomedia/Photo`;
-  public static PhotoSources = [
-    {
-      name: "1",
-      type: "JPG",
-      link: `${StudioData.PhotoBaseSource}/1.jpg`
-    },
-    {
-      name: "2",
-      type: "JPG",
-      link: `${StudioData.PhotoBaseSource}/2.jpg`
-    },
-    {
-      name: "3",
-      type: "JPG",
-      link: `${StudioData.PhotoBaseSource}/3.jpg`
-    },
-    {
-      name: "4",
-      type: "JPG",
-      link: `${StudioData.PhotoBaseSource}/4.jpg`
-    },
-    {
-      name: "5",
-      type: "JPG",
-      link: `${StudioData.PhotoBaseSource}/5.jpg`
-    },
-    {
-      name: "6",
-      type: "JPG",
-      link: `${StudioData.PhotoBaseSource}/6.jpg`
-    },
-    {
-      name: "7",
-      type: "JPG",
-      link: `${StudioData.PhotoBaseSource}/7.jpg`
-    }
-  ] as PhotomediaLink[];
-
-  public static CollageBaseSource = `${process.env.PUBLIC_URL}/documents/Studio/Photomedia/Collage`;
-  public static CollageSources = [
-    {
-      name: "tinker_bell",
-      type: "JPG",
-      link: `${StudioData.CollageBaseSource}/tinker_bell.jpg`
-    },
-    {
-      name: "nimbus",
-      type: "JPG",
-      link: `${StudioData.CollageBaseSource}/nimbus.jpg`
-    },
-    {
-      name: "chinatown",
-      type: "GIF",
-      link: `${StudioData.CollageBaseSource}/chinatown.gif`
-    }
-  ] as PhotomediaLink[];
 
   public static MapCoordinates = {
     name: "studioMap",
@@ -218,13 +172,31 @@ export class StudioData {
 
       { name: StudioData.StudioIds.floor_plans, shape: "poly", coords: [304, 1107, 304, 1056, 129, 932, 129, 1105] },
       { name: StudioData.StudioIds.walden_cont, shape: "rect", coords: [236, 824, 425, 1005] },
-      { name: StudioData.StudioIds.have_half, shape: "rect", coords: [648, 835, 809, 934] },
-      { name: StudioData.StudioIds.spare_pieces, shape: "rect", coords: [868, 734, 1114, 931] },
-      { name: StudioData.StudioIds.commercial_cowboy, shape: "rect", coords: [1480,738,1586,898] },
-      { name: StudioData.StudioIds.plug_ins, shape: "rect", coords: [1226,632,1346,804] },
-      { name: StudioData.StudioIds.photo, shape: "poly", coords: [844, 517, 1071, 436, 1069, 159, 839, 231] },
-      { name: StudioData.StudioIds.collage, shape: "poly", coords: [851, 580, 1033, 578, 1034, 463, 851, 529] },
-      { name: StudioData.StudioIds.doll_house, shape: "rect", coords: [1292, 142, 1408, 385] },
+
+      { name: StudioData.StudioIds.have_half, shape: "rect", coords: [1211,692,1386,806] },
+      { name: StudioData.StudioIds.leather_collar_worker, shape: "rect", coords: [1466,779,1606,891] },
+      { name: StudioData.StudioIds.commercial_cowboy, shape: "rect", coords: [639,806,745,936] },
+      { name: StudioData.StudioIds.plug_ins, shape: "rect", coords: [922,737,1028,925] },
+      { name: StudioData.StudioIds.photomedia, shape: "rect", coords: [1367,260,1574,387] },
+      { name: StudioData.StudioIds.doll_house, shape: "rect", coords: [938,321,1065,588] },
+      { name: StudioData.StudioIds.introduction, shape: "rect", coords: [1214,262,1349,384] }
     ] as RoomObject[]
   };
 }
+
+/*
+<!-- Image Map Generated by http://www.image-map.net/ -->
+<img src="Room Illustrations_Studio small.png" usemap="#image-map">
+
+<map name="image-map">
+    <area target="" alt="field notes" title="field notes" href="" coords="1956,1087,2330,419" shape="rect">
+    <area target="" alt="entry" title="entry" href="" coords="2687,1156,2695,414,2934,411,2928,1254" shape="poly">
+    <area target="" alt="commercial cowboy" title="commercial cowboy" href="" coords="639,806,745,936" shape="rect">
+    <area target="" alt="plug ins" title="plug ins" href="" coords="922,737,1028,925" shape="rect">
+    <area target="" alt="have half" title="have half" href="" coords="1211,692,1386,806" shape="rect">
+    <area target="" alt="leather collar" title="leather collar" href="" coords="1466,779,1606,891" shape="rect">
+    <area target="" alt="doll house" title="doll house" href="" coords="938,321,1065,588" shape="rect">
+    <area target="" alt="intro" title="intro" href="" coords="1214,262,1349,384" shape="rect">
+    <area target="" alt="photomedia" title="photomedia" href="" coords="1367,260,1574,387" shape="rect">
+</map>
+*/

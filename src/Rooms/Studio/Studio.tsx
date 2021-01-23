@@ -9,7 +9,6 @@ import { RoomObject } from '../_Shared Components/Room/RoomObject';
 import { RoomLink } from '../_Shared Components/Room/RoomLink';
 import { RoomData } from '../_Shared Components/Room/RoomData';
 import { ObjectDocument } from '../_Shared Components/Modal/ObjectDocument';
-import { PhotomediaContent } from './PhotomediaContent';
 
 export class Studio extends Room {
   constructor(props: any) {
@@ -196,24 +195,25 @@ export class Studio extends Room {
       content = <ObjectDocument baseFileSource={StudioData.StudioMapDocumentSource} numPages={1}/>
     } else if(id === RoomData.IconIds.site_info) {
        content = <ObjectDocument baseFileSource={RoomData.SiteInfoDocumentSource} numPages={1}/>
-    } else if(id === StudioData.StudioIds.photo) {
-      content = <PhotomediaContent links={StudioData.PhotoSources} />
-    } else if(id === StudioData.StudioIds.collage) {
-      content = <PhotomediaContent links={StudioData.CollageSources} />
+ 
+      } else if(id === StudioData.StudioIds.introduction) {
+      content = <ObjectDocument baseFileSource={StudioData.IntroductionDocumentSource} numPages={1}/>
+    } else if(id === StudioData.StudioIds.photomedia) {
+      content = <ObjectDocument baseFileSource={StudioData.PhotomediaDocumentSource} numPages={3}/>
     } else if(id === StudioData.StudioIds.floor_plans) {
-      content = <ObjectDocument baseFileSource={StudioData.FloorPlanDocumentSource} numPages={6}/>
+      content = <ObjectDocument baseFileSource={StudioData.FloorPlanDocumentSource} numPages={3}/>
     } else if(id === StudioData.StudioIds.walden_cont) {
       content = <ObjectDocument baseFileSource={StudioData.WaldenContDocumentSource} numPages={2}/>
     } else if(id === StudioData.StudioIds.have_half) {
-      content = <ObjectDocument baseFileSource={StudioData.HaveHalfDocumentSource} numPages={12}/>
-    } else if(id === StudioData.StudioIds.spare_pieces) {
-      content = <ObjectDocument baseFileSource={StudioData.SparePiecesDocumentSource} numPages={4}/>
+      content = <ObjectDocument baseFileSource={StudioData.HaveHalfDocumentSource} numPages={7}/>
+    } else if(id === StudioData.StudioIds.leather_collar_worker) {
+      content = <ObjectDocument baseFileSource={StudioData.LeatherCollarWorkerDocumentSource} numPages={2}/>
     } else if(id === StudioData.StudioIds.commercial_cowboy) {
-      content = <ObjectDocument baseFileSource={StudioData.CommercialCowboyDocumentSource} numPages={9}/>
+      content = <ObjectDocument baseFileSource={StudioData.CommercialCowboyDocumentSource} numPages={6}/>
     } else if(id === StudioData.StudioIds.plug_ins) {
-       content = <ObjectDocument baseFileSource={StudioData.PlugInsDocumentSource} numPages={9}/>
+       content = <ObjectDocument baseFileSource={StudioData.PlugInsDocumentSource} numPages={5}/>
     } else if(id === StudioData.StudioIds.doll_house) {
-      content = <ObjectDocument baseFileSource={StudioData.DollHouseDocumentSource} numPages={3} />
+      content = <ObjectDocument baseFileSource={StudioData.DollHouseDocumentSource} numPages={6} />
     }
     
      
