@@ -211,7 +211,7 @@ export class Studio extends Room {
     } else if(id === StudioData.StudioIds.commercial_cowboy) {
       content = <ObjectDocument baseFileSource={StudioData.CommercialCowboyDocumentSource} numPages={5}/>
     } else if(id === StudioData.StudioIds.plug_ins) {
-       content = <ObjectDocument baseFileSource={StudioData.PlugInsDocumentSource} numPages={5}/>
+       content = <ObjectDocument baseFileSource={StudioData.PlugInsDocumentSource} numPages={4}/>
     } else if(id === StudioData.StudioIds.doll_house) {
       content = <ObjectDocument baseFileSource={StudioData.DollHouseDocumentSource} numPages={6} />
     }
