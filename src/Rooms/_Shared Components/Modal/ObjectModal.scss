@@ -1,4 +1,21 @@
+.objectModalExtended {
+    width: 69vw;
+
+    #modal-body {
+        height: 80vh;
+    }
+}
+
 .objectModal {
+    width: 70.5vw;
+
+    #modal-body {
+        height: 70vh;
+    }
+}
+
+
+.objectModal, .objectModalExtended {
     position: fixed;
     display: flex;
     flex-wrap: wrap;
@@ -7,12 +24,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);    
-    width: 70vw;
 
     #modal-body {
         border: 5px solid black;
         background-color: #F4F1ED;
-        height: 70.5vh;
         overflow-y: auto;
         width: 100%;
     }

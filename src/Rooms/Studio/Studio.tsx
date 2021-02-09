@@ -190,14 +190,17 @@ export class Studio extends Room {
 
   private getStudioModal(id: string) {
     let content;
+    let isExtended = true;
  
     if(id === RoomData.IconIds.site_map) {
       content = <ObjectDocument baseFileSource={StudioData.StudioMapDocumentSource} numPages={1}/>
+      isExtended = false;
     } else if(id === RoomData.IconIds.site_info) {
        content = <ObjectDocument baseFileSource={RoomData.SiteInfoDocumentSource} numPages={1}/>
+       isExtended = false;
  
-      } else if(id === StudioData.StudioIds.introduction) {
-      content = <ObjectDocument baseFileSource={StudioData.IntroductionDocumentSource} numPages={1}/>
+      } else if(id === StudioData.StudioIds.a_note_on_navigation) {
+      content = <ObjectDocument baseFileSource={StudioData.ANoteOnNavigationDocumentSource} numPages={1}/>
     } else if(id === StudioData.StudioIds.photomedia) {
       content = <ObjectDocument baseFileSource={StudioData.PhotomediaDocumentSource} numPages={3}/>
     } else if(id === StudioData.StudioIds.floor_plans) {
@@ -205,21 +208,22 @@ export class Studio extends Room {
     } else if(id === StudioData.StudioIds.walden_cont) {
       content = <ObjectDocument baseFileSource={StudioData.WaldenContDocumentSource} numPages={2}/>
     } else if(id === StudioData.StudioIds.have_half) {
-      content = <ObjectDocument baseFileSource={StudioData.HaveHalfDocumentSource} numPages={7}/>
-    } else if(id === StudioData.StudioIds.leather_collar_worker) {
+      content = <ObjectDocument baseFileSource={StudioData.HaveHalfDocumentSource} numPages={4}/>
+    } else if(id === StudioData.StudioIds.leather_collar) {
       content = <ObjectDocument baseFileSource={StudioData.LeatherCollarWorkerDocumentSource} numPages={2}/>
     } else if(id === StudioData.StudioIds.commercial_cowboy) {
       content = <ObjectDocument baseFileSource={StudioData.CommercialCowboyDocumentSource} numPages={5}/>
     } else if(id === StudioData.StudioIds.plug_ins) {
        content = <ObjectDocument baseFileSource={StudioData.PlugInsDocumentSource} numPages={4}/>
     } else if(id === StudioData.StudioIds.doll_house) {
-      content = <ObjectDocument baseFileSource={StudioData.DollHouseDocumentSource} numPages={6} />
+      content = <ObjectDocument baseFileSource={StudioData.DollHouseDocumentSource} numPages={5} />
     }
     
      
      return <ObjectModal 
        onClose={this.closeModal.bind(this)} 
        content={content}
+       extendHeight={isExtended}
      />
    }
 }

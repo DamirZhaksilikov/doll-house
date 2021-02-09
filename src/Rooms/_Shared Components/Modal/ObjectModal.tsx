@@ -6,12 +6,13 @@ type ObjectModalProps = {
     onClose: any;
     content?: any;
     overflowHidden?: boolean;
+    extendHeight?: boolean;
 };
 
 export class ObjectModal extends React.Component<ObjectModalProps, {}> {  
     render() {  
         var modal = <Modal
-            className={"objectModal"}
+            className={this.props.extendHeight ? "objectModalExtended" : "objectModal"}
             isOpen={true}
             contentLabel="Modal with image"
             appElement={document.getElementById('app')}>    

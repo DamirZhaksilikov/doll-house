@@ -18,8 +18,8 @@ export class StudioData {
   public static Ongoing = "4. ongoing"
 
   public static StudioIds = {
-    intro_and_visuals: "introduction",
     introduction: "introduction",
+    a_note_on_navigation: "a_note_on_navigation",
     ongoing: "ongoing",
     floor_plans: "floor_plans",
     walden_cont: "walden_cont",
@@ -30,7 +30,7 @@ export class StudioData {
     doll_house: "doll_house",
     textile: "textile",
     have_half: "have_half",
-    leather_collar_worker: "leather_collar_worker",
+    leather_collar: "leather_collar",
     commercial_cowboy: "commercial_cowboy",
     plug_ins: "plug_ins",
     doors: "doors",
@@ -44,10 +44,10 @@ export class StudioData {
       subtext: "(top right shelf)",
       links: [
         {
-          id: StudioData.StudioIds.introduction,
+          id: StudioData.StudioIds.a_note_on_navigation,
           isDoor: false,
           isBehindDoor: false,
-          text: "0. Introduction",
+          text: "0. A note on navigating my work",
 
         },
       ] as RoomLink[]
@@ -89,10 +89,10 @@ export class StudioData {
           text: "2C. Have Half"
         },
         {
-          id: StudioData.StudioIds.leather_collar_worker,
+          id: StudioData.StudioIds.leather_collar,
           isDoor: false,
           isBehindDoor: false,
-          text: "2D. Leather-Collar Worker",
+          text: "2D. Leather-Collar",
 
         }
       ] as RoomLink[]
@@ -152,7 +152,7 @@ export class StudioData {
   public static IllustrationSource = `${process.env.PUBLIC_URL}/designs/Room Illustrations/Studio/Room Illustrations_Studio.png`;
   public static StudioMapDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Studio Map/Studio_Map`;    
 
-  public static IntroductionDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Introduction/Introduction`;    
+  public static ANoteOnNavigationDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/A Note on Navigation/A Note on Navigation`;    
   public static PhotomediaDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Photomedia/Photomedia`;    
 
   public static CommercialCowboyDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Commercial Cowboy/Commercial Cowboy`;    
@@ -161,7 +161,7 @@ export class StudioData {
   public static HaveHalfDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Have Half/Have Half`;    
   public static PlugInsDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Plug Ins/Plug Ins`;    
   public static WaldenContDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Walden Cont/Walden Cont`;    
-  public static LeatherCollarWorkerDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Leather-Collar Worker/Leather-Collar Worker`;    
+  public static LeatherCollarWorkerDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Leather-Collar/Leather-Collar`;    
 
 
   public static MapCoordinates = {
@@ -174,12 +174,12 @@ export class StudioData {
       { name: StudioData.StudioIds.walden_cont, shape: "rect", coords: [236, 824, 425, 1005] },
 
       { name: StudioData.StudioIds.have_half, shape: "rect", coords: [1211,692,1386,806] },
-      { name: StudioData.StudioIds.leather_collar_worker, shape: "rect", coords: [1466,779,1606,891] },
+      { name: StudioData.StudioIds.leather_collar, shape: "rect", coords: [1466,779,1606,891] },
       { name: StudioData.StudioIds.commercial_cowboy, shape: "rect", coords: [639,806,745,936] },
       { name: StudioData.StudioIds.plug_ins, shape: "rect", coords: [922,737,1028,925] },
       { name: StudioData.StudioIds.photomedia, shape: "rect", coords: [1367,260,1574,387] },
       { name: StudioData.StudioIds.doll_house, shape: "rect", coords: [938,321,1065,588] },
-      { name: StudioData.StudioIds.introduction, shape: "rect", coords: [1214,262,1349,384] }
+      { name: StudioData.StudioIds.a_note_on_navigation, shape: "rect", coords: [1214,262,1349,384] }
     ] as RoomObject[]
   };
 }
