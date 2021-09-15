@@ -205,12 +205,10 @@ export class Studio extends Room {
       content = <ObjectDocument baseFileSource={StudioData.PhotomediaDocumentSource} numPages={3}/>
     } else if(id === StudioData.StudioIds.floor_plans) {
       content = <ObjectDocument baseFileSource={StudioData.FloorPlanDocumentSource} numPages={3}/>
-    } else if(id === StudioData.StudioIds.walden_cont) {
-      content = <ObjectDocument baseFileSource={StudioData.WaldenContDocumentSource} numPages={2}/>
     } else if(id === StudioData.StudioIds.have_half) {
       content = <ObjectDocument baseFileSource={StudioData.HaveHalfDocumentSource} numPages={4}/>
-    } else if(id === StudioData.StudioIds.leather_collar) {
-      content = <ObjectDocument baseFileSource={StudioData.LeatherCollarWorkerDocumentSource} numPages={2}/>
+    } else if(id === StudioData.StudioIds.things_i_wish_id_seen) {
+      content = <ObjectDocument baseFileSource={StudioData.ThingsIWishIdSeenWorkerDocumentSource} numPages={2}/>
     } else if(id === StudioData.StudioIds.commercial_cowboy) {
       content = <ObjectDocument baseFileSource={StudioData.CommercialCowboyDocumentSource} numPages={5}/>
     } else if(id === StudioData.StudioIds.plug_ins) {

@@ -22,7 +22,6 @@ export class StudioData {
     a_note_on_navigation: "a_note_on_navigation",
     ongoing: "ongoing",
     floor_plans: "floor_plans",
-    walden_cont: "walden_cont",
     photomedia: "photomedia",
     photo: "photo",
     collage: "collage",
@@ -30,7 +29,7 @@ export class StudioData {
     doll_house: "doll_house",
     textile: "textile",
     have_half: "have_half",
-    leather_collar: "leather_collar",
+    things_i_wish_id_seen: "things_i_wish_id_seen",
     commercial_cowboy: "commercial_cowboy",
     plug_ins: "plug_ins",
     doors: "doors",
@@ -89,10 +88,10 @@ export class StudioData {
           text: "2C. Have Half"
         },
         {
-          id: StudioData.StudioIds.leather_collar,
+          id: StudioData.StudioIds.things_i_wish_id_seen,
           isDoor: false,
           isBehindDoor: false,
-          text: "2D. Leather-Collar",
+          text: "2D. Things I wish I'd seen",
 
         }
       ] as RoomLink[]
@@ -121,13 +120,6 @@ export class StudioData {
           text: "4A. Floor Plan",
           subText: "(textile)"
 
-        },
-        {
-          id: StudioData.StudioIds.walden_cont,
-          isDoor: false,
-          isBehindDoor: false,
-          text: "4B. Walden, cont.",
-          subText: "(spacial)"
         }
       ]
     },
@@ -161,7 +153,7 @@ export class StudioData {
   public static HaveHalfDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Have Half/Have Half`;    
   public static PlugInsDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Plug Ins/Plug Ins`;    
   public static WaldenContDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Walden Cont/Walden Cont`;    
-  public static LeatherCollarWorkerDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Leather-Collar/Leather-Collar`;    
+  public static ThingsIWishIdSeenWorkerDocumentSource = `${process.env.PUBLIC_URL}/documents/Studio/Things I Wish Id Seen/Things I Wish Id Seen`;    
 
 
   public static MapCoordinates = {
@@ -171,10 +163,9 @@ export class StudioData {
       { name: StudioData.StudioIds.entry, shape: "poly", coords: [2694, 413, 2934, 408, 2928, 1247, 2686, 1150] },
 
       { name: StudioData.StudioIds.floor_plans, shape: "poly", coords: [304, 1107, 304, 1056, 129, 932, 129, 1105] },
-      { name: StudioData.StudioIds.walden_cont, shape: "rect", coords: [236, 824, 425, 1005] },
 
       { name: StudioData.StudioIds.have_half, shape: "rect", coords: [1211,692,1386,806] },
-      { name: StudioData.StudioIds.leather_collar, shape: "rect", coords: [1466,779,1606,891] },
+      { name: StudioData.StudioIds.things_i_wish_id_seen, shape: "rect", coords: [1466,779,1606,891] },
       { name: StudioData.StudioIds.commercial_cowboy, shape: "rect", coords: [639,806,745,936] },
       { name: StudioData.StudioIds.plug_ins, shape: "rect", coords: [922,737,1028,925] },
       { name: StudioData.StudioIds.photomedia, shape: "rect", coords: [1367,260,1574,387] },
